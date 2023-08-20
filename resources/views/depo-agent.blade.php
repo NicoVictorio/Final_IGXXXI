@@ -10,7 +10,7 @@
     <div class="container">
 
         <div>
-            <h1 class="title text-center fw-bolder">Machine</h1>
+            <h1 class="title text-center fw-bolder">Depo Agent</h1>
         </div>
         {{-- <div class="modal-header d-flex align-items-center justify-content-center position-relative">
             <div>
@@ -59,7 +59,7 @@
                                         <input type="hidden" class="produk-pengiriman" value="{{ $produk->pengiriman }}">
                                     </td>
                                     <td class="border-0 text-center align-middle">{{ $index++ }}
-                                        <input type="checkbox" class="produk-status" id="produk-status-{{ $produk->nama }}" value=true>
+                                        <input type="checkbox" class="produk-status" id="produk-status-{{ $produk->kirim }}" value=true>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -69,19 +69,58 @@
                 </div>
                 <div class="col-3 px-4 py-4">
                     <button class="button-list-kontainer" role="button" onclick="location.href='{{ route('list-kontainer') }}'">List Kontainer</button>
-                    {{-- di sini keterangan kontainer yang dipilih --}}
+                    {{-- di sini keterangan kontainer yang dipilih, g atau cara ngonekin sama page yang milih kontainer --}}
+                    <table class="table table-centered table-wrap">
+                        <thead>
+                            <tr>
+                                <th class="border-0 text-center" colspan="2">Status Kontainer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border-0 text-center align-middle">Loss Space</td>
+                                <td class="border-0 text-center align-middle">0</td>
+                            </tr>
+                            <tr>
+                                <td class="border-0 text-center align-middle">2/3 Kapasitas</td>
+                                <td class="border-0 text-center align-middle">0</td>
+                            </tr>
+                            <tr>
+                                <td class="border-0 text-center align-middle">1/3 Kapasitas</td>
+                                <td class="border-0 text-center align-middle">0</td>
+                            </tr>
+                            <tr>
+                                <td class="border-0 text-center align-middle">Status Volume Kontainer</td>
+                                <td class="border-0 text-center align-middle">0</td>
+                            </tr>
+                            <tr>
+                                <td class="border-0 text-center align-middle">Status Bobot Kontainer</td>
+                                <td class="border-0 text-center align-middle">0</td>
+                            </tr>
+                            <tr>
+                                <td class="border-0 text-center align-middle">Keputusan Akhir</td>
+                                <td class="border-0 text-center align-middle">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
         <footer class="footer mt-auto">
             {{-- <div class="col text-end"> --}}
             <div class="d-flex justify-content-left position-fixed" style="bottom: 5%">
-                <button class="button-kirim" role="button" onclick=kirimProduk({{ $team->id }})>Kirim Produk</button>
+                {{-- mmmm cara ambil produk yang checkbox dicheck semua buat dikirim howww --}}
+                <button class="button-kirim" role="button" onclick=kirimProduk()>Kirim Produk</button>
             </div>
         </footer>
     </div>
     <script type="text/javascript">
-
+        const buyFridge {
+            if (!confirm("Are you sure?")) return
+            @foreach($produks as $produk)
+            if ($produk.kirim == true) {
+                
+        }
     </script>
 </body>
 </html>
