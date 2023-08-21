@@ -21,6 +21,11 @@
         <div class="body px-5 py-4">
             <div class="row">
                 <div class="col-9">
+                    @if(session('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('error') }}
+                      </div>
+                    @endif
                     <form action="{{route('export.saveexportcontainer')}}" method="post">
                         @csrf
                         <div class="mb-3">
@@ -51,9 +56,7 @@
                                         <td class="text-center">{{ $demand->volume }} m<sup>3</sup></td>
                                         <td class="text-center">{{ $demand->quantity }}</td>
                                         <td class="text-center">{{ $demand->weight }}</td>
-                                        <td class="text-center">{{ date_format(date_create($demand->ship_date), "d-m-Y")
-                                            }}
-                                        </td>
+                                        <td class="text-center">{{ date_format(date_create($demand->ship_date), "d-m-Y") }}</td>
                                         <td><input type="number" class="form-control mx-auto" style="width: 80px;"
                                                 min="0" max="{{ $demand->quantity }}" value="0"
                                                 name="qty{{ $demand->id }}" id="">

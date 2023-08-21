@@ -11,7 +11,7 @@ class ShippingContainer extends Model
 
     public function container()
     {
-        return $this->belongsTo(Container::class);
+        return $this->belongsTo(Container::class, 'Container_id');
     }
 
     public function team()

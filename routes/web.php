@@ -29,7 +29,9 @@ Route::get('/export', [DepoAgentController::class, 'indexExport'])->name('export
 Route::get('/export/depo-agent', [DepoAgentController::class, 'showDAExportPage'])->name('export.depo-agent');
 Route::get('/export/depo-agent/add', [DepoAgentController::class, 'showDAExportAddContainer'])->name('export.da-addcontainer');
 Route::post('/export/depo-agent/add', [DepoAgentController::class, 'saveExportContainer'])->name('export.saveexportcontainer');
+Route::post('/export/depo-agent/reset', [DepoAgentController::class, 'resetExportContainer'])->name('export.resetexportcontainer');
 Route::get('/export/depo-agent/{ShippingContainer}/edit', [DepoAgentController::class, 'showDAExportEditContainer'])->name('export.da-editcontainer');
+Route::post('/export/depo-agent/update', [DepoAgentController::class, 'updateExportContainer'])->name('export.updateexportcontainer');
 
 Route::get('/export/container-agent', [ContainerAgentController::class, 'showCAExportPage'])->name('export.container-agent');
 Route::get('/export/shipping-agent', [ShippingAgentController::class, 'showSAExportPage'])->name('export.shipping-agent');
