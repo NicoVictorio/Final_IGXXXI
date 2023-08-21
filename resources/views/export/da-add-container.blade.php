@@ -20,25 +20,35 @@
         <div class="spacer"></div>
         <div class="body px-5 py-4">
             <div class="row">
-                <div class="col-9">
-                    @if(session('error'))
-                    <div class="alert alert-danger" role="alert">
-                        {{ session('error') }}
-                      </div>
+                <div class="col-12">
+                    @if (session('error'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('error') }}
+                        </div>
                     @endif
-                    <form action="{{route('export.saveexportcontainer')}}" method="post">
+                    <form action="{{ route('export.saveexportcontainer') }}" method="post">
                         @csrf
                         <div class="mb-3">
-                            <label for="cbContainer" class="form-label">Pilih Container</label>
-                            <select name="container" id="cbContainer" class="form-select">
-                                @foreach($containers as $container)
-                                <option value="{{ $container->id }}">{{ $container->name }} - {{ $container->size }}
-                                </option>
-                                @endforeach
-                            </select>
+                            <div class="row">
+                                <label for="cbContainer" class="form-label">Pilih Container</label>
+                                <div class="col-9">
+                                    <select name="container" id="cbContainer" class="form-select">
+                                        @foreach ($containers as $container)
+                                            <option value="{{ $container->id }}">{{ $container->name }} -
+                                                {{ $container->size }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-3 text-end">
+                                    <button type="button" class="btn btn-info button-list-kontainer"
+                                        data-bs-toggle="modal" data-bs-target="#listContainerModal">List
+                                        Kontainer</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-centered table-border table-wrap">
+                            <table class="table table-centered table-bordered table-wrap">
                                 <thead>
                                     <tr>
                                         <th class="border-0">Produk</th>
@@ -50,73 +60,34 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($demands as $demand)
-                                    <tr>
-                                        <td class="">{{ $demand->name }}</td>
-                                        <td class="text-center">{{ $demand->volume }} m<sup>3</sup></td>
-                                        <td class="text-center">{{ $demand->quantity }}</td>
-                                        <td class="text-center">{{ $demand->weight }}</td>
-                                        <td class="text-center">{{ date_format(date_create($demand->ship_date), "d-m-Y") }}</td>
-                                        <td><input type="number" class="form-control mx-auto" style="width: 80px;"
-                                                min="0" max="{{ $demand->quantity }}" value="0"
-                                                name="qty{{ $demand->id }}" id="">
-                                        </td>
-                                    </tr>
+                                    @foreach ($demands as $demand)
+                                        <tr>
+                                            <td class="">{{ $demand->name }}</td>
+                                            <td class="text-center">{{ $demand->volume }} m<sup>3</sup></td>
+                                            <td class="text-center">{{ $demand->quantity }}</td>
+                                            <td class="text-center">{{ $demand->weight }}</td>
+                                            <td class="text-center">
+                                                {{ date_format(date_create($demand->ship_date), 'd-m-Y') }}</td>
+                                            <td><input type="number" class="form-control mx-auto" style="width: 80px;"
+                                                    min="0" max="{{ $demand->quantity }}" value="0"
+                                                    name="qty{{ $demand->id }}" id="">
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan Kontainer</button>
-                        <!-- Ini nanti pindah di bawah -->
                     </form>
-                </div>
-                <div class="col-3 px-4 py-4">
-                    <button type="button" class="btn btn-secondary button-list-kontainer" data-bs-toggle="modal"
-                        data-bs-target="#listContainerModal">List Kontainer</button>
-                    {{-- di sini keterangan kontainer yang dipilih, g atau cara ngonekin sama page yang milih kontainer
-                    --}}
-                    <table class="table table-centered table-wrap">
-                        <thead>
-                            <tr>
-                                <th class="border-0 text-center" colspan="2">Status Kontainer</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="border-0 text-center align-middle">Loss Space</td>
-                                <td class="border-0 text-center align-middle">0</td>
-                            </tr>
-                            <tr>
-                                <td class="border-0 text-center align-middle">2/3 Kapasitas</td>
-                                <td class="border-0 text-center align-middle">0</td>
-                            </tr>
-                            <tr>
-                                <td class="border-0 text-center align-middle">1/3 Kapasitas</td>
-                                <td class="border-0 text-center align-middle">0</td>
-                            </tr>
-                            <tr>
-                                <td class="border-0 text-center align-middle">Status Volume Kontainer</td>
-                                <td class="border-0 text-center align-middle">0</td>
-                            </tr>
-                            <tr>
-                                <td class="border-0 text-center align-middle">Status Bobot Kontainer</td>
-                                <td class="border-0 text-center align-middle">0</td>
-                            </tr>
-                            <tr>
-                                <td class="border-0 text-center align-middle">Keputusan Akhir</td>
-                                <td class="border-0 text-center align-middle">0</td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>
         <footer class="footer mt-auto">
             {{-- <div class="col text-end"> --}}
-                <div class="d-flex justify-content-left position-fixed" style="bottom: 5%">
-                    {{-- mmmm cara ambil produk yang checkbox dicheck semua buat dikirim howww --}}
-                    <button class="button-kirim" role="button" onclick=kirimProduk()>Kirim Produk</button>
-                </div>
+            <div class="d-flex justify-content-left position-fixed" style="bottom: 5%">
+                {{-- mmmm cara ambil produk yang checkbox dicheck semua buat dikirim howww --}}
+                <button class="button-kirim" role="button" onclick=kirimProduk()>Kirim Produk</button>
+            </div>
         </footer>
     </div>
 
@@ -262,9 +233,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
-    <script type="text/javascript">
-
-    </script>
+    <script type="text/javascript"></script>
 </body>
 
 </html>

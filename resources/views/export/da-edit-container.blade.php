@@ -20,7 +20,7 @@
         <div class="spacer"></div>
         <div class="body px-5 py-4">
             <div class="row">
-                <div class="col-9">
+                <div class="col-12">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -42,7 +42,7 @@
                         @csrf
                         <input type="hidden" name="idShipping" value="{{ $sContainer->id }}">
                         <div class="table-responsive">
-                            <table class="table table-centered table-border table-wrap">
+                            <table class="table table-centered table-bordered table-wrap">
                                 <thead>
                                     <tr>
                                         <th class="border-0">Produk</th>
@@ -74,45 +74,6 @@
                         <button type="submit" class="btn btn-primary">Update Kontainer</button>
                     </form>
                 </div>
-                <div class="col-3 px-4 py-4">
-                    <button type="button" class="btn btn-secondary button-list-kontainer" data-bs-toggle="modal"
-                        data-bs-target="#listContainerModal">List Kontainer</button>
-                    {{-- di sini keterangan kontainer yang dipilih, g atau cara ngonekin sama page yang milih kontainer
-                    --}}
-                    <table class="table table-centered table-wrap">
-                        <thead>
-                            <tr>
-                                <th class="border-0 text-center" colspan="2">Status Kontainer</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="border-0 text-center align-middle">Loss Space</td>
-                                <td class="border-0 text-center align-middle">0</td>
-                            </tr>
-                            <tr>
-                                <td class="border-0 text-center align-middle">2/3 Kapasitas</td>
-                                <td class="border-0 text-center align-middle">0</td>
-                            </tr>
-                            <tr>
-                                <td class="border-0 text-center align-middle">1/3 Kapasitas</td>
-                                <td class="border-0 text-center align-middle">0</td>
-                            </tr>
-                            <tr>
-                                <td class="border-0 text-center align-middle">Status Volume Kontainer</td>
-                                <td class="border-0 text-center align-middle">0</td>
-                            </tr>
-                            <tr>
-                                <td class="border-0 text-center align-middle">Status Bobot Kontainer</td>
-                                <td class="border-0 text-center align-middle">0</td>
-                            </tr>
-                            <tr>
-                                <td class="border-0 text-center align-middle">Keputusan Akhir</td>
-                                <td class="border-0 text-center align-middle">0</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </div>
         <footer class="footer mt-auto">
@@ -124,145 +85,6 @@
         </footer>
     </div>
 
-    <!-- Modal -->
-    <div class="modal modal-lg fade" id="listContainerModal" tabindex="-1" aria-labelledby="listContainerModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">List Container</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>Jenis Kontainer</th>
-                            <th>Ukuran</th>
-                            <th>20 Feet</th>
-                            <th>40 Feet</th>
-                        </tr>
-                        <!-- General Container -->
-                        <tr>
-                            <td rowspan="5" class="fw-bold align-middle">General Container</td>
-                            <td>Panjang</td>
-                            <td>6,06 m</td>
-                            <td>12,19 m</td>
-                        </tr>
-                        <tr>
-                            <td>Lebar</td>
-                            <td>2,44 m</td>
-                            <td>2,44 m</td>
-                        </tr>
-                        <tr>
-                            <td>Tinggi</td>
-                            <td>2,59 m</td>
-                            <td>2,59 m</td>
-                        </tr>
-                        <tr>
-                            <td>Payload Capacity</td>
-                            <td>25.000 kg</td>
-                            <td>27.000 kg</td>
-                        </tr>
-                        <tr>
-                            <td>Volume</td>
-                            <td>38,296 m<sup>3</sup></td>
-                            <td>77,0359 m<sup>3</sup></td>
-                        </tr>
-                        <!-- Refrigerated Container -->
-                        <tr>
-                            <td rowspan="5" class="fw-bold align-middle">Refrigerated Container</td>
-                            <td>Panjang</td>
-                            <td>6,06 m</td>
-                            <td>12,19 m</td>
-                        </tr>
-                        <tr>
-                            <td>Lebar</td>
-                            <td>2,44 m</td>
-                            <td>2,44 m</td>
-                        </tr>
-                        <tr>
-                            <td>Tinggi</td>
-                            <td>2,59 m</td>
-                            <td>2,59 m</td>
-                        </tr>
-                        <tr>
-                            <td>Payload Capacity</td>
-                            <td>25.000 kg</td>
-                            <td>27.000 kg</td>
-                        </tr>
-                        <tr>
-                            <td>Volume</td>
-                            <td>38,296 m<sup>3</sup></td>
-                            <td>77,0359 m<sup>3</sup></td>
-                        </tr>
-                        <!-- Fantainer/Ventilation -->
-                        <tr>
-                            <td rowspan="5" class="fw-bold align-middle">Refrigerated Container</td>
-                            <td>Panjang</td>
-                            <td>6,06 m</td>
-                            <td>12,19 m</td>
-                        </tr>
-                        <tr>
-                            <td>Lebar</td>
-                            <td>2,44 m</td>
-                            <td>2,44 m</td>
-                        </tr>
-                        <tr>
-                            <td>Tinggi</td>
-                            <td>2,59 m</td>
-                            <td>2,59 m</td>
-                        </tr>
-                        <tr>
-                            <td>Payload Capacity</td>
-                            <td>25.000 kg</td>
-                            <td>27.000 kg</td>
-                        </tr>
-                        <tr>
-                            <td>Volume</td>
-                            <td>38,296 m<sup>3</sup></td>
-                            <td>77,0359 m<sup>3</sup></td>
-                        </tr>
-                    </table>
-
-                    <table class="table table-bordered">
-                        <tr>
-                            <th colspan="4">Kontainer Tank</th>
-                        </tr>
-                        <tr>
-                            <th>Capacity</th>
-                            <th>Gross Weight</th>
-                            <th>Tare Weight</th>
-                            <th>Payload</th>
-                        </tr>
-                        <tr>
-                            <td>21.000L</td>
-                            <td>36.000kg</td>
-                            <td>3.650kg</td>
-                            <td>32.350kg</td>
-                        </tr>
-                        <tr>
-                            <td>24.000L</td>
-                            <td>36.000kg</td>
-                            <td>3.730kg</td>
-                            <td>32.270kg</td>
-                        </tr>
-                        <tr>
-                            <td>25.000L</td>
-                            <td>36.000kg</td>
-                            <td>3.900kg</td>
-                            <td>32.100kg</td>
-                        </tr>
-                        <tr>
-                            <td>26.000L</td>
-                            <td>36.000kg</td>
-                            <td>4.060kg</td>
-                            <td>31.940kg</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
