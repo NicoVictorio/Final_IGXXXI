@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,10 +17,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-<<<<<<< Updated upstream
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-=======
-
->>>>>>> Stashed changes

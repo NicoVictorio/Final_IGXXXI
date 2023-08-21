@@ -14,13 +14,9 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-<<<<<<< Updated upstream
-        "laravel/ui": "2.1"
-=======
-        "laravel/ui": "2.4",
+        "laravel/ui": "2.1",
         "php-flasher/flasher-notyf-laravel": "^1.15",
         "realrashid/sweet-alert": "^7.1"
->>>>>>> Stashed changes
     },
     "require-dev": {
         "facade/ignition": "^2.0",

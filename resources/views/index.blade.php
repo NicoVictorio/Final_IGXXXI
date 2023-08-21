@@ -3,13 +3,11 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Final Industrial Games 30</title>
-    <link type="text/css" href="{{ asset('') }}vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
-    <link type="text/css" href="{{ asset('') }}vendor/notyf/notyf.min.css" rel="stylesheet">
+    <title>Final Industrial Games 31</title>
     <link type="text/css" href="{{ asset('') }}css/volt.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
         /* body {
             background-image: url('{{ asset('')}}assets/img/background.jpg');
@@ -51,8 +49,8 @@
 
                 {{-- TOMBOL LOGOUT --}}
                 <div class="bg-danger rounded shadow p-3 ms-4">
-                    <span class="h5 text-capitalize fw-bold"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="text-white"> {{ __('Logout') }}</a></span>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
+                    <span class="h5 text-capitalize fw-bold"><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="text-white"> {{ __('Logout') }}</a></span>
+                    <form id="logout-form" action="#" method="POST" class="d-none">@csrf</form>
                 </div>
             </div>
         </div>
@@ -115,9 +113,9 @@
 
     <footer class="footer mt-auto text-inverse shadow" style="background: black">
         <div class="d-flex flex-row justify-content-center position-fixed w-100" style="bottom: 5%">
-            <button type="button" class="btn btn-block btn-outline-primary shadow m-2" onclick="location.href='{{ route('depo-agent') }}'"><i class="button-depo-agent"></i> Depo Agent</button>
-            <button type="button" class="btn btn-block btn-outline-primary shadow m-2" onclick="location.href='{{ route('container-agent') }}'"><i class="button-container-agent"></i> Container Agent</button>
-            <button type="button" class="btn btn-block btn-outline-primary shadow m-2" onclick="location.href='{{ route('shipping-agent') }}'"><i class="button-shipping-agent"></i> Shipping Agent</button>
+            <button type="button" class="btn btn-block btn-outline-primary shadow m-2" onclick="location.href='#'"><i class="button-depo-agent"></i> Depo Agent</button>
+            <button type="button" class="btn btn-block btn-outline-primary shadow m-2" onclick="location.href='#'"><i class="button-container-agent"></i> Container Agent</button>
+            <button type="button" class="btn btn-block btn-outline-primary shadow m-2" onclick="location.href='#'"><i class="button-shipping-agent"></i> Shipping Agent</button>
         </div>  
     </footer>
 
@@ -139,8 +137,8 @@
     @include("modal.transportation")
     @include("modal.history") --}}
 
-    {{-- <script src="{{ asset('vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <script src="../js/app.js"></script>
+    <script src="{{ asset('vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    {{-- <script src="../js/app.js"></script>
     <script type="text/javascript">
         $("#profit").ready(function(){
             var str = $("#profit").html();
