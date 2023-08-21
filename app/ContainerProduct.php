@@ -4,22 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Shipping extends Model
+class ContainerProduct extends Model
 {
+    public $table = 'container_product';
     public $timestamps = false;
-
-    public function container()
-    {
-        return $this->belongsTo(Container::class);
-    }
 
     public function demand()
     {
         return $this->belongsTo(Demand::class);
     }
 
-    public function team()
+    public function shippingContainer()
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(ShippingContainer::class);
     }
 }

@@ -8,19 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <style>
-        /* body {
-            background-image: url('{{ asset('')}}assets/img/background.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-        } */
-    </style>
 </head>
 
 <body class="d-flex flex-column h-100">
-    {{-- @include('sweetalert::alert') --}}
-
     <div class="w-100 h-100 position-fixed align-items-center justify-content-center" id="loading-animation" style="background: rgba(0,0,0,0.5); z-index: 999; display:none; flex-direction: column">
         <h3 class="fw-bolder text-white">Loading</h3><br>
         <div class="spinner-border text-white" role="status">
@@ -59,7 +49,7 @@
     <main>
         <div class="d-flex justify-content-center py-5">
             <div class="rounded-pill p-2 w-50 shadow align-items-center" style="background-color:rgb(234,67,94,0.6);">
-                <div class=" fw-bolder fs-1 text-center text-white">nama team</div>
+                <div class=" fw-bolder fs-1 text-center text-white">Nama Team</div>
             </div>
         </div>
                 
@@ -72,7 +62,7 @@
                     <div class="col-12">
                         <div class="d-flex d-sm-block">
                             <h2 class="mb-0">Stowage Plan</h2>
-                            <h2 id="profit" class="mb-2 mt-1 fw-bold" id="profit">nama team</h2>
+                            <h2 id="profit" class="mb-2 mt-1 fw-bold" id="profit">Nama Team</h2>
                         </div>
                     </div>
                 </div>
@@ -86,7 +76,7 @@
                     <div class="col-12 ">
                         <div class="d-flex d-sm-block">
                             <h2 class="mb-0">Durasi Docking</h2>
-                            <h1 class="fw-extrabold text-success mb-2" id="market-share">nama team</h1>
+                            <h1 class="fw-extrabold text-success mb-2" id="market-share">Nama Team</h1>
                         </div>
                     </div>
                 </div>
@@ -102,7 +92,7 @@
                             <h2 class="mb-0">Teus</h2>
                             <div class="d-flex">
                                 <h1 class="fw-extrabold fs-1 mb-2">Σ</h1>
-                                <h3 class="fs-1 mb-2" id="sigma-level">nama team-</h3>
+                                <h3 class="fs-1 mb-2" id="sigma-level">Nama Team</h3>
                             </div>
                         </div>
                     </div>
@@ -113,9 +103,9 @@
 
     <footer class="footer mt-auto text-inverse shadow" style="background: black">
         <div class="d-flex flex-row justify-content-center position-fixed w-100" style="bottom: 5%">
-            <button type="button" class="btn btn-block btn-outline-primary shadow m-2" onclick="location.href='#'"><i class="button-depo-agent"></i> Depo Agent</button>
-            <button type="button" class="btn btn-block btn-outline-primary shadow m-2" onclick="location.href='#'"><i class="button-container-agent"></i> Container Agent</button>
-            <button type="button" class="btn btn-block btn-outline-primary shadow m-2" onclick="location.href='#'"><i class="button-shipping-agent"></i> Shipping Agent</button>
+            <a type="button" class="btn btn-block btn-outline-primary shadow m-2" href="{{ route('export.depo-agent') }}"><i class="button-depo-agent"></i> Depo Agent</a>
+            <a type="button" class="btn btn-block btn-outline-primary shadow m-2" href="{{ route('export.container-agent') }}"><i class="button-container-agent"></i> Container Agent</a>
+            <a type="button" class="btn btn-block btn-outline-primary shadow m-2" href="{{ route('export.shipping-agent') }}"><i class="button-shipping-agent"></i> Shipping Agent</a>
         </div>  
     </footer>
 

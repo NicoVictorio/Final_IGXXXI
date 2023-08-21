@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class PeriodController extends Controller
 {
-    //
+    public function openPeriod(){
+        
+    }
 }

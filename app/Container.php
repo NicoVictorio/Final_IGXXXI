@@ -8,7 +8,7 @@ class Container extends Model
 {
     public $timestamps = false;
 
-    public function shippings()
+    public function shippingContainers()
     {
         return $this->hasMany(Shipping::class);
     }

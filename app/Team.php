@@ -13,9 +13,9 @@ class Team extends Model
         return $this->hasMany(Scoring::class);
     }
 
-    public function shippings()
+    public function shippingContainers()
     {
-        return $this->hasMany(Shipping::class);
+        return $this->hasMany(ShippingContainer::class);
     }
     
     public function user()

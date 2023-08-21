@@ -8,8 +8,13 @@ class Demand extends Model
 {
     public $timestamps = false;
 
-    public function shippings()
+    public function containerProducts()
     {
-        return $this->hasMany(Shipping::class);
+        return $this->hasMany(ContainerProduct::class);
+    }
+
+    public function period()
+    {
+        return $this->belongsTo(Period::class);
     }
 }
