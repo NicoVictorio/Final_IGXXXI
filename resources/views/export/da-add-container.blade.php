@@ -78,6 +78,7 @@
                             </table>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan Kontainer</button>
+                        <a type="button" href="{{ route('export.depo-agent') }}" class="btn btn-outline-danger">Batal</a>
                     </form>
                 </div>
             </div>
