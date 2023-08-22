@@ -16,8 +16,6 @@
     <div class="container">
         <div class="text-center">
             <h1 class="title text-center fw-bolder">Depo Agent</h1>
-            <a href="{{ route('export.index') }}" class="btn btn-secondary mb-3"><i class="bi bi-arrow-left-short"></i>
-                Kembali</a>
         </div>
         <div class="spacer"></div>
         <div class="body px-5 py-4">
