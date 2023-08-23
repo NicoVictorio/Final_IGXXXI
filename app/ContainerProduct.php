@@ -11,11 +11,11 @@ class ContainerProduct extends Model
 
     public function demand()
     {
-        return $this->belongsTo(Demand::class);
+        return $this->belongsTo(Demand::class, 'Demand_id');
     }
 
     public function shippingContainer()
     {
-        return $this->belongsTo(ShippingContainer::class);
+        return $this->belongsTo(ShippingContainer::class, 'shipping_id');
     }
 }

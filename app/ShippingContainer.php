@@ -21,7 +21,7 @@ class ShippingContainer extends Model
     
     public function containerProducts()
     {
-        return $this->hasMany(ContainerProduct::class);
+        return $this->hasMany(ContainerProduct::class, 'shipping_id');
     }
 
     public function period()

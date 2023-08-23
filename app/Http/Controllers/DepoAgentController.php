@@ -6,6 +6,7 @@ use App\Container;
 use App\ContainerProduct;
 use App\Demand;
 use App\ShippingContainer;
+use App\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -139,14 +140,16 @@ class DepoAgentController extends Controller
         return redirect()->route('export.depo-agent')->with('status', "Berhasil Menambahkan Kontainer Baru!");
     }
 
-    public function resetExportContainer(Request $request){
+    public function resetExportContainer(Request $request)
+    {
         $idShipping = $request->get('idShipping');
         DB::table('container_product')->where('shipping_id', $idShipping)->delete();
 
         return redirect()->route('export.da-editcontainer', $idShipping)->with('status', 'Berhasil mereset container');
     }
 
-    public function updateExportContainer(Request $request){
+    public function updateExportContainer(Request $request)
+    {
         $idShipping = $request->get('idShipping');
         $requests = $request->all();
 
@@ -201,7 +204,78 @@ class DepoAgentController extends Controller
             }
         }
 
-        return redirect()->route('export.depo-agent')->with('status', "Berhasil Mengedit Kontainer ".$shipping->code."!");
+        return redirect()->route('export.depo-agent')->with('status', "Berhasil Mengedit Kontainer " . $shipping->code . "!");
+    }
+
+    public function qcPenpos(Team $team)
+    {
+        $teamList = Team::orderBy('name', 'asc')->get();
+        $containerShips = ShippingContainer::where('team_id', $team->id)->get();
+        return view('penpos.export-qc', compact('teamList', 'team', 'containerShips'));
+    }
+
+    public function qcPenposProses(Request $request)
+    {
+        $idContainerShip = $request->get('shipping_container_id');
+        $data = ShippingContainer::find($idContainerShip);
+
+        $qcBobot = null;
+        $qcVolume = null;
+        $lossSpace = 0;
+
+        $totalBobot = DB::select(DB::raw("select sum(d.weight*cp.quantity) as 'totalBobot' from container_product cp inner join demands d on cp.demand_id=d.id where shipping_id=" . $data->id . ";"))[0]->totalBobot*1;
+        $totalVolume = DB::select(DB::raw("select sum(d.volume*cp.quantity) as 'totalVolume' from container_product cp inner join demands d on cp.demand_id=d.id where shipping_id=" . $data->id . ";"))[0]->totalVolume*1;
+        
+        if ($data->container->name != "Tank Container") {
+            // QC Bobot
+            if ($totalBobot <= $data->container->max_weight) {
+                $qcBobot = 'safe';
+            } else {
+                $qcBobot = 'overload';
+            }
+
+            // QC Volume
+            if ($totalVolume <= $data->container->max_volume && $totalVolume >= (2 / 3.0 * $data->container->max_volume)) {
+                $qcVolume = 'safe';
+            } else if ($totalVolume < (2 / 3.0 * $data->container->max_volume) && $totalVolume >= (1 / 3.0 * $data->container->max_volume)) {
+                $qcVolume = 'less';
+            } else if ($totalVolume < (1 / 3.0 * $data->container->max_volume)) {
+                $qcVolume = 'reject';
+            }
+
+            $lossSpace = $data->container->max_volume - $totalVolume;
+        } else {
+            // QC Bobot
+            if ($totalBobot <= $data->container->max_weight) {
+                $qcBobot = 'safe';
+            } else {
+                $qcBobot = 'overload';
+            }
+
+            // QC Volume
+            if ($totalVolume <= (0.95 * $data->container->max_volume) && $totalVolume >= (0.8 * $data->container->max_volume)) {
+                $qcVolume = 'safe';
+            } else {
+                $qcVolume = 'reject';
+            }
+
+            $lossSpace = $data->container->max_volume - $totalVolume;
+        }
+
+        $data->weight_status = $qcBobot;
+        $data->volume_status = $qcVolume;
+        $data->loss_space = $lossSpace;
+        $data->save();
+
+        return redirect()->route('export.qcpenpos', $data->Team_id)->with('status', 'Proses QC Kontainer '.$data->code.' Telah Selesai!');
+    }
+
+    public function qcPenposModalDetail(Request $request)
+    {
+        $idShipping = $request->get('idShipping');
+        $dataContainer = ShippingContainer::find($idShipping);
+
+        return response()->json(array('data' => view('penpos.export-modaldetail', compact('dataContainer'))->render()), 200);
     }
 
     // Import
