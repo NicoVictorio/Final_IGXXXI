@@ -102,7 +102,7 @@
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $lContainer->code }}</td>
                                             <td>{{ date_format(date_create($lContainer->ship_date), 'd-m-Y') }}</td>
-                                            @if ($lContainer->volume_status == 'safe' && $lContainer->weight_status == 'safe')
+                                            @if (($lContainer->volume_status == 'safe' || $lContainer->volume_status == 'less') && $lContainer->weight_status == 'safe')
                                                 <td><span class="badge bg-success">Accepted</span></td>
                                             @elseif($lContainer->volume_status == null || $lContainer->weight_status == null)
                                                 <td><span class="badge bg-warning">Belum QC</span></td>
