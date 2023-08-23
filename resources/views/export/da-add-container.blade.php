@@ -10,12 +10,117 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        /* STYLE PAGE */
+        body {
+            background: rgb(228,242,252);
+        }
+        .title {
+            padding-top: 20px;
+            font-family: "Montserrat", sans-serif;
+            font-size: 60px;
+            color: #2c56a7;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+        .combobox-title {
+            font-size: 30px;
+            font-family: "Montserrat", sans-serif;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color:#2c56a7;
+        }
+        table {
+            background: white;
+        }
+        .table-title{
+            font-size: 20px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            color: white;
+            background: #2c56a7;
+        }
+        .table-text {
+            font-size: 20px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            color:#2c56a7;
+        }
+        .button-kontainer {
+            border: 3px solid #2C56A7;
+            background: #2C56A7;
+            border-radius: 1.5rem;
+            color: white;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.5rem 1.6rem;
+            text-align: center;
+        }
+        .button-kontainer:hover {
+            border: 3px solid #2C56A7;
+            background: white;
+            color: #2C56A7;
+        }
+        .button-batal {
+            background: white;
+            border: 3px solid red;
+            border-radius: 1.5rem;
+            color: red;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.5rem 1.6rem;
+            text-align: center;
+            margin-left: 5px;
+        }
+        .button-batal:hover {
+            background-color: red;
+            color: #fff;
+        }
+        .combobox {
+            border: 3px solid #2C56A7;
+            border-radius: 1.5rem;
+            color: #2C56A7;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.5rem 1.6rem;
+        }
+
+        /* STYLE MODAL */
+        .modal-title {
+            font-size: 50px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            color:#2c56a7;
+        }
+        .modal-body {
+            background: rgb(228,242,252);
+        }
+        .modal-table-title {
+            font-size: 17px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 550;
+            color: white;
+            background: #2c56a7;
+        }
+        .modal-table {
+            font-size: 15px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            color:#2c56a7;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <div>
-            <h1 class="title text-center fw-bolder">Depo Agent</h1>
+            <h1 class="title text-center fw-bolder">DEPO AGENT</h1>
         </div>
         <div class="spacer"></div>
         <div class="body px-5 py-4">
@@ -30,9 +135,9 @@
                         @csrf
                         <div class="mb-3">
                             <div class="row">
-                                <label for="cbContainer" class="form-label">Pilih Container</label>
-                                <div class="col-9">
-                                    <select name="container" id="cbContainer" class="form-select">
+                                <label for="cbContainer" class="combobox-title">Pilih Container</label>
+                                <div class="col-9 mb-2 mt-1">
+                                    <select name="container" id="cbContainer" class="form-select combobox">
                                         @foreach ($containers as $container)
                                             <option value="{{ $container->id }}">{{ $container->name }} -
                                                 {{ $container->size }}
@@ -40,8 +145,8 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-3 text-end">
-                                    <button type="button" class="btn btn-info button-list-kontainer"
+                                <div class="col-3 mt-1">
+                                    <button type="button" class="btn btn-info button-kontainer"
                                         data-bs-toggle="modal" data-bs-target="#listContainerModal">List
                                         Kontainer</button>
                                 </div>
@@ -50,7 +155,7 @@
                         <div class="table-responsive">
                             <table class="table table-centered table-bordered table-wrap">
                                 <thead>
-                                    <tr>
+                                    <tr class="table-title">
                                         <th class="border-0">Produk</th>
                                         <th class="border-0 text-center">Volume</th>
                                         <th class="border-0 text-center">Quantity</th>
@@ -59,7 +164,7 @@
                                         <th class="border-0 text-center">Send</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="table-text">
                                     @foreach ($demands as $demand)
                                         <tr>
                                             <td class="">{{ $demand->name }}</td>
@@ -77,8 +182,8 @@
                                 </tbody>
                             </table>
                         </div>
-                        <button type="submit" class="btn btn-primary">Simpan Kontainer</button>
-                        <a type="button" href="{{ route('export.depo-agent') }}" class="btn btn-outline-danger">Batal</a>
+                        <button type="submit" class="btn btn-primary button-kontainer">Simpan Kontainer</button>
+                        <a type="button" href="{{ route('export.depo-agent') }}" class="btn btn-outline-danger button-batal">Batal</a>
                     </form>
                 </div>
             </div>
@@ -98,12 +203,12 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">List Container</h1>
+                    <h1 class="modal-title fs-2" id="exampleModalLabel">List Container</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <table class="table table-bordered">
-                        <tr>
+                    <table class="table table-bordered modal-table">
+                        <tr class="modal-table-title">
                             <th>Jenis Kontainer</th>
                             <th>Ukuran</th>
                             <th>20 Feet</th>
@@ -192,11 +297,11 @@
                         </tr>
                     </table>
 
-                    <table class="table table-bordered">
-                        <tr>
+                    <table class="table table-bordered modal-table">
+                        <tr class="modal-table-title">
                             <th colspan="4">Kontainer Tank</th>
                         </tr>
-                        <tr>
+                        <tr class="modal-table-title">
                             <th>Capacity</th>
                             <th>Gross Weight</th>
                             <th>Tare Weight</th>

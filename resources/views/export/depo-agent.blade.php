@@ -10,12 +10,58 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            background: rgb(228,242,252);
+        }
+        .title {
+            padding-top: 20px;
+            font-family: "Montserrat", sans-serif;
+            font-size: 60px;
+            color: #2c56a7;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+        table {
+            background: white;
+        }
+        .table-title{
+            font-size: 20px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            color: white;
+            background: #2c56a7;
+        }
+        .table-text {
+            font-size: 20px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            color:#2c56a7;
+        }
+        .button-tambah-kontainer {
+            border: 3px solid #2C56A7;
+            background: white;
+            color: #2C56A7;
+            border-radius: 1.5rem;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.5rem 1.6rem;
+            text-align: center;
+        }
+        .button-tambah-kontainer:hover {
+            border: 3px solid #2C56A7;
+            background: #2C56A7;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <div class="text-center">
-            <h1 class="title text-center fw-bolder">Depo Agent</h1>
+            <h1 class="title text-center fw-bolder">DEPO AGENT</h1>
         </div>
         <div class="spacer"></div>
         <div class="body px-5 py-4">
@@ -26,11 +72,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="{{ route('export.da-addcontainer') }}" class="btn btn-secondary mb-3">Tambah Kontainer</a>
+                    <a href="{{ route('export.da-addcontainer') }}" class="btn btn-secondary mb-3 button-tambah-kontainer">Tambah Kontainer</a>
                     <div class="table-responsive">
                         <table class="table table-centered table-bordered table-wrap">
                             <thead>
-                                <tr>
+                                <tr class="table-title">
                                     <th class="border-0">No</th>
                                     <th class="border-0 text-center">Nomor Kontainer</th>
                                     <th class="border-0 text-center">Tanggal Pengiriman</th>
@@ -38,7 +84,7 @@
                                     <th class="border-0 text-center">Edit</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="table-text">
                                 @if (count($listContainers) == 0)
                                     <tr>
                                         <td colspan="5" class="text-danger text-center fw-bold">Belum Ada Kontainer
