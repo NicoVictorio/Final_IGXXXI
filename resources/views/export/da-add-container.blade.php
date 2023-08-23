@@ -13,7 +13,13 @@
     <style>
         /* STYLE PAGE */
         body {
-            background: rgb(228,242,252);
+            background: url("/assets/bg-agent.png") no-repeat;  
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            margin: 0px;
+            width: 100%;
         }
         .title {
             padding-top: 20px;

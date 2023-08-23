@@ -12,7 +12,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
         body {
-            background: rgb(228,242,252);
+            background: url("/assets/bg-agent.png") no-repeat;  
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            margin: 0px;
+            width: 100%;
         }
         .title {
             padding-top: 20px;

@@ -8,6 +8,41 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            background: url("/assets/bg-index.png") no-repeat;  
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            margin: 0px;
+            width: 100%;
+        }
+        .title {
+            font-family: "Montserrat", sans-serif;
+            font-size: 1000px;
+            color: white;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+        .button-kontainer {
+            border: 3px solid #2C56A7;
+            background: #2C56A7;
+            border-radius: 1.5rem;
+            color: white;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.5rem 1.6rem;
+            text-align: center;
+        }
+        .button-kontainer:hover {
+            border: 3px solid #2C56A7;
+            background: white;
+            color: #2C56A7;
+        }
+    </style>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -22,14 +57,10 @@
         <div class="container-fluid px-0">
             <div class="d-flex flex-row justify-content-between w-100" id="navbarSupportedContent">
                 {{-- ini coint gitu, tapi di figma ga ada --}}
-                <div class="bg-white rounded shadow p-3 ms-2 d-flex flex-row align-items-center">
-                    {{-- <img src="{{ asset('') }}assets/icons/coin.png" height="20" alt="Coin">
-                    <div id="balance" class="ms-2">nama team</div> --}}
-                </div>
 
                 {{-- JUDUL SESI --}}
                 <div class="text-white rounded shadow p-3 border border-white" id="batch">
-                    Sesi Eksport
+                    Nama Team
                     {{-- @if($preparation)
                         Cooldown
                     @else
@@ -48,8 +79,8 @@
 
     <main>
         <div class="d-flex justify-content-center py-5">
-            <div class="rounded-pill p-2 w-50 shadow align-items-center" style="background-color:rgb(234,67,94,0.6);">
-                <div class=" fw-bolder fs-1 text-center text-white">Nama Team</div>
+            <div class="rounded-pill p-2 w-50 shadow align-items-center" style="background-color:#2C56A7;">
+                <div class="fw-bolder fs-1 text-center title">SESI EXPORT</div>
             </div>
         </div>
                 
@@ -91,7 +122,6 @@
                         <div class="d-flex d-sm-block">
                             <h2 class="mb-0">Teus</h2>
                             <div class="d-flex">
-                                <h1 class="fw-extrabold fs-1 mb-2">Σ</h1>
                                 <h3 class="fs-1 mb-2" id="sigma-level">Nama Team</h3>
                             </div>
                         </div>
