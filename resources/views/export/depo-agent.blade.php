@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
         body {
-            background: url("/assets/bg-agent.png") no-repeat;
+            background: url("/assets/bg-agent.png") no-repeat;  
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -20,7 +20,6 @@
             margin: 0px;
             width: 100%;
         }
-
         .title {
             padding-top: 20px;
             font-family: "Montserrat", sans-serif;
@@ -29,26 +28,22 @@
             font-weight: 900;
             letter-spacing: 1px;
         }
-
         table {
             background: white;
         }
-
-        .table-title {
+        .table-title{
             font-size: 20px;
             font-family: "Montserrat", sans-serif;
             font-weight: 500;
             color: white;
             background: #2c56a7;
         }
-
         .table-text {
             font-size: 20px;
             font-family: "Montserrat", sans-serif;
             font-weight: 500;
-            color: #2c56a7;
+            color:#2c56a7;
         }
-
         .button-tambah-kontainer {
             border: 3px solid #2C56A7;
             background: white;
@@ -61,7 +56,6 @@
             padding: 0.5rem 1.6rem;
             text-align: center;
         }
-
         .button-tambah-kontainer:hover {
             border: 3px solid #2C56A7;
             background: #2C56A7;
@@ -101,8 +95,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="{{ route('export.da-addcontainer') }}"
-                        class="btn btn-secondary mb-3 button-tambah-kontainer">Tambah Kontainer</a>
+                    <a href="{{ route('export.da-addcontainer') }}" class="btn btn-secondary mb-3 button-tambah-kontainer">Tambah Kontainer</a>
                     <div class="table-responsive">
                         <table class="table table-centered table-bordered table-wrap">
                             <thead>
@@ -126,9 +119,7 @@
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $lContainer->code }}</td>
                                             <td>{{ date_format(date_create($lContainer->ship_date), 'd-m-Y') }}</td>
-                                            @if (
-                                                ($lContainer->volume_status == 'safe' || $lContainer->volume_status == 'less') &&
-                                                    $lContainer->weight_status == 'safe')
+                                            @if ($lContainer->volume_status == 'safe' && $lContainer->weight_status == 'safe')
                                                 <td><span class="badge bg-success">Accepted</span></td>
                                             @elseif($lContainer->volume_status == null || $lContainer->weight_status == null)
                                                 <td><span class="badge bg-warning">Belum QC</span></td>
@@ -137,14 +128,8 @@
                                             @else
                                                 <td><span class="badge bg-danger">Rejected</span></td>
                                             @endif
-                                            @if (
-                                                ($lContainer->volume_status != 'safe' && $lContainer->volume_status != 'less') ||
-                                                    $lContainer->weight_status != 'safe')
-                                                <td><a href="{{ route('export.da-editcontainer', $lContainer->id) }}"
-                                                        class="btn btn-primary">Edit Kontainer</a></td>
-                                            @else
-                                            <td>OK</td>
-                                            @endif
+                                            <td><a href="{{ route('export.da-editcontainer', $lContainer->id) }}"
+                                                    class="btn btn-primary">Edit Kontainer</a></td>
                                         </tr>
                                     @endforeach
                                 @endif
