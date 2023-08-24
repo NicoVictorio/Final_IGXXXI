@@ -129,7 +129,7 @@
             <h1 class="title text-center fw-bolder">DEPO AGENT</h1>
         </div>
         <div class="spacer"></div>
-        <div class="body px-5 py-4">
+        <div class="body px-5 py-2 mb-4">
             <div class="row">
                 <div class="col-12">
                     @if (session('error'))
@@ -141,8 +141,8 @@
                         @csrf
                         <div class="mb-3">
                             <div class="row">
-                                <label for="cbContainer" class="combobox-title">Pilih Container</label>
-                                <div class="col-9 mb-2 mt-1">
+                                <label for="cbContainer" class="combobox-title">Kontainer</label>
+                                <div class="col-9 mb-2">
                                     <select name="container" id="cbContainer" class="form-select combobox">
                                         @foreach ($containers as $container)
                                             <option value="{{ $container->id }}">{{ $container->name }} -
@@ -151,7 +151,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-3 mt-1">
+                                <div class="col-3">
                                     <button type="button" class="btn btn-info button-kontainer"
                                         data-bs-toggle="modal" data-bs-target="#listContainerModal">List
                                         Kontainer</button>
@@ -194,13 +194,6 @@
                 </div>
             </div>
         </div>
-        <footer class="footer mt-auto">
-            {{-- <div class="col text-end"> --}}
-            <div class="d-flex justify-content-left position-fixed" style="bottom: 5%">
-                {{-- mmmm cara ambil produk yang checkbox dicheck semua buat dikirim howww --}}
-                <button class="button-kirim" role="button" onclick=kirimProduk()>Kirim Produk</button>
-            </div>
-        </footer>
     </div>
 
     <!-- Modal -->

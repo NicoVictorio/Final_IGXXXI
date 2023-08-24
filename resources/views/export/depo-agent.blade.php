@@ -61,6 +61,23 @@
             background: #2C56A7;
             color: white;
         }
+        .button-kirim-kontainer {
+            border: 3px solid #2C56A7;
+            background: #2C56A7;
+            border-radius: 1.5rem;
+            color: white;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.5rem 1.6rem;
+            text-align: center;
+        }
+        .button-kirim-kontainer:hover {
+            border: 3px solid #2C56A7;
+            background: white;
+            color: #2C56A7;
+        }
     </style>
 </head>
 
@@ -85,7 +102,7 @@
                                 <tr class="table-title">
                                     <th class="border-0">No</th>
                                     <th class="border-0 text-center">Nomor Kontainer</th>
-                                    <th class="border-0 text-center">Tanggal Pengiriman</th>
+                                    <th class="border-0 text-center">Kota</th>
                                     <th class="border-0 text-center">Status</th>
                                     <th class="border-0 text-center">Edit</th>
                                 </tr>
@@ -121,6 +138,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="d-flex justify-content-end px-5 py-4 position-fixed" style="bottom: 5%">
+            <button class="button-kirim-kontainer" role="button">Kirim Kontainer</button>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
