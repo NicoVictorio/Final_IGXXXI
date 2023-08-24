@@ -46,6 +46,9 @@ Route::get('/import', [DepoAgentController::class, 'indexImport'])->name('import
 // Route::get('/import', function(){
 //     return view('index');
 // });
+Route::get('/import', function(){
+    return view('import.index');
+});
 
 Route::get('/import/depo-agent', [DepoAgentController::class, 'showDAImportPage'])->name('import.depo-agent');
 Route::get('/import/container-agent', [ContainerAgentController::class, 'showCAImportPage'])->name('import.container-agent');

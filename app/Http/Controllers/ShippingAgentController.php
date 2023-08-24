@@ -11,6 +11,6 @@ class ShippingAgentController extends Controller
     }
 
     public function showSAImportPage(){
-        
+        return view('import.shipping-agent');
     }
 }

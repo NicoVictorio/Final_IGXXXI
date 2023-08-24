@@ -126,10 +126,10 @@
             <h1 class="title text-center fw-bolder">SHIPPING AGENT</h1>
         </div>
         <div class="spacer"></div>
-        <div class="body px-5 py-2 mb-4">
-            <div class="col-12">
+        <div class="body px-9 py-8 mb-9">
+            <div class="col-15 px-20">
                 <form action="{{ route('export.saveexportcontainer') }}" method="post">
-                    <div class="col-8 px-5">
+                    <div class="col-8 px-15">
                         <h1 class="layout-title">Layout Kontainer</h1>
                         <div class="cell">
                             <div>
@@ -336,7 +336,7 @@
                             </div>
                         </div>
                     </div> 
-                    <div class="col-8 px-5">
+                    <div class="col-8 px-15">
                         <div class="table-responsive">
                             <table class="table table-centered table-bordered table-wrap">
                                 <thead>
@@ -366,7 +366,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="col-7">
+                    <div class="col-8 px-15">
                         <h1 class="layout-title">In Deck</h1>
                         <div class="cell">
                             <div>

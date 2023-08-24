@@ -11,6 +11,6 @@ class ContainerAgentController extends Controller
     }
     
     public function showCAImportPage(){
-        
+        return view('import.container-agent');
     }
 }
