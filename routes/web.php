@@ -43,7 +43,7 @@ Route::get('/export/shipping-agent', [ShippingAgentController::class, 'showSAExp
 
 // Import
 Route::get('/import', function(){
-    return view('index');
+    return view('import.index');
 });
 
 Route::get('/import/depo-agent', [DepoAgentController::class, 'showDAImportPage'])->name('import.depo-agent');

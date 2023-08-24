@@ -41,17 +41,21 @@ class DepoAgentController extends Controller
     {
         // Nanti kasih pengecekan yang boleh akses ini cuma User yang Punya Kontainer aja!
         $sContainer = $ShippingContainer;
-        $demands = Demand::where('period_id', '1')->get();
-        foreach ($demands as $d) {
-            $jmlhMasuk = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='1' and sc.period_id='1' and cp.demand_id='" . $d->id . "'"))[0]->jmlh;
-            $d->quantity -= $jmlhMasuk;
+        if (($sContainer->volume_status == 'safe' || $sContainer->volume_status == 'less') && $sContainer->weight_status == 'safe') {
+            return redirect()->back();
+        } else {
+            $demands = Demand::where('period_id', '1')->get();
+            foreach ($demands as $d) {
+                $jmlhMasuk = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='1' and sc.period_id='1' and cp.demand_id='" . $d->id . "'"))[0]->jmlh;
+                $d->quantity -= $jmlhMasuk;
 
-            $jmlhMasukContainer = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='1' and sc.period_id='1' and cp.demand_id='" . $d->id . "' and cp.shipping_id='" . $sContainer->id . "'"))[0]->jmlh;
-            $d->quantity += $jmlhMasukContainer;
-            $d->jmlhProdukMasuk = $jmlhMasukContainer;
+                $jmlhMasukContainer = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='1' and sc.period_id='1' and cp.demand_id='" . $d->id . "' and cp.shipping_id='" . $sContainer->id . "'"))[0]->jmlh;
+                $d->quantity += $jmlhMasukContainer;
+                $d->jmlhProdukMasuk = $jmlhMasukContainer;
+            }
+
+            return view('export.da-edit-container', compact('demands', 'sContainer'));
         }
-
-        return view('export.da-edit-container', compact('demands', 'sContainer'));
     }
 
     public function saveExportContainer(Request $request)
@@ -223,9 +227,9 @@ class DepoAgentController extends Controller
         $qcVolume = null;
         $lossSpace = 0;
 
-        $totalBobot = DB::select(DB::raw("select sum(d.weight*cp.quantity) as 'totalBobot' from container_product cp inner join demands d on cp.demand_id=d.id where shipping_id=" . $data->id . ";"))[0]->totalBobot*1;
-        $totalVolume = DB::select(DB::raw("select sum(d.volume*cp.quantity) as 'totalVolume' from container_product cp inner join demands d on cp.demand_id=d.id where shipping_id=" . $data->id . ";"))[0]->totalVolume*1;
-        
+        $totalBobot = DB::select(DB::raw("select sum(d.weight*cp.quantity) as 'totalBobot' from container_product cp inner join demands d on cp.demand_id=d.id where shipping_id=" . $data->id . ";"))[0]->totalBobot * 1;
+        $totalVolume = DB::select(DB::raw("select sum(d.volume*cp.quantity) as 'totalVolume' from container_product cp inner join demands d on cp.demand_id=d.id where shipping_id=" . $data->id . ";"))[0]->totalVolume * 1;
+
         if ($data->container->name != "Tank Container") {
             // QC Bobot
             if ($totalBobot <= $data->container->max_weight) {
@@ -267,7 +271,7 @@ class DepoAgentController extends Controller
         $data->loss_space = $lossSpace;
         $data->save();
 
-        return redirect()->route('export.qcpenpos', $data->Team_id)->with('status', 'Proses QC Kontainer '.$data->code.' Telah Selesai!');
+        return redirect()->route('export.qcpenpos', $data->Team_id)->with('status', 'Proses QC Kontainer ' . $data->code . ' Telah Selesai!');
     }
 
     public function qcPenposModalDetail(Request $request)
