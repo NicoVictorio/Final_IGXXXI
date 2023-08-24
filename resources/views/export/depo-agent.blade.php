@@ -109,7 +109,7 @@
                                 <tr class="table-title">
                                     <th class="border-0">No</th>
                                     <th class="border-0 text-center">Nomor Kontainer</th>
-                                    <th class="border-0 text-center">Kota</th>
+                                    <th class="border-0 text-center">Destinasi</th>
                                     <th class="border-0 text-center">Status</th>
                                     <th class="border-0 text-center">Edit</th>
                                 </tr>
@@ -125,7 +125,7 @@
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $lContainer->code }}</td>
-                                            <td>{{ date_format(date_create($lContainer->ship_date), 'd-m-Y') }}</td>
+                                            <td>{{ $lContainer->city }}</td>
                                             @if (
                                                 ($lContainer->volume_status == 'safe' || $lContainer->volume_status == 'less') &&
                                                     $lContainer->weight_status == 'safe')

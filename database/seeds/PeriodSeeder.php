@@ -12,24 +12,20 @@ class PeriodSeeder extends Seeder
      */
     public function run()
     {
-        // $period = [
-        //     [
-        //         'name' => 'export',
-        //         'status' => 'active',
-        //     ],
-        //     [
-        //         'name' => 'import',
-        //         'status' => 'standby',
-        //     ],
-        //     [
-        //         'name' => 'exportimport',
-        //         'status' => 'standby',
-        //     ],
-        //     [
-        //         'name' => 'standby',
-        //         'status' => 'standby',
-        //     ],
-        // ];
-        // DB::table('periods')->insert($period);
+        $period = [
+            [
+                'name' => 'Depo Agent',
+                'status' => 'active',
+            ],
+            [
+                'name' => 'Container Agent',
+                'status' => 'standby',
+            ],
+            [
+                'name' => 'Shipping Agent',
+                'status' => 'standby',
+            ],
+        ];
+        DB::table('periods')->insert($period);
     }
 }

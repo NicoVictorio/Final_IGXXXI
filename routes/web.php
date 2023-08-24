@@ -32,20 +32,21 @@ Route::post('/export/depo-agent/add', [DepoAgentController::class, 'saveExportCo
 Route::post('/export/depo-agent/reset', [DepoAgentController::class, 'resetExportContainer'])->name('export.resetexportcontainer');
 Route::get('/export/depo-agent/{ShippingContainer}/edit', [DepoAgentController::class, 'showDAExportEditContainer'])->name('export.da-editcontainer');
 Route::post('/export/depo-agent/update', [DepoAgentController::class, 'updateExportContainer'])->name('export.updateexportcontainer');
+
 Route::get('/export/penpos-qc', [DepoAgentController::class, 'qcPenpos'])->name('export.qcpenpos');
 Route::get('/export/penpos-qc/{team}', [DepoAgentController::class, 'qcPenpos'])->name('export.qcpenpos');
 Route::post('/export/penpos-qc/proses', [DepoAgentController::class, 'qcPenposProses'])->name('export.qcpenposproses');
 Route::post('/export/penpos-qc/modaldetail', [DepoAgentController::class, 'qcPenposModalDetail'])->name('export.qcpenposmodaldetail');
 
 Route::get('/export/container-agent', [ContainerAgentController::class, 'showCAExportPage'])->name('export.container-agent');
+Route::post('/export/container-agent/push', [ContainerAgentController::class, 'pushCAExportBay'])->name('export.ca-push');
+
+
 Route::get('/export/shipping-agent', [ShippingAgentController::class, 'showSAExportPage'])->name('export.shipping-agent');
 
 
 // Import
 Route::get('/import', [DepoAgentController::class, 'indexImport'])->name('import.index');
-// Route::get('/import', function(){
-//     return view('index');
-// });
 Route::get('/import', function(){
     return view('import.index');
 });

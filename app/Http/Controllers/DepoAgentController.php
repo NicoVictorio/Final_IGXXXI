@@ -20,7 +20,7 @@ class DepoAgentController extends Controller
 
     public function showDAExportPage()
     {
-        $listContainers = ShippingContainer::select('id', 'team_id', 'container_id', 'code', 'volume_status', 'weight_status', 'ship_date', 'period_id')->where('team_id', '1')->where('period_id', '1')->get();
+        $listContainers = ShippingContainer::select('id', 'team_id', 'container_id', 'code', 'volume_status', 'weight_status', 'city', 'period_id')->where('team_id', '1')->where('period_id', '1')->get();
 
         return view('export.depo-agent', compact('listContainers'));
     }
@@ -98,17 +98,17 @@ class DepoAgentController extends Controller
         }
 
         $indexCek = 1;
-        $tanggalKirimPertama = "";
+        $kotaKirimPertama = "";
         foreach ($requests as $key => $req) {
             if (is_numeric(substr($key, 3)) == true && substr($key, 0, 3) == 'qty') {
                 if ($req != 0) {
                     $idProduct = substr($key, 3);
                     if ($indexCek == 1) {
-                        $tanggalKirimPertama = Demand::find($idProduct)->ship_date;
+                        $kotaKirimPertama = Demand::find($idProduct)->city;
                     } else {
-                        $tanggalKirimProduk = Demand::find($idProduct)->ship_date;
-                        if (strtotime($tanggalKirimPertama) != strtotime($tanggalKirimProduk)) {
-                            return redirect()->back()->withInput()->with('error', 'Tanggal Pengiriman Tiap Produk Harus Sama');
+                        $kotaKirimProduk = Demand::find($idProduct)->city;
+                        if ($kotaKirimPertama != $kotaKirimProduk) {
+                            return redirect()->back()->withInput()->with('error', 'Destinasi Pengiriman Tiap Produk Harus Sama');
                         }
                     }
                     $indexCek++;
@@ -121,7 +121,7 @@ class DepoAgentController extends Controller
         $newShipping->container_id = $containerId;
         $newShipping->period_id = 1;
         $newShipping->code = $containerCode;
-        $newShipping->ship_date = $tanggalKirimPertama;
+        $newShipping->city = $kotaKirimPertama;
         $newShipping->save();
 
         $idShipping = $newShipping->id;
@@ -168,17 +168,17 @@ class DepoAgentController extends Controller
         }
 
         $indexCek = 1;
-        $tanggalKirimPertama = "";
+        $kotaKirimPertama = "";
         foreach ($requests as $key => $req) {
             if (is_numeric(substr($key, 3)) == true && substr($key, 0, 3) == 'qty') {
                 if ($req != 0) {
                     $idProduct = substr($key, 3);
                     if ($indexCek == 1) {
-                        $tanggalKirimPertama = Demand::find($idProduct)->ship_date;
+                        $kotaKirimPertama = Demand::find($idProduct)->city;
                     } else {
-                        $tanggalKirimProduk = Demand::find($idProduct)->ship_date;
-                        if (strtotime($tanggalKirimPertama) != strtotime($tanggalKirimProduk)) {
-                            return redirect()->back()->withInput()->with('error', 'Tanggal Pengiriman Tiap Produk Harus Sama');
+                        $kotaKirimProduk = Demand::find($idProduct)->city;
+                        if ($kotaKirimPertama != $kotaKirimProduk) {
+                            return redirect()->back()->withInput()->with('error', 'Destinasi Pengiriman Tiap Produk Harus Sama');
                         }
                     }
                     $indexCek++;

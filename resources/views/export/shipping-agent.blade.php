@@ -515,7 +515,7 @@
                                     <div class="space">  </div>
                                 </div>
                                 <div class="row">
-                                    <<div class="blank">  </div>
+                                    <div class="blank">  </div>
                                     <div class="space">  </div>
                                     <div class="space">  </div>
                                     <div class="sep">  </div>
@@ -524,7 +524,7 @@
                                     <div class="blank">  </div>
                                 </div>
                                 <div class="row">
-                                    <<div class="blank">  </div>
+                                    <div class="blank">  </div>
                                     <div class="space">  </div>
                                     <div class="space">  </div>
                                     <div class="sep">  </div>

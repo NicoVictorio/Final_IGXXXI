@@ -166,7 +166,7 @@
                                         <th class="border-0 text-center">Volume</th>
                                         <th class="border-0 text-center">Quantity</th>
                                         <th class="border-0 text-center">Weight (kg)</th>
-                                        <th class="border-0 text-center">Ship Date</th>
+                                        <th class="border-0 text-center">Destination</th>
                                         <th class="border-0 text-center">Send</th>
                                     </tr>
                                 </thead>
@@ -178,7 +178,7 @@
                                             <td class="text-center">{{ $demand->quantity }}</td>
                                             <td class="text-center">{{ $demand->weight }}</td>
                                             <td class="text-center">
-                                                {{ date_format(date_create($demand->ship_date), 'd-m-Y') }}</td>
+                                                {{ $demand->city }}</td>
                                             <td><input type="number" class="form-control mx-auto" style="width: 80px;"
                                                     min="0" max="{{ $demand->quantity }}" value="0"
                                                     name="qty{{ $demand->id }}" id="">

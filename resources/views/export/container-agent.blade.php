@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Container AGent</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
         body {
-            background: url("/assets/bg-agent.png") no-repeat;  
+            background: url("/assets/bg-agent.png") no-repeat;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -18,13 +20,15 @@
             margin: 0px;
             width: 100%;
         }
+
         .layout-title {
             font-size: 30px;
             font-family: "Montserrat", sans-serif;
             margin-bottom: 10px;
             font-weight: 700;
-            color:#2c56a7;
+            color: #2c56a7;
         }
+
         .title {
             padding-top: 20px;
             padding-bottom: 10px;
@@ -34,22 +38,25 @@
             font-weight: 900;
             letter-spacing: 1px;
         }
+
         .row {
-			height: 40px;
-		}
+            height: 40px;
+        }
+
         .space {
-			border: 0.5px solid darkblue;
+            border: 0.5px solid darkblue;
             background: white;
-			width: 40px;
-			float: left;
-			text-align: center;
-		}
+            width: 40px;
+            float: left;
+            text-align: center;
+        }
+
         .bay {
             border: 1px solid darkblue;
             background: #2c56a7;
             color: white;
-			width: 160px;
-			float: left;
+            width: 160px;
+            float: left;
             text-align: center;
             display: flex;
             justify-content: center;
@@ -58,23 +65,26 @@
             font-family: "Montserrat", sans-serif;
             font-weight: 700;
         }
+
         .nomor {
-			border: 0.5px solid darkblue;
-            background: rgb(194,226,246);
+            border: 0.5px solid darkblue;
+            background: rgb(194, 226, 246);
             color: #2c56a7;
-			width: 40px;
-			float: left;
-			text-align: center;
+            width: 40px;
+            float: left;
+            text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 20px;
             font-family: "Montserrat", sans-serif;
             font-weight: 400;
-		}
+        }
+
         .cell {
             float: left;
         }
+
         .button-layout {
             border: 3px solid #2C56A7;
             background: #2C56A7;
@@ -87,18 +97,21 @@
             padding: 0.5rem 1.6rem;
             text-align: center;
         }
+
         .button-layout:hover {
             border: 3px solid #2C56A7;
             background: white;
             color: #2C56A7;
         }
+
         .combobox-title {
             font-size: 25px;
             font-family: "Montserrat", sans-serif;
             margin-bottom: 5px;
             font-weight: 600;
-            color:#2c56a7;
+            color: #2c56a7;
         }
+
         .combobox {
             border: 3px solid #2C56A7;
             border-radius: 1.5rem;
@@ -115,11 +128,13 @@
             font-size: 50px;
             font-family: "Montserrat", sans-serif;
             font-weight: 700;
-            color:#2c56a7;
+            color: #2c56a7;
         }
+
         .modal-body {
-            background: rgb(228,242,252);
+            background: rgb(228, 242, 252);
         }
+
         .modal-table-title {
             font-size: 17px;
             font-family: "Montserrat", sans-serif;
@@ -127,14 +142,16 @@
             color: white;
             background: #2c56a7;
         }
+
         .modal-table {
             font-size: 15px;
             font-family: "Montserrat", sans-serif;
             font-weight: 500;
-            color:#2c56a7;
+            color: #2c56a7;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="text-center">
@@ -143,223 +160,465 @@
         <div class="spacer"></div>
         <div class="body px-5 py-2 mb-4">
             <div class="col-12">
-                <form action="{{ route('export.saveexportcontainer') }}" method="post">
-                    <div class="col-9 px-5">
-                        <h1 class="layout-title">Layout Kontainer</h1>
-                        <div class="cell">
-                            <div>
-                                <div class="row">
-                                    <div class="bay">Bay 1</div>
-                                </div>
-                                <div class="row">
-                                    <div class="nomor">1</div>
-                                    <div class="nomor">2</div>
-                                    <div class="nomor">3</div>
-                                    <div class="nomor">4</div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="nomor">6</div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="nomor">5</div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="nomor">4</div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="nomor">3</div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="nomor">2</div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="nomor">1</div>
-                                </div>
+                <div class="col-9 px-5">
+                    <h1 class="layout-title">Layout Kontainer</h1>
+                    <div class="cell">
+                        <div>
+                            <div class="row">
+                                <div class="bay">Bay 1</div>
                             </div>
-                            <div>
-                                <div class="row">
-                                    <div class="bay">Bay 3</div>
-                                </div>
-                                <div class="row">
-                                    <div class="nomor">1</div>
-                                    <div class="nomor">2</div>
-                                    <div class="nomor">3</div>
-                                    <div class="nomor">4</div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="nomor">6</div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="nomor">5</div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="nomor">4</div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="nomor">3</div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="nomor">2</div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="nomor">1</div>
-                                </div>
+                            <div class="row">
+                                <div class="nomor">1</div>
+                                <div class="nomor">2</div>
+                                <div class="nomor">3</div>
+                                <div class="nomor">4</div>
                             </div>
-                        </div>
-                        <div class="cell">
-                            <div class="px-4">
-                                <div class="row">
-                                    <div class="bay">Bay 2</div>
-                                </div>
-                                <div class="row">
-                                    <div class="nomor">1</div>
-                                    <div class="nomor">2</div>
-                                    <div class="nomor">3</div>
-                                    <div class="nomor">4</div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier6#bay1/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier6#bay1/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier6#bay1/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                                <div class="nomor">6</div>
                             </div>
-                            <div class="px-4">
-                                <div class="row">
-                                    <div class="bay">Bay 4</div>
-                                </div>
-                                <div class="row">
-                                    <div class="nomor">1</div>
-                                    <div class="nomor">2</div>
-                                    <div class="nomor">3</div>
-                                    <div class="nomor">4</div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier5#bay1/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier5#bay1/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier5#bay1/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                                <div class="nomor">5</div>
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier4#bay1/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier4#bay1/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier4#bay1/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                                <div class="nomor">4</div>
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier3#bay1/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier3#bay1/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier3#bay1/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                                <div class="nomor">3</div>
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier2#bay1/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier2#bay1/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier2#bay1/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                                <div class="nomor">2</div>
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier1#bay1/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier1#bay1/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier1#bay1/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                                <div class="nomor">1</div>
                             </div>
                         </div>
-                    </div> 
-                    <div class="col-9 px-5">
+                        <div>
+                            <div class="row">
+                                <div class="bay">Bay 3</div>
+                            </div>
+                            <div class="row">
+                                <div class="nomor">1</div>
+                                <div class="nomor">2</div>
+                                <div class="nomor">3</div>
+                                <div class="nomor">4</div>
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier6#bay3/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier6#bay3/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier6#bay3/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                                <div class="nomor">6</div>
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier5#bay3/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier5#bay3/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier5#bay3/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                                <div class="nomor">5</div>
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier4#bay3/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier4#bay3/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier4#bay3/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                                <div class="nomor">4</div>
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier3#bay3/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier3#bay3/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier3#bay3/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                                <div class="nomor">3</div>
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier2#bay3/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier2#bay3/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier2#bay3/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                                <div class="nomor">2</div>
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier1#bay3/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier1#bay3/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier1#bay3/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                                <div class="nomor">1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="px-4">
+                            <div class="row">
+                                <div class="bay">Bay 2</div>
+                            </div>
+                            <div class="row">
+                                <div class="nomor">1</div>
+                                <div class="nomor">2</div>
+                                <div class="nomor">3</div>
+                                <div class="nomor">4</div>
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier6#bay2/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier6#bay2/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier6#bay2/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier5#bay2/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier5#bay2/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier5#bay2/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier4#bay2/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier4#bay2/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier4#bay2/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier3#bay2/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier3#bay2/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier3#bay2/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier2#bay2/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier2#bay2/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier2#bay2/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier1#bay2/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier1#bay2/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier1#bay2/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="px-4">
+                            <div class="row">
+                                <div class="bay">Bay 4</div>
+                            </div>
+                            <div class="row">
+                                <div class="nomor">1</div>
+                                <div class="nomor">2</div>
+                                <div class="nomor">3</div>
+                                <div class="nomor">4</div>
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier6#bay4/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier6#bay4/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier6#bay4/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier5#bay4/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier5#bay4/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier5#bay4/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier4#bay4/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier4#bay4/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier4#bay4/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier3#bay4/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier3#bay4/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier3#bay4/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier2#bay4/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier2#bay4/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier2#bay4/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                            </div>
+                            <div class="row">
+                                @foreach([1,2,3,4] as $i)
+                                <div
+                                    class="space {{ preg_grep('/row'.$i.'#tier1#bay4/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    @php
+                                    if(preg_grep('/row'.$i.'#tier1#bay4/', $arrPlot)){
+                                    $arrVal = preg_grep('/row'.$i.'#tier1#bay4/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    }
+                                    else{
+                                    $value = "";
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4)}}</div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 px-5">
+                    <form action="{{ route('export.ca-push') }}" method="post">
+                        @csrf
                         <div class="row">
                             <label for="cbKontainer" class="combobox-title">Kontainer</label>
                             <div class="row">
                                 <select name="kontainer" id="cbKontainer" class="form-select combobox">
-                                    <option value="1">a</option>
-                                    <option value="2">b</option>
-                                    <option value="3">c</option>
-                                    <option value="4">d</option>
+                                    @foreach($containerShips as $contShip)
+                                    <option value="{{ $contShip->id }}">{{ $contShip->code }} ({{
+                                        number_format($contShip->stuff_weight,2,',','.') }}kg)
+                                    </option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -402,13 +661,13 @@
                         <div class="row py-5">
                             <button type="submit" class="btn btn-primary button-layout">Simpan Kontainer</button>
                         </div>
-                        <div class="row py-3">
-                            <button type="button" class="btn btn-info button-layout"
-                            data-bs-toggle="modal" data-bs-target="#listContainerModal">List
+                    </form>
+                    <div class="row py-3">
+                        <button type="button" class="btn btn-info button-layout" data-bs-toggle="modal"
+                            data-bs-target="#listContainerModal">List
                             Kontainer</button>
-                        </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -428,18 +687,18 @@
                                 <th class="border-0">No</th>
                                 <th>Nomor Kontainer</th>
                                 <th>Kota</th>
-                                <th>Status</th>
-                                <th>Edit</th>
+                                <th>Bobot</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($listContainer as $key => $lCont)
                             <tr>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>0</td>
+                                <td>{{ $key+1 }}</td>
+                                <td>{{ $lCont->code }}</td>
+                                <td>{{ $lCont->city }}</td>
+                                <td>{{number_format($lCont->stuff_weight,2,',','.')}}kg</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -451,4 +710,5 @@
     </script>
     <script type="text/javascript"></script>
 </body>
+
 </html>
