@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Period;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -26,7 +28,26 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    public function redirectTo()
+    {
+        $role = Auth::user()->role;
+            if ($role == 'admin') {
+                return '/admin';
+            } else if ($role == 'player') {
+                $activePeriod = Period::where('status', '!=', 'standby')->first();
+                if ($activePeriod->name == 'export') {
+                    return '/export';
+                }
+                else if($activePeriod->name == 'import'){
+                    return '/import';
+                }
+                else if($activePeriod->name == 'exportimport'){
+                    return '/exportimport';
+                }
+            } else if ($role == 'penpos') {
+                return '/penpos';
+            }
+    }
 
     /**
      * Create a new controller instance.

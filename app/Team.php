@@ -20,6 +20,6 @@ class Team extends Model
     
     public function user()
     {
-        return $this->hasOne(User::class, 'team_id');
+        return $this->hasOne(User::class);
     }
 }
