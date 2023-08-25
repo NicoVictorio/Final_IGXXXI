@@ -5,13 +5,22 @@ namespace App\Http\Controllers;
 use App\Container;
 use App\ContainerProduct;
 use App\Demand;
+use App\Period;
 use App\ShippingContainer;
 use App\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class DepoAgentController extends Controller
 {
+    // Penpos
+    public function indexPenpos(){
+        $activePeriod = Period::where('status', '!=', 'standby')->first();
+        if($activePeriod->name=='export'){
+            return redirect('/export/penpos-qc');
+        }
+    }
     // Export
     public function indexExport()
     {
@@ -20,17 +29,19 @@ class DepoAgentController extends Controller
 
     public function showDAExportPage()
     {
-        $listContainers = ShippingContainer::select('id', 'team_id', 'container_id', 'code', 'volume_status', 'weight_status', 'city', 'period_id')->where('team_id', '1')->where('period_id', '1')->get();
+        $teamId = Auth::user()->team->id;
+        $listContainers = ShippingContainer::select('id', 'team_id', 'container_id', 'code', 'volume_status', 'weight_status', 'city', 'period_id')->where('team_id', $teamId)->where('period_id', '1')->get();
 
         return view('export.depo-agent', compact('listContainers'));
     }
 
     public function showDAExportAddContainer()
     {
+        $teamId = Auth::user()->team->id;
         $containers = Container::all();
         $demands = Demand::where('period_id', '1')->get();
         foreach ($demands as $d) {
-            $jmlhMasuk = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='1' and sc.period_id='1' and cp.demand_id='" . $d->id . "'"))[0]->jmlh;
+            $jmlhMasuk = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='".$teamId."' and sc.period_id='1' and cp.demand_id='" . $d->id . "'"))[0]->jmlh;
             $d->quantity -= $jmlhMasuk;
         }
 
@@ -40,16 +51,17 @@ class DepoAgentController extends Controller
     public function showDAExportEditContainer(ShippingContainer $ShippingContainer)
     {
         // Nanti kasih pengecekan yang boleh akses ini cuma User yang Punya Kontainer aja!
+        $teamId = Auth::user()->team->id;
         $sContainer = $ShippingContainer;
         if (($sContainer->volume_status == 'safe' || $sContainer->volume_status == 'less') && $sContainer->weight_status == 'safe') {
             return redirect()->back();
         } else {
             $demands = Demand::where('period_id', '1')->get();
             foreach ($demands as $d) {
-                $jmlhMasuk = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='1' and sc.period_id='1' and cp.demand_id='" . $d->id . "'"))[0]->jmlh;
+                $jmlhMasuk = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='".$teamId."' and sc.period_id='1' and cp.demand_id='" . $d->id . "'"))[0]->jmlh;
                 $d->quantity -= $jmlhMasuk;
 
-                $jmlhMasukContainer = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='1' and sc.period_id='1' and cp.demand_id='" . $d->id . "' and cp.shipping_id='" . $sContainer->id . "'"))[0]->jmlh;
+                $jmlhMasukContainer = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='".$teamId."' and sc.period_id='1' and cp.demand_id='" . $d->id . "' and cp.shipping_id='" . $sContainer->id . "'"))[0]->jmlh;
                 $d->quantity += $jmlhMasukContainer;
                 $d->jmlhProdukMasuk = $jmlhMasukContainer;
             }
@@ -61,11 +73,12 @@ class DepoAgentController extends Controller
     public function saveExportContainer(Request $request)
     {
         $requests = $request->all();
+        $teamId = Auth::user()->team->id;
         $containerId = $request->get('container');
         $container = Container::find($containerId);
 
         $containerCode = "";
-        $jmlhContainerPerTim = DB::select(DB::raw("select count(sc.id) as 'jmlh' from shipping_container sc inner join containers c on sc.container_id=c.id where sc.team_id='1' and sc.period_id='1' and c.name='" . $container->name . "'"))[0]->jmlh * 1 + 1;
+        $jmlhContainerPerTim = DB::select(DB::raw("select count(sc.id) as 'jmlh' from shipping_container sc inner join containers c on sc.container_id=c.id where sc.team_id='".$teamId."' and sc.period_id='1' and c.name='" . $container->name . "'"))[0]->jmlh * 1 + 1;
 
         if ($container->size == '20ft') {
             $containerCode .= "2";
@@ -117,7 +130,7 @@ class DepoAgentController extends Controller
         }
 
         $newShipping = new ShippingContainer();
-        $newShipping->team_id = 1; //NANTI GANTI KE AUTH ID
+        $newShipping->team_id = Auth::user()->team->id;
         $newShipping->container_id = $containerId;
         $newShipping->period_id = 1;
         $newShipping->code = $containerCode;

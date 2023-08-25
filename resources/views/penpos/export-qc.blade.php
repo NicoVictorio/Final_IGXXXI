@@ -84,6 +84,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    {{-- LOGOUT --}}
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-block btn-outline-danger shadow m-2 button-logout"><i
+                                class="btn-logout"></i> Log Out</button>
+                    </form>
                     <div class="row mb-3">
                         <div class="col-4">
                             <select name="team" id="cbTeam" class="form-select">
@@ -133,7 +139,8 @@
                                             </tr>
                                             @if (count($containerShips) == 0)
                                                 <tr>
-                                                    <td colspan="7" class="text-center fw-bold text-danger">Tim Ini Belum
+                                                    <td colspan="7" class="text-center fw-bold text-danger">Tim Ini
+                                                        Belum
                                                         Memiliki Kontainer</td>
                                                 </tr>
                                             @else
@@ -151,7 +158,9 @@
                                                         @else
                                                             <td>{{ ucwords($containerShip->weight_status) }}</td>
                                                         @endif
-                                                        @if (($containerShip->volume_status == 'safe' || $containerShip->volume_status == 'less') && $containerShip->weight_status == 'safe')
+                                                        @if (
+                                                            ($containerShip->volume_status == 'safe' || $containerShip->volume_status == 'less') &&
+                                                                $containerShip->weight_status == 'safe')
                                                             <td><span class="badge bg-success">Accepted</span></td>
                                                         @elseif($containerShip->volume_status == null || $containerShip->weight_status == null)
                                                             <td><span class="badge bg-warning">Belum QC</span></td>
@@ -171,7 +180,8 @@
                                                             <form action="{{ route('export.qcpenposproses') }}"
                                                                 method="post">
                                                                 @csrf
-                                                                <input type="hidden" name="shipping_container_id" value="{{ $containerShip->id }}">
+                                                                <input type="hidden" name="shipping_container_id"
+                                                                    value="{{ $containerShip->id }}">
                                                                 <button type="submit" class="btn btn-primary">Proses
                                                                     QC</button>
                                                             </form>
@@ -223,7 +233,11 @@
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
                     alert('Terjadi Kesalahan, Hubungi SI.\nError Message [View Detail Modal]: ' + errorThrown);
-                    $('#contentDetailModal').html('<div class="modal-body"><h3 class="text-danger fw-bold text-center">Terjadi Kesalahan, Hubungi SI.</h3><p class="mb-0 fw-bold">ID Shipping: '+idShipping+'</p><p class="mb-0 fw-bold">Error Message [View Detail Modal]:</p><p>' + errorThrown + '</p></div>');
+                    $('#contentDetailModal').html(
+                        '<div class="modal-body"><h3 class="text-danger fw-bold text-center">Terjadi Kesalahan, Hubungi SI.</h3><p class="mb-0 fw-bold">ID Shipping: ' +
+                        idShipping +
+                        '</p><p class="mb-0 fw-bold">Error Message [View Detail Modal]:</p><p>' +
+                        errorThrown + '</p></div>');
                 }
             })
         }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ShippingContainer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ContainerAgentController extends Controller
@@ -11,8 +12,7 @@ class ContainerAgentController extends Controller
     // Export
     public function showCAExportPage()
     {
-        // INI HARUS DIGANTI KLO SUDAH AUTH!
-        $idTeam = 1;
+        $idTeam = Auth::user()->team->id;
         $containerShips = ShippingContainer::whereRaw("(volume_status='safe' or volume_status='less') and weight_status='safe'")->where('row', null)->where('tier', null)->where('bay', null)->where('team_id', $idTeam)->get();
         $listContainer = ShippingContainer::whereRaw("(volume_status='safe' or volume_status='less') and weight_status='safe'")->where('team_id', $idTeam)->get();
 
@@ -46,8 +46,7 @@ class ContainerAgentController extends Controller
         $tier = $request->get('tier');
         $bay = $request->get('bay');
 
-        // NANTI KLO SDH AUTH, GANTI!
-        $idTeam = 1;
+        $idTeam = Auth::user()->team->id;
 
         $cekSama = DB::select(DB::raw("select count(id) as 'count' from shipping_container where (volume_status='safe' or volume_status='less') and weight_status='safe' and team_id='" . $idTeam . "' and 'row'='" . $row . "' and tier='" . $tier . "' and bay='" . $bay . "'"))[0]->count * 1;
 
