@@ -91,6 +91,13 @@
             font-weight: 500;
             color:#2c56a7;
         }
+        .modal-crane {
+            font-size: 15px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            color: white;
+            background: orange!important;
+        }
     </style>
 </head>
 <body>
@@ -152,7 +159,7 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-end px-1 py-2" style="bottom: 5%">
+        <div class="d-flex justify-content-end px-1" style="bottom: 5%">
             <button type="button" class="btn btn-info button-list-kontainer" data-bs-toggle="modal" data-bs-target="#listContainerModal">List Kontainer</button>
         </div>
     </div>
@@ -263,21 +270,6 @@
 
                     <table class="table table-bordered modal-table">
                         <tr>
-                            <th class="modal-table-title col-8" colspan="3">Yard Crane traverse travel time (in minute, per row)</th>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <th class="modal-table-title col-8" colspan="3">Yard Crane gantry travel time (in minute, per bay)</th>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <th class="modal-table-title col-8" colspan="3">Yard Crane's current bay position</th>
-                            <td>1</td>
-                        </tr>
-                    </table>
-
-                    <table class="table table-bordered modal-table">
-                        <tr>
                             <td class="modal-table-title col-8">Yard Crane traverse travel time (in minute, per row)</th>
                             <td>1</td>
                         </tr>
@@ -289,6 +281,57 @@
                             <td class="modal-table-title col-8">Yard Crane's current bay position</th>
                             <td>1</td>
                         </tr>
+                    </table>
+
+                    <table class="table table-bordered modal-table border-0 text-center">
+                        <thead class="modal-table-title">
+                            <tr>
+                                <th colspan="15">Sequence 0</th>
+                            </tr>
+                            <tr>
+                                <th colspan="3" rowspan="2"></th>
+                                <th colspan="12">Bay (top view)</th>
+                            </tr>
+                            <tr>
+                                <th style="width: 70px;">1</th>
+                                <th style="width: 70px;">2</th>
+                                <th style="width: 70px;">3</th>
+                                <th style="width: 70px;">4</th>
+                                <th style="width: 70px;">5</th>
+                                <th style="width: 70px;">6</th>
+                                <th style="width: 70px;">7</th>
+                                <th style="width: 70px;">8</th>
+                                <th style="width: 70px;">9</th>
+                                <th style="width: 70px;">10</th>
+                                <th style="width: 70px;">11</th>
+                                <th style="width: 70px;">12</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="modal-table-title"rowspan="4">Row</td>
+                                <td class="modal-table-title">4</td>
+                                <td class="modal-table-title">Marshall</td>
+                            </tr>
+                            <tr>
+                                <td class="modal-table-title">3</td>
+                                <td class="modal-table-title">Depo</td>
+                            </tr>
+                            <tr>
+                                <td class="modal-table-title">2</td>
+                                <td class="modal-table-title">Pick Up</td>
+                            </tr>
+                            <tr>
+                                <td class="modal-table-title">1</td>
+                                <td class="modal-table-title">Drop Off</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="modal-table-title" colspan="3">0</td>
+                                <td class="modal-crane">Crane</td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
