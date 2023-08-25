@@ -81,7 +81,7 @@ class ContainerSeeder extends Seeder
                 'weight' => '32350',
                 'min_weight' => '0',
                 'max_weight' => '32350',
-                'size' => null,
+                'size' => '21000L',
             ],
             [
                 'name' => 'Tank Container',
@@ -91,7 +91,7 @@ class ContainerSeeder extends Seeder
                 'weight' => '32270',
                 'min_weight' => '0',
                 'max_weight' => '32270',
-                'size' => null,
+                'size' => '24000L',
             ],
             [
                 'name' => 'Tank Container',
@@ -101,7 +101,7 @@ class ContainerSeeder extends Seeder
                 'weight' => '32100',
                 'min_weight' => '0',
                 'max_weight' => '32100',
-                'size' => null,
+                'size' => '25000L',
             ],
             [
                 'name' => 'Tank Container',
@@ -111,7 +111,7 @@ class ContainerSeeder extends Seeder
                 'weight' => '31940',
                 'min_weight' => '0',
                 'max_weight' => '31940',
-                'size' => null,
+                'size' => '26000L',
             ],
         ];
         DB::table('containers')->insert($container);
