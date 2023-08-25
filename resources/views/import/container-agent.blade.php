@@ -67,6 +67,30 @@
             background: #2C56A7;
             color: white;
         }
+
+        /* STYLE MODAL */
+        .modal-title {
+            font-size: 50px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            color:#2c56a7;
+        }
+        .modal-body {
+            background: rgb(228,242,252);
+        }
+        .modal-table-title {
+            font-size: 17px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 550;
+            color: white;
+            background: #2c56a7!important;
+        }
+        .modal-table {
+            font-size: 15px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            color:#2c56a7;
+        }
     </style>
 </head>
 <body>
@@ -143,128 +167,127 @@
                 </div>
                 <div class="modal-body">
                     <table class="table table-bordered modal-table">
-                        <tr class="modal-table-title">
-                            <th>Jenis Kontainer</th>
-                            <th>Ukuran</th>
-                            <th>20 Feet</th>
-                            <th>40 Feet</th>
-                        </tr>
-                        <!-- General Container -->
+                        <thead class="modal-table-title">
+                            <tr>
+                                <th>Receiving container number</th>
+                                <th>Container number</th>
+                                <th>Current row position</th>
+                                <th>Current bay position</th>
+                                <th>Target row position</th>
+                                <th>Target bay position</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td></td>
+                                <td>4</td>
+                                <td>2</td>
+                                <td>1</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td></td>
+                                <td>4</td>
+                                <td>4</td>
+                                <td>1</td>
+                                <td>9</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td></td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>1</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td></td>
+                                <td>4</td>
+                                <td>`</td>
+                                <td>1</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td></td>
+                                <td>4</td>
+                                <td>6</td>
+                                <td>1</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td></td>
+                                <td>4</td>
+                                <td>11</td>
+                                <td>1</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td></td>
+                                <td>4</td>
+                                <td>9</td>
+                                <td>1</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td></td>
+                                <td>4</td>
+                                <td>7</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td></td>
+                                <td>4</td>
+                                <td>8</td>
+                                <td>1</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td></td>
+                                <td>4</td>
+                                <td>10</td>
+                                <td>1</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table table-bordered modal-table">
                         <tr>
-                            <td rowspan="5" class="fw-bold align-middle">General Container</td>
-                            <td>Panjang</td>
-                            <td>6,06 m</td>
-                            <td>12,19 m</td>
+                            <th class="modal-table-title col-8" colspan="3">Yard Crane traverse travel time (in minute, per row)</th>
+                            <td>1</td>
                         </tr>
                         <tr>
-                            <td>Lebar</td>
-                            <td>2,44 m</td>
-                            <td>2,44 m</td>
+                            <th class="modal-table-title col-8" colspan="3">Yard Crane gantry travel time (in minute, per bay)</th>
+                            <td>2</td>
                         </tr>
                         <tr>
-                            <td>Tinggi</td>
-                            <td>2,59 m</td>
-                            <td>2,59 m</td>
-                        </tr>
-                        <tr>
-                            <td>Payload Capacity</td>
-                            <td>25.000 kg</td>
-                            <td>27.000 kg</td>
-                        </tr>
-                        <tr>
-                            <td>Volume</td>
-                            <td>38,296 m<sup>3</sup></td>
-                            <td>77,0359 m<sup>3</sup></td>
-                        </tr>
-                        <!-- Refrigerated Container -->
-                        <tr>
-                            <td rowspan="5" class="fw-bold align-middle">Refrigerated Container</td>
-                            <td>Panjang</td>
-                            <td>6,06 m</td>
-                            <td>12,19 m</td>
-                        </tr>
-                        <tr>
-                            <td>Lebar</td>
-                            <td>2,44 m</td>
-                            <td>2,44 m</td>
-                        </tr>
-                        <tr>
-                            <td>Tinggi</td>
-                            <td>2,59 m</td>
-                            <td>2,59 m</td>
-                        </tr>
-                        <tr>
-                            <td>Payload Capacity</td>
-                            <td>25.000 kg</td>
-                            <td>27.000 kg</td>
-                        </tr>
-                        <tr>
-                            <td>Volume</td>
-                            <td>38,296 m<sup>3</sup></td>
-                            <td>77,0359 m<sup>3</sup></td>
-                        </tr>
-                        <!-- Fantainer/Ventilation -->
-                        <tr>
-                            <td rowspan="5" class="fw-bold align-middle">Refrigerated Container</td>
-                            <td>Panjang</td>
-                            <td>6,06 m</td>
-                            <td>12,19 m</td>
-                        </tr>
-                        <tr>
-                            <td>Lebar</td>
-                            <td>2,44 m</td>
-                            <td>2,44 m</td>
-                        </tr>
-                        <tr>
-                            <td>Tinggi</td>
-                            <td>2,59 m</td>
-                            <td>2,59 m</td>
-                        </tr>
-                        <tr>
-                            <td>Payload Capacity</td>
-                            <td>25.000 kg</td>
-                            <td>27.000 kg</td>
-                        </tr>
-                        <tr>
-                            <td>Volume</td>
-                            <td>38,296 m<sup>3</sup></td>
-                            <td>77,0359 m<sup>3</sup></td>
+                            <th class="modal-table-title col-8" colspan="3">Yard Crane's current bay position</th>
+                            <td>1</td>
                         </tr>
                     </table>
 
                     <table class="table table-bordered modal-table">
-                        <tr class="modal-table-title">
-                            <th colspan="4">Kontainer Tank</th>
-                        </tr>
-                        <tr class="modal-table-title">
-                            <th>Capacity</th>
-                            <th>Gross Weight</th>
-                            <th>Tare Weight</th>
-                            <th>Payload</th>
+                        <tr>
+                            <td class="modal-table-title col-8">Yard Crane traverse travel time (in minute, per row)</th>
+                            <td>1</td>
                         </tr>
                         <tr>
-                            <td>21.000L</td>
-                            <td>36.000kg</td>
-                            <td>3.650kg</td>
-                            <td>32.350kg</td>
+                            <td class="modal-table-title col-8">Yard Crane gantry travel time (in minute, per bay)</th>
+                            <td>2</td>
                         </tr>
                         <tr>
-                            <td>24.000L</td>
-                            <td>36.000kg</td>
-                            <td>3.730kg</td>
-                            <td>32.270kg</td>
-                        </tr>
-                        <tr>
-                            <td>25.000L</td>
-                            <td>36.000kg</td>
-                            <td>3.900kg</td>
-                            <td>32.100kg</td>
-                        </tr>
-                        <tr>
-                            <td>26.000L</td>
-                            <td>36.000kg</td>
-                            <td>4.060kg</td>
-                            <td>31.940kg</td>
+                            <td class="modal-table-title col-8">Yard Crane's current bay position</th>
+                            <td>1</td>
                         </tr>
                     </table>
                 </div>

@@ -302,7 +302,7 @@ class DepoAgentController extends Controller
     }
     public function showDAImportPage()
     {
-        $listContainers = ShippingContainer::select('id', 'team_id', 'container_id', 'code', 'volume_status', 'weight_status', 'ship_date', 'period_id')->where('team_id', '1')->where('period_id', '1')->get();
+        $listContainers = ShippingContainer::select('id', 'team_id', 'container_id', 'code', 'volume_status', 'weight_status', 'city', 'period_id')->where('team_id', '1')->where('period_id', '1')->get();
 
         return view('import.depo-agent', compact('listContainers'));
     }

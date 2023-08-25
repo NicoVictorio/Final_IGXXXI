@@ -173,7 +173,7 @@
                                 <tbody class="table-text">
                                     @foreach ($demands as $demand)
                                         <tr>
-                                            <td class="">{{ $demand->name }}</td>
+                                            <td class="text-center">{{ $demand->name }}</td>
                                             <td class="text-center">{{ $demand->volume }} m<sup>3</sup></td>
                                             <td class="text-center">{{ $demand->quantity }}</td>
                                             <td class="text-center">{{ $demand->weight }}</td>
@@ -269,7 +269,7 @@
                         </tr>
                         <!-- Fantainer/Ventilation -->
                         <tr>
-                            <td rowspan="5" class="fw-bold align-middle">Refrigerated Container</td>
+                            <td rowspan="5" class="fw-bold align-middle">Fantainer/Ventilation</td>
                             <td>Panjang</td>
                             <td>6,06 m</td>
                             <td>12,19 m</td>

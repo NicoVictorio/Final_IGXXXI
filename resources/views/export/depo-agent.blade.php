@@ -67,6 +67,7 @@
             background: #2C56A7;
             color: white;
         }
+        
         .button-kirim-kontainer {
             border: 3px solid #2C56A7;
             background: #2C56A7;
@@ -107,7 +108,7 @@
                         <table class="table table-centered table-bordered table-wrap">
                             <thead>
                                 <tr class="table-title">
-                                    <th class="border-0">No</th>
+                                    <th class="border-0 text-center">No</th>
                                     <th class="border-0 text-center">Nomor Kontainer</th>
                                     <th class="border-0 text-center">Destinasi</th>
                                     <th class="border-0 text-center">Status</th>
@@ -129,19 +130,19 @@
                                             @if (
                                                 ($lContainer->volume_status == 'safe' || $lContainer->volume_status == 'less') &&
                                                     $lContainer->weight_status == 'safe')
-                                                <td><span class="badge bg-success">Accepted</span></td>
+                                                <td style="text-align: center;"><span class="badge bg-success">Accepted</span></td>
                                             @elseif($lContainer->volume_status == null || $lContainer->weight_status == null)
-                                                <td><span class="badge bg-warning">Belum QC</span></td>
+                                                <td style="text-align: center;"><span class="badge bg-warning">Belum QC</span></td>
                                             @elseif($lContainer->volume_status == 'edit' || $lContainer->weight_status == 'edit')
-                                                <td><span class="badge bg-warning">Hasil Edit Belum QC</span></td>
+                                                <td style="text-align: center;"><span class="badge bg-warning">Hasil Edit Belum QC</span></td>
                                             @else
-                                                <td><span class="badge bg-danger">Rejected</span></td>
+                                                <td style="text-align: center;"><span class="badge bg-danger">Rejected</span></td>
                                             @endif
                                             @if (
                                                 ($lContainer->volume_status != 'safe' && $lContainer->volume_status != 'less') ||
                                                     $lContainer->weight_status != 'safe')
-                                                <td><a href="{{ route('export.da-editcontainer', $lContainer->id) }}"
-                                                        class="btn btn-primary">Edit Kontainer</a></td>
+                                                <td style="text-align: center;"><a href="{{ route('export.da-editcontainer', $lContainer->id) }}"
+                                                        class="btn btn-primary button-tambah-kontainer">Edit Kontainer</a></td>
                                             @else
                                             <td>OK</td>
                                             @endif

@@ -52,6 +52,16 @@
             font-weight: 700;
             color:#2c56a7;
         }
+        .combobox {
+            border: 3px solid #2C56A7;
+            border-radius: 1.5rem;
+            color: #2C56A7;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.5rem 1.6rem;
+        }
     </style>
 </head>
 
@@ -95,7 +105,13 @@
                                     <td>0</td>
                                     <td>0</td>
                                     <td>0</td>
-                                    <td>0</td>
+                                    <td>
+                                        <select name="tier" id="cbtier" class="form-select combobox">
+                                            <option value="none">-</option>
+                                            <option value="accepted">Accepted</option>
+                                            <option value="rejected">Rejeced</option>
+                                        </select>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
