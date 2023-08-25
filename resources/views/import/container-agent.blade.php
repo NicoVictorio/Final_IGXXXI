@@ -97,6 +97,7 @@
             font-weight: 500;
             color: white;
             background: orange!important;
+            text-align: center;
         }
     </style>
 </head>

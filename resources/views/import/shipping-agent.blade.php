@@ -10,123 +10,173 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            background: url("/assets/bg-agent.png") no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            margin: 0px;
+            width: 100%;
+        }
+
+        .title {
+            padding-top: 20px;
+            font-family: "Montserrat", sans-serif;
+            font-size: 60px;
+            color: #2c56a7;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+        .table-title {
+            font-size: 17px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 550;
+            color: white;
+            background: #2c56a7!important;
+            text-align: center;
+        }
+        .table {
+            background: white;
+            font-size: 15px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            color:#2c56a7;
+        }
+        .crane {
+            font-size: 15px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            color: white;
+            background: orange!important;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="depo">
+    <div class="container">
         <div class="text-center">
-            <h1 class="title text-center fw-bolder">Shipping Agent</h1>
+            <h1 class="title text-center fw-bolder">CONTAINER AGENT</h1>
         </div>
-        <div class="row">
-            <div class="col-8">
-                <label for="kontainer">Tier: </label> 
-                <select name="tier" id="tier">
-                    <option value="86">86</option>
-                    <option value="84">84</option>
-                    <option value="82">82</option>
-                </select>
-                <div class="table-responsive">
-                    <table class="table table-centered table-wrap">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th class="title" colspan="12">Bay (top view)</th>
-                            </tr>
-                            <tr>
-                                <th colspan="7"></th>
-                                <th class="title">7</th>
-                                <th class="title">5</th>
-                                <th class="title">3</th>
-                                <th class="title">1</th>
-                                <th class="title">2</th>
-                                <th class="title">4</th>
-                                <th class="title">6</th>
-                                <th class="title">8</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="title" rowspan="4">Row</td>
-                                <td class="title">4</td>
-                            </tr>
-                            <tr>
-                                <td class="title">3</td>
-                            </tr>
-                            <tr>
-                                <td class="title">2</td>
-                            </tr>
-                            <tr>
-                                <td class="title">1</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="3">0</td>
-                                <td class="crane">Crane</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="table-responsive">
-                    <table class="table table-centered table-wrap">
-                        <tbody>
-                            <tr>
-                                <td>Yard Crane traverse travel time (in minute, per row)</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>Yard Crane gantry travel time (in minute, per bay)</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td>Yard Crane's current bay position</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>Yard Crane traverse travel time (in minute, per tier)</td>
-                                <td>0,5</td>
-                            </tr>
-                            <tr>
-                                <td>Yard Crane's current tier position</td>
-                                <td>90</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="table-responsive">
-                <table class="table table-centered table-bordered table-wrap">
-                    <thead>
-                        <tr>
-                            <th class="border-0 text-center">Sequence</th>
-                            <th class="border-0 text-center">Container number</th>
-                            <th class="border-0 text-center">Row position</th>
-                            <th class="border-0 text-center">Bay position</th>
-                            <th class="border-0 text-center">Tier position</th>
-                            <th class="border-0 text-center">Retrieval time (row direction)</th>
-                            <th class="border-0 text-center">Retrieval time (bay direction)</th>
-                            <th class="border-0 text-center">Retrieval time (tier direction)</th>
-                            <th class="border-0 text-center">Total retrieval time (minute)</th>
-                            <th class="border-0 text-center">Completion time (minute)</th>
-                            <th class="border-0 text-center">Due date (minute)</th>
-                            <th class="border-0 text-center">Lateness</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="10"></td>
-                            <td>Total lateness</td>
-                            <td></td>
-                        </tr>
-                    </tfoot>
-                </table>
+        <div class="spacer"></div>
+        <div class="body px-1 py-4">
+            <div class="row">
+                @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    {{-- <a href="{{ route('export.da-addcontainer') }}"
+                        class="btn btn-secondary mb-3 button-tambah-kontainer">Tambah Kontainer</a> --}}
+                    <div class="table-responsive">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-centered table-bordered table-wrap">
+                                    <thead class="table-title">
+                                        <tr>
+                                            <th colspan="10">Tier 86</th>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="2" rowspan="2"></th>
+                                            <th colspan="8">Bay (top view)</th>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 100px;">7</th>
+                                            <th style="width: 100px;">5</th>
+                                            <th style="width: 100px;">3</th>
+                                            <th style="width: 100px;">1</th>
+                                            <th style="width: 100px;">2</th>
+                                            <th style="width: 100px;">4</th>
+                                            <th style="width: 100px;">6</th>
+                                            <th style="width: 100px;">8</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="table-title" rowspan="5" style="width: 100px;">Row</td>
+                                            <td class="table-title" style="width: 100px;">4</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-title" style="width: 100px;">3</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-title" style="width: 100px;">2</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-title" style="width: 100px;">1</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-title" style="width: 100px;">0</td>
+                                            <td class="crane">Crane</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-6">
+                                <table class="table table-bordered table">
+                                    <tr>
+                                        <td class="table-title col-5">Yard Crane traverse travel time (in minute, per row)</th>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="table-title col-5">Yard Crane gantry travel time (in minute, per bay)</th>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="table-title col-5">Yard Crane's current bay position</th>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="table-title col-5">Yard Crane traverse travel time (in minute, per tier)</th>
+                                        <td>0,5</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="table-title col-5">Yard Crane's current tier position</th>
+                                        <td>90</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <table class="table table-bordered table">
+                                <thead class="table-title">
+                                    <tr>
+                                        <th>Sequence</th>
+                                        <th>Container number</th>
+                                        <th>Row position</th>
+                                        <th>Bay position</th>
+                                        <th>Tier position</th>
+                                        <th>Retrieval time (row direction)</th>
+                                        <th>Retrieval time (bay direction)</th>
+                                        <th>Retrieval time (tier direction)</th>
+                                        <th>Total retrieval time (minute)</th>
+                                        <th>Completion time (minute)</th>
+                                        <th>Due date (minute)</th>
+                                        <th>Lateness</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
