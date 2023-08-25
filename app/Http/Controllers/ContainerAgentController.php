@@ -49,7 +49,7 @@ class ContainerAgentController extends Controller
         // NANTI KLO SDH AUTH, GANTI!
         $idTeam = 1;
 
-        $cekSama = DB::select(DB::raw("select count(id) as 'count' from shipping_container where (volume_status='safe' or volume_status='less') and weight_status='safe' and team_id='" . $idTeam . "' and row='" . $row . "' and tier='" . $tier . "' and bay='" . $bay . "'"))[0]->count * 1;
+        $cekSama = DB::select(DB::raw("select count(id) as 'count' from shipping_container where (volume_status='safe' or volume_status='less') and weight_status='safe' and team_id='" . $idTeam . "' and 'row'='" . $row . "' and tier='" . $tier . "' and bay='" . $bay . "'"))[0]->count * 1;
 
         if ($cekSama == 0) {
             $dataContainerShip = ShippingContainer::find($idContainer);
