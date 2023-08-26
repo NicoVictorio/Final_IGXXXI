@@ -412,6 +412,47 @@
                             </div>
                             <div>
                                 <div class="row">
+                                    <div class="bay-ship">Bay 2</div>
+                                </div>
+                                <div class="row">
+                                    <div class="nomor">06</div>
+                                    <div class="nomor">04</div>
+                                    <div class="nomor">02</div>
+                                    <div class="blank">  </div>
+                                    <div class="nomor">01</div>
+                                    <div class="nomor">03</div>
+                                    <div class="nomor">05</div>
+                                </div>
+                                <div class="row">
+                                    <div class="space">  </div>
+                                    <div class="space">  </div>
+                                    <div class="space">  </div>
+                                    <div class="sep">  </div>
+                                    <div class="space">  </div>
+                                    <div class="space">  </div>
+                                    <div class="space">  </div>
+                                </div>
+                                <div class="row">
+                                    <div class="blank">  </div>
+                                    <div class="space">  </div>
+                                    <div class="space">  </div>
+                                    <div class="sep">  </div>
+                                    <div class="space">  </div>
+                                    <div class="space">  </div>
+                                    <div class="blank">  </div>
+                                </div>
+                                <div class="row">
+                                    <div class="blank">  </div>
+                                    <div class="space">  </div>
+                                    <div class="space">  </div>
+                                    <div class="sep">  </div>
+                                    <div class="space">  </div>
+                                    <div class="space">  </div>
+                                    <div class="blank">  </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
                                     <div class="bay-ship">Bay 3</div>
                                 </div>
                                 <div class="row">
@@ -453,48 +494,7 @@
                             </div>
                             <div>
                                 <div class="row">
-                                    <div class="bay-ship">Bay 5</div>
-                                </div>
-                                <div class="row">
-                                    <div class="nomor">06</div>
-                                    <div class="nomor">04</div>
-                                    <div class="nomor">02</div>
-                                    <div class="blank">  </div>
-                                    <div class="nomor">01</div>
-                                    <div class="nomor">03</div>
-                                    <div class="nomor">05</div>
-                                </div>
-                                <div class="row">
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="sep">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                </div>
-                                <div class="row">
-                                    <div class="blank">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="sep">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="blank">  </div>
-                                </div>
-                                <div class="row">
-                                    <div class="blank">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="sep">  </div>
-                                    <div class="space">  </div>
-                                    <div class="space">  </div>
-                                    <div class="blank">  </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="row">
-                                    <div class="bay-ship">Bay 7</div>
+                                    <div class="bay-ship">Bay 4</div>
                                 </div>
                                 <div class="row">
                                     <div class="nomor">06</div>
