@@ -15,9 +15,10 @@ use Illuminate\Support\Facades\DB;
 class DepoAgentController extends Controller
 {
     // Penpos
-    public function indexPenpos(){
+    public function indexPenpos()
+    {
         $activePeriod = Period::where('status', '!=', 'standby')->first();
-        if($activePeriod->name=='export'){
+        if ($activePeriod->name == 'export') {
             return redirect('/export/penpos-qc');
         }
     }
@@ -41,7 +42,7 @@ class DepoAgentController extends Controller
         $containers = Container::all();
         $demands = Demand::where('period_id', '1')->get();
         foreach ($demands as $d) {
-            $jmlhMasuk = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='".$teamId."' and sc.period_id='1' and cp.demand_id='" . $d->id . "'"))[0]->jmlh;
+            $jmlhMasuk = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='" . $teamId . "' and sc.period_id='1' and cp.demand_id='" . $d->id . "'"))[0]->jmlh;
             $d->quantity -= $jmlhMasuk;
         }
 
@@ -58,10 +59,10 @@ class DepoAgentController extends Controller
         } else {
             $demands = Demand::where('period_id', '1')->get();
             foreach ($demands as $d) {
-                $jmlhMasuk = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='".$teamId."' and sc.period_id='1' and cp.demand_id='" . $d->id . "'"))[0]->jmlh;
+                $jmlhMasuk = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='" . $teamId . "' and sc.period_id='1' and cp.demand_id='" . $d->id . "'"))[0]->jmlh;
                 $d->quantity -= $jmlhMasuk;
 
-                $jmlhMasukContainer = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='".$teamId."' and sc.period_id='1' and cp.demand_id='" . $d->id . "' and cp.shipping_id='" . $sContainer->id . "'"))[0]->jmlh;
+                $jmlhMasukContainer = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='" . $teamId . "' and sc.period_id='1' and cp.demand_id='" . $d->id . "' and cp.shipping_id='" . $sContainer->id . "'"))[0]->jmlh;
                 $d->quantity += $jmlhMasukContainer;
                 $d->jmlhProdukMasuk = $jmlhMasukContainer;
             }
@@ -78,7 +79,7 @@ class DepoAgentController extends Controller
         $container = Container::find($containerId);
 
         $containerCode = "";
-        $jmlhContainerPerTim = DB::select(DB::raw("select count(sc.id) as 'jmlh' from shipping_container sc inner join containers c on sc.container_id=c.id where sc.team_id='".$teamId."' and sc.period_id='1' and c.name='" . $container->name . "'"))[0]->jmlh * 1 + 1;
+        $jmlhContainerPerTim = DB::select(DB::raw("select count(sc.id) as 'jmlh' from shipping_container sc inner join containers c on sc.container_id=c.id where sc.team_id='" . $teamId . "' and sc.period_id='1' and c.name='" . $container->name . "'"))[0]->jmlh * 1 + 1;
 
         if ($container->size == '20ft') {
             $containerCode .= "2";
@@ -302,8 +303,30 @@ class DepoAgentController extends Controller
     }
     public function showDAImportPage()
     {
-        $listContainers = ShippingContainer::select('id', 'team_id', 'container_id', 'code', 'volume_status', 'weight_status', 'city', 'period_id')->where('team_id', '1')->where('period_id', '3')->get();
+        $listContainers = ShippingContainer::select('id', 'team_id', 'container_id', 'code', 'volume_status', 'weight_status', 'city', 'period_id')->where('team_id', '1')->where('period_id', '2')->get();
+        $idConts = "";
+        foreach ($listContainers as $lCont) {
+            $idConts = $idConts . $lCont->id . ',';
+        }
+        $idConts = rtrim($idConts, ',');
+        $checkBlmJawab = DB::select(DB::raw("select count(demand_id) as 'jmlh' from container_product where final_decision is null and shipping_id in (".$idConts.");"))[0]->jmlh;
 
-        return view('import.depo-agent', compact('listContainers'));
+        return view('import.depo-agent', compact('listContainers', 'checkBlmJawab'));
+    }
+    public function saveDAImport(Request $request)
+    {
+        // KURANG SCORING
+        $shipConts = $request->get('shipCont');
+        $proIds = $request->get('proId');
+        $keputusans = $request->get('keputusan');
+
+        foreach ($shipConts as $key => $sc) {
+            if ($keputusans[$key] == 'accepted') {
+                DB::update("update container_product set final_decision=1 where Demand_id='" . $proIds[$key] . "' and Shipping_id='" . $sc . "'");
+            } else {
+                DB::update("update container_product set final_decision=0 where Demand_id='" . $proIds[$key] . "' and Shipping_id='" . $sc . "'");
+            }
+        }
+        return redirect()->route('import.depo-agent')->with('status', 'Penyimpanan Keputusan Berhasil.');
     }
 }

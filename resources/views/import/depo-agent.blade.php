@@ -68,6 +68,7 @@
             line-height: 1;
             padding: 0.5rem 1.6rem;
         }
+
         .button-kontainer {
             border: 3px solid #2C56A7;
             background: #2C56A7;
@@ -80,12 +81,12 @@
             padding: 0.5rem 1.6rem;
             text-align: center;
         }
+
         .button-kontainer:hover {
             border: 3px solid #2C56A7;
             background: white;
             color: #2C56A7;
         }
-        
     </style>
 </head>
 
@@ -96,6 +97,10 @@
         </div>
         <div class="spacer"></div>
         <div class="body px-5 py-4">
+            @if ($checkBlmJawab != 0)
+                <form action="{{ route('import.da-save') }}" method="post">
+            @endif
+            @csrf
             <div clas="row">
                 <div class="col-12">
                     @if (session('status'))
@@ -123,6 +128,8 @@
                             <tbody class="table-text">
                                 @foreach ($listContainers as $lCont)
                                     @foreach ($lCont->containerProducts as $pro)
+                                        <input type="hidden" name="shipCont[]" value="{{ $lCont->id }}">
+                                        <input type="hidden" name="proId[]" value="{{ $pro->Demand_id }}">
                                         <tr>
                                             <td>{{ $pro->demand->name }}</td>
                                             <td>{{ $pro->quantity }}</td>
@@ -132,13 +139,31 @@
                                             <td>0</td>
                                             <td>0</td>
                                             <td>0</td>
-                                            <td>
-                                                <select name="tier" id="cbtier" class="form-select combobox">
-                                                    <option value="none">-</option>
-                                                    <option value="accepted">Accepted</option>
-                                                    <option value="rejected">Rejeced</option>
-                                                </select>
-                                            </td>
+                                            @if ($pro->final_decision === null)
+                                                <td>
+                                                    <select name="keputusan[]" id="cbtier"
+                                                        class="form-select combobox" required>
+                                                        <option value="" selected disabled>-</option>
+                                                        <option value="accepted">Accepted</option>
+                                                        <option value="rejected">Rejeced</option>
+                                                    </select>
+                                                </td>
+                                            @else
+                                                @if ($pro->final_decision == 1)
+                                                    <td>Accepted</td>
+                                                @else
+                                                    <td>Rejected</td>
+                                                @endif
+                                            @endif
+                                            @if ($pro->final_decision === null)
+                                                <td>-</td>
+                                            @else
+                                                @if ($pro->final_decision == $pro->answer_key)
+                                                    <td><span class="badge bg-success">CORRECT</span></td>
+                                                @else
+                                                    <td><span class="badge bg-danger">WRONG</span></td>
+                                                @endif
+                                            @endif
                                         </tr>
                                     @endforeach
                                 @endforeach
@@ -147,9 +172,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6">
-                <button type="submit" class="btn btn-primary button-kontainer">Simpan</button>
-            </div>
+            @if ($checkBlmJawab != 0)
+                <div class="col-6">
+                    <button type="submit" class="btn btn-primary button-kontainer">Simpan</button>
+                </div>
+                </form>
+            @endif
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
