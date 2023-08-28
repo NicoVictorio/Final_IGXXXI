@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
         body {
-            background: url("/assets/bg-agent.png") no-repeat;  
+            background: url("/assets/bg-agent.png") no-repeat;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -20,6 +20,7 @@
             margin: 0px;
             width: 100%;
         }
+
         .title {
             padding-top: 20px;
             font-family: "Montserrat", sans-serif;
@@ -28,30 +29,35 @@
             font-weight: 900;
             letter-spacing: 1px;
         }
+
         table {
             background: white;
         }
-        .table-title{
+
+        .table-title {
             font-size: 20px;
             font-family: "Montserrat", sans-serif;
             font-weight: 500;
             color: white;
             background: #2c56a7;
         }
+
         .table-text {
             font-size: 20px;
             font-family: "Montserrat", sans-serif;
             font-weight: 500;
-            color:#2c56a7;
+            color: #2c56a7;
         }
+
         .tabel-title {
             font-size: 30px;
             font-family: "Montserrat", sans-serif;
             text-align: center;
             margin-bottom: 10px;
             font-weight: 700;
-            color:#2c56a7;
+            color: #2c56a7;
         }
+
         .combobox {
             border: 3px solid #2C56A7;
             border-radius: 1.5rem;
@@ -85,34 +91,38 @@
                             <thead>
                                 <tr class="table-title">
                                     <th class="border-0 text-center">Paket Produk</th>
-                        <th class="border-0 text-center">Jumlah Produk</th>
-                        <th class="border-0 text-center">General Inspection Level</th>
-                        <th class="border-0 text-center">Inspection level</th>
-                        <th class="border-0 text-center">Acc</th>
-                        <th class="border-0 text-center">Reject</th>
-                        <th class="border-0 text-center">Persentase Kecacatan</th>
-                        <th class="border-0 text-center">Produk Cacat</th>
-                        <th class="border-0 text-center">Keputusan Akhir</th>
+                                    <th class="border-0 text-center">Jumlah Produk</th>
+                                    <th class="border-0 text-center">General Inspection Level</th>
+                                    <th class="border-0 text-center">Inspection level</th>
+                                    <th class="border-0 text-center">Acc</th>
+                                    <th class="border-0 text-center">Reject</th>
+                                    <th class="border-0 text-center">Persentase Kecacatan</th>
+                                    <th class="border-0 text-center">Produk Cacat</th>
+                                    <th class="border-0 text-center">Keputusan Akhir</th>
                                 </tr>
                             </thead>
                             <tbody class="table-text">
-                                <tr>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>
-                                        <select name="tier" id="cbtier" class="form-select combobox">
-                                            <option value="none">-</option>
-                                            <option value="accepted">Accepted</option>
-                                            <option value="rejected">Rejeced</option>
-                                        </select>
-                                    </td>
-                                </tr>
+                                @foreach ($listContainers as $lCont)
+                                    @foreach ($lCont->containerProducts as $pro)
+                                        <tr>
+                                            <td>{{ $pro->demand->name }}</td>
+                                            <td>{{ $pro->quantity }}</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>
+                                                <select name="tier" id="cbtier" class="form-select combobox">
+                                                    <option value="none">-</option>
+                                                    <option value="accepted">Accepted</option>
+                                                    <option value="rejected">Rejeced</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -686,7 +686,7 @@
                             <tr>
                                 <th class="border-0">No</th>
                                 <th>Nomor Kontainer</th>
-                                <th>Kota</th>
+                                <th>Destination</th>
                                 <th>Bobot</th>
                             </tr>
                         </thead>
