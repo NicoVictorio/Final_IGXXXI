@@ -52,13 +52,59 @@
             background: orange!important;
             text-align: center;
         }
+        .button-cek {
+            border: 3px solid #2C56A7;
+            background: white;
+            color: #2C56A7;
+            border-radius: 1.5rem;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.5rem 1.6rem;
+            text-align: center;
+        }
+
+        .button-cek:hover {
+            border: 3px solid #2C56A7;
+            background: #2C56A7;
+            color: white;
+        }
+        .button-kontainer {
+            border: 3px solid #2C56A7;
+            background: #2C56A7;
+            border-radius: 1.5rem;
+            color: white;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.5rem 1.6rem;
+            text-align: center;
+        }
+        .button-kontainer:hover {
+            border: 3px solid #2C56A7;
+            background: white;
+            color: #2C56A7;
+        }
+        .combobox {
+            border: 3px solid #2C56A7;
+            border-radius: 1.5rem;
+            color: #2C56A7;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.5rem 1.6rem;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="text-center">
-            <h1 class="title text-center fw-bolder">CONTAINER AGENT</h1>
+            <h1 class="title text-center fw-bolder">SHIPPING AGENT</h1>
         </div>
         <div class="spacer"></div>
         <div class="body px-1 py-4">
@@ -76,7 +122,13 @@
                                 <table class="table table-centered table-bordered table-wrap">
                                     <thead class="table-title">
                                         <tr>
-                                            <th colspan="10">Tier 86</th>
+                                            <th colspan="10">
+                                                <select name="tier" id="cbTier" class="form-select combobox">
+                                                    <option value="82">Tier 82</option>
+                                                    <option value="84">Tier 84</option>
+                                                    <option value="86">Tier 86</option>
+                                                </select>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th colspan="2" rowspan="2"></th>
@@ -176,6 +228,10 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div class="col-6">
+                        <a type="button" href="{{ route('export.depo-agent') }}" class="btn button-cek">Cek</a>
+                        <button type="submit" class="btn btn-primary button-kontainer">Simpan</button>
                     </div>
             </div>
         </div>

@@ -189,7 +189,7 @@
                             </table>
                         </div>
                         <button type="submit" class="btn btn-primary button-kontainer">Simpan Kontainer</button>
-                        <a type="button" href="{{ route('export.depo-agent') }}" class="btn btn-outline-danger button-batal">Batal</a>
+                        <a href="{{ route('export.da-addcontainer') }}" class="btn btn-secondary mb-3 button-check">Cek Kontainer</a>
                     </form>
                 </div>
             </div>

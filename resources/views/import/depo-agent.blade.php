@@ -68,6 +68,24 @@
             line-height: 1;
             padding: 0.5rem 1.6rem;
         }
+        .button-kontainer {
+            border: 3px solid #2C56A7;
+            background: #2C56A7;
+            border-radius: 1.5rem;
+            color: white;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.5rem 1.6rem;
+            text-align: center;
+        }
+        .button-kontainer:hover {
+            border: 3px solid #2C56A7;
+            background: white;
+            color: #2C56A7;
+        }
+        
     </style>
 </head>
 
@@ -99,6 +117,7 @@
                                     <th class="border-0 text-center">Persentase Kecacatan</th>
                                     <th class="border-0 text-center">Produk Cacat</th>
                                     <th class="border-0 text-center">Keputusan Akhir</th>
+                                    <th class="border-0 text-center">Hasil</th>
                                 </tr>
                             </thead>
                             <tbody class="table-text">
@@ -127,6 +146,9 @@
                         </table>
                     </div>
                 </div>
+            </div>
+            <div class="col-6">
+                <button type="submit" class="btn btn-primary button-kontainer">Simpan</button>
             </div>
         </div>
     </div>
