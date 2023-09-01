@@ -367,6 +367,37 @@
                         </div>
                     </div>
                     <div class="col-8 px-15">
+                        <div class="table-responsive">
+                            <table class="table table-centered table-bordered table-wrap">
+                                <thead>
+                                    <tr class="table-title">
+                                        <th class="border-0 text-center">Total Weight: Bow</th>
+                                        <th class="border-0 text-center">Total Weight: Starboard</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-text">
+                                    <tr>
+                                        <td class="text-center">0</td>
+                                        <td class="text-center">0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table table-centered table-bordered table-wrap">
+                                <thead>
+                                    <tr class="table-title">
+                                        <th class="border-0 text-center" colspan="2">Difference: Port and Starboard</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-text">
+                                    <tr>
+                                        <td class="text-center" colspan="2">0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="col-8 px-15">
                         <h1 class="layout-title">In Deck</h1>
                         <div class="cell">
                             <div>

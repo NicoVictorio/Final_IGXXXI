@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PeriodController;
 use App\Http\Controllers\ContainerAgentController;
 use App\Http\Controllers\DepoAgentController;
 use App\Http\Controllers\ShippingAgentController;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    if (!Auth::check()) {
+    if (!Auth::user()) {
         return redirect('/login');
     } else {
         $role = Auth::user()->role;
@@ -46,7 +47,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::middleware(['auth', 'player'])->group(function () {
     // Export
-    Route::get('/export', [DepoAgentController::class, 'indexExport'])->name('export.index');
+    Route::get('/export', [PeriodController::class, 'indexExport'])->name('export.index');
     Route::get('/export/depo-agent', [DepoAgentController::class, 'showDAExportPage'])->name('export.depo-agent');
     Route::get('/export/depo-agent/add', [DepoAgentController::class, 'showDAExportAddContainer'])->name('export.da-addcontainer');
     Route::post('/export/depo-agent/add', [DepoAgentController::class, 'saveExportContainer'])->name('export.saveexportcontainer');
@@ -55,6 +56,8 @@ Route::middleware(['auth', 'player'])->group(function () {
     Route::post('/export/depo-agent/update', [DepoAgentController::class, 'updateExportContainer'])->name('export.updateexportcontainer');
 
     Route::get('/export/container-agent', [ContainerAgentController::class, 'showCAExportPage'])->name('export.container-agent');
+    Route::post('/export/container-agent/getTier', [ContainerAgentController::class, 'getTierCAExport'])->name('export.ca-gettier');
+    Route::post('/export/container-agent/reset', [ContainerAgentController::class, 'resetPositionCAExport'])->name('export.ca-reset');
     Route::post('/export/container-agent/push', [ContainerAgentController::class, 'pushCAExportBay'])->name('export.ca-push');
 
     Route::get('/export/shipping-agent', [ShippingAgentController::class, 'showSAExportPage'])->name('export.shipping-agent');

@@ -22,52 +22,159 @@ class DepoAgentController extends Controller
             return redirect('/export/penpos-qc');
         }
     }
-    // Export
-    public function indexExport()
+
+    public function qcPenpos(Team $team)
     {
-        return view('export.index');
+        $teamList = Team::orderBy('name', 'asc')->get();
+        $containerShips = ShippingContainer::where('team_id', $team->id)->get();
+        return view('penpos.export-qc', compact('teamList', 'team', 'containerShips'));
+    }
+
+    public function qcPenposProses(Request $request)
+    {
+        $idContainerShip = $request->get('shipping_container_id');
+        $data = ShippingContainer::find($idContainerShip);
+
+        $qcBobot = null;
+        $qcVolume = null;
+        $lossSpace = 0;
+
+        $totalBobot = DB::select(DB::raw("select sum(d.weight*cp.quantity) as 'totalBobot' from container_product cp inner join demands d on cp.demand_id=d.id where shipping_id=" . $data->id . ";"))[0]->totalBobot * 1;
+        $totalVolume = DB::select(DB::raw("select sum(d.volume*cp.quantity) as 'totalVolume' from container_product cp inner join demands d on cp.demand_id=d.id where shipping_id=" . $data->id . ";"))[0]->totalVolume * 1;
+
+        $productsInside = ContainerProduct::where('Shipping_id', $idContainerShip)->get();
+
+        // Cek Jenis Kontainer
+        foreach ($productsInside as $pI) {
+            if (str_contains($pI->demand->container, $data->container->name) == false) {
+                $data->weight_status = 'Jenis Kontainer Salah';
+                $data->volume_status = 'Jenis Kontainer Salah';
+                $data->save();
+
+                return redirect()->route('export.qcpenpos', $data->Team_id)->with('status', 'Proses QC Kontainer ' . $data->code . ' Telah Selesai!');
+            }
+        }
+
+        // Cek Bobot & Volume
+        if ($data->container->name != "Tank Container") {
+            // QC Bobot
+            if ($totalBobot <= $data->container->max_weight) {
+                $qcBobot = 'safe';
+            } else {
+                $qcBobot = 'overload';
+            }
+
+            // QC Volume
+            if ($totalVolume <= $data->container->max_volume && $totalVolume >= (2 / 3.0 * $data->container->max_volume)) {
+                $qcVolume = 'safe';
+            } else if ($totalVolume < (2 / 3.0 * $data->container->max_volume) && $totalVolume >= (1 / 3.0 * $data->container->max_volume)) {
+                $qcVolume = 'less';
+            } else if ($totalVolume < (1 / 3.0 * $data->container->max_volume)) {
+                $qcVolume = 'reject';
+            } else {
+                $qcVolume = 'overload';
+            }
+
+            $lossSpace = $data->container->max_volume - $totalVolume;
+        } else {
+            // Cek Qty Tank > 1
+            if (count($productsInside) > 1 || $productsInside[0]->quantity > 1) {
+                $data->weight_status = 'Kontainer Tank Quantity > 1';
+                $data->volume_status = 'Kontainer Tank Quantity > 1';
+                $data->save();
+
+                return redirect()->route('export.qcpenpos', $data->Team_id)->with('status', 'Proses QC Kontainer ' . $data->code . ' Telah Selesai!');
+            }
+            // QC Bobot
+            if ($totalBobot <= $data->container->max_weight) {
+                $qcBobot = 'safe';
+            } else {
+                $qcBobot = 'overload';
+            }
+
+            // QC Volume
+            if ($totalVolume <= ($data->container->max_volume) && $totalVolume >= ($data->container->max_volume)) {
+                $qcVolume = 'safe';
+            } else {
+                $qcVolume = 'reject';
+            }
+
+            $lossSpace = $data->container->max_volume - $totalVolume;
+        }
+
+        $data->weight_status = $qcBobot;
+        $data->volume_status = $qcVolume;
+        $data->loss_space = $lossSpace;
+        $data->save();
+
+        return redirect()->route('export.qcpenpos', $data->Team_id)->with('status', 'Proses QC Kontainer ' . $data->code . ' Telah Selesai!');
+    }
+
+    public function qcPenposModalDetail(Request $request)
+    {
+        $idShipping = $request->get('idShipping');
+        $dataContainer = ShippingContainer::find($idShipping);
+
+        return response()->json(array('data' => view('penpos.export-modaldetail', compact('dataContainer'))->render()), 200);
     }
 
     public function showDAExportPage()
     {
-        $teamId = Auth::user()->team->id;
-        $listContainers = ShippingContainer::select('id', 'team_id', 'container_id', 'code', 'volume_status', 'weight_status', 'city', 'period_id')->where('team_id', $teamId)->where('period_id', '1')->get();
+        $statusPeriodAktif = Period::select('name', 'status')->where('status', '!=', 'standby')->first();
+        if ($statusPeriodAktif->name == 'export' && $statusPeriodAktif->status == 'depo-agent') {
+            $teamId = Auth::user()->team->id;
+            $listContainers = ShippingContainer::select('id', 'team_id', 'container_id', 'code', 'volume_status', 'weight_status', 'city', 'period_id')->where('team_id', $teamId)->where('period_id', '1')->get();
 
-        return view('export.depo-agent', compact('listContainers'));
+            return view('export.depo-agent', compact('listContainers'));
+        } else {
+            return redirect()->back();
+        }
     }
 
     public function showDAExportAddContainer()
     {
-        $teamId = Auth::user()->team->id;
-        $containers = Container::all();
-        $demands = Demand::where('period_id', '1')->get();
-        foreach ($demands as $d) {
-            $jmlhMasuk = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='" . $teamId . "' and sc.period_id='1' and cp.demand_id='" . $d->id . "'"))[0]->jmlh;
-            $d->quantity -= $jmlhMasuk;
-        }
-
-        return view('export.da-add-container', compact('demands', 'containers'));
-    }
-
-    public function showDAExportEditContainer(ShippingContainer $ShippingContainer)
-    {
-        // Nanti kasih pengecekan yang boleh akses ini cuma User yang Punya Kontainer aja!
-        $teamId = Auth::user()->team->id;
-        $sContainer = $ShippingContainer;
-        if (($sContainer->volume_status == 'safe' || $sContainer->volume_status == 'less') && $sContainer->weight_status == 'safe') {
-            return redirect()->back();
-        } else {
+        $statusPeriodAktif = Period::select('name', 'status')->where('status', '!=', 'standby')->first();
+        if ($statusPeriodAktif->name == 'export' && $statusPeriodAktif->status == 'depo-agent') {
+            $teamId = Auth::user()->team->id;
+            $containers = Container::all();
             $demands = Demand::where('period_id', '1')->get();
             foreach ($demands as $d) {
                 $jmlhMasuk = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='" . $teamId . "' and sc.period_id='1' and cp.demand_id='" . $d->id . "'"))[0]->jmlh;
                 $d->quantity -= $jmlhMasuk;
-
-                $jmlhMasukContainer = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='" . $teamId . "' and sc.period_id='1' and cp.demand_id='" . $d->id . "' and cp.shipping_id='" . $sContainer->id . "'"))[0]->jmlh;
-                $d->quantity += $jmlhMasukContainer;
-                $d->jmlhProdukMasuk = $jmlhMasukContainer;
             }
 
-            return view('export.da-edit-container', compact('demands', 'sContainer'));
+            return view('export.da-add-container', compact('demands', 'containers'));
+        } else {
+            return redirect()->back();
+        }
+    }
+
+    public function showDAExportEditContainer(ShippingContainer $ShippingContainer)
+    {
+        $statusPeriodAktif = Period::select('name', 'status')->where('status', '!=', 'standby')->first();
+        if ($statusPeriodAktif->name == 'export' && $statusPeriodAktif->status == 'depo-agent') {
+            $teamId = Auth::user()->team->id;
+            $sContainer = $ShippingContainer;
+            if ($sContainer->team->id == $teamId) {
+                if (($sContainer->volume_status == 'safe' || $sContainer->volume_status == 'less') && $sContainer->weight_status == 'safe') {
+                    return redirect()->back();
+                } else {
+                    $demands = Demand::where('period_id', '1')->get();
+                    foreach ($demands as $d) {
+                        $jmlhMasuk = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='" . $teamId . "' and sc.period_id='1' and cp.demand_id='" . $d->id . "'"))[0]->jmlh;
+                        $d->quantity -= $jmlhMasuk;
+
+                        $jmlhMasukContainer = DB::select(DB::raw("select sum(cp.quantity) as 'jmlh' from container_product cp inner join shipping_container sc on cp.shipping_id=sc.id where sc.team_id='" . $teamId . "' and sc.period_id='1' and cp.demand_id='" . $d->id . "' and cp.shipping_id='" . $sContainer->id . "'"))[0]->jmlh;
+                        $d->quantity += $jmlhMasukContainer;
+                        $d->jmlhProdukMasuk = $jmlhMasukContainer;
+                    }
+                    return view('export.da-edit-container', compact('demands', 'sContainer'));
+                }
+            } else {
+                return redirect()->back();
+            }
+        } else {
+            return redirect()->back();
         }
     }
 
@@ -99,6 +206,8 @@ class DepoAgentController extends Controller
             }
         } elseif ($container->name == 'Fantainer/Ventilation') {
             $containerCode .= "2V" . $jmlhContainerPerTim;
+        } else {
+            $containerCode .= $jmlhContainerPerTim;
         }
 
         $cekJmlh = [];
@@ -225,77 +334,6 @@ class DepoAgentController extends Controller
         return redirect()->route('export.depo-agent')->with('status', "Berhasil Mengedit Kontainer " . $shipping->code . "!");
     }
 
-    public function qcPenpos(Team $team)
-    {
-        $teamList = Team::orderBy('name', 'asc')->get();
-        $containerShips = ShippingContainer::where('team_id', $team->id)->get();
-        return view('penpos.export-qc', compact('teamList', 'team', 'containerShips'));
-    }
-
-    public function qcPenposProses(Request $request)
-    {
-        $idContainerShip = $request->get('shipping_container_id');
-        $data = ShippingContainer::find($idContainerShip);
-
-        $qcBobot = null;
-        $qcVolume = null;
-        $lossSpace = 0;
-
-        $totalBobot = DB::select(DB::raw("select sum(d.weight*cp.quantity) as 'totalBobot' from container_product cp inner join demands d on cp.demand_id=d.id where shipping_id=" . $data->id . ";"))[0]->totalBobot * 1;
-        $totalVolume = DB::select(DB::raw("select sum(d.volume*cp.quantity) as 'totalVolume' from container_product cp inner join demands d on cp.demand_id=d.id where shipping_id=" . $data->id . ";"))[0]->totalVolume * 1;
-
-        if ($data->container->name != "Tank Container") {
-            // QC Bobot
-            if ($totalBobot <= $data->container->max_weight) {
-                $qcBobot = 'safe';
-            } else {
-                $qcBobot = 'overload';
-            }
-
-            // QC Volume
-            if ($totalVolume <= $data->container->max_volume && $totalVolume >= (2 / 3.0 * $data->container->max_volume)) {
-                $qcVolume = 'safe';
-            } else if ($totalVolume < (2 / 3.0 * $data->container->max_volume) && $totalVolume >= (1 / 3.0 * $data->container->max_volume)) {
-                $qcVolume = 'less';
-            } else if ($totalVolume < (1 / 3.0 * $data->container->max_volume)) {
-                $qcVolume = 'reject';
-            }
-
-            $lossSpace = $data->container->max_volume - $totalVolume;
-        } else {
-            // QC Bobot
-            if ($totalBobot <= $data->container->max_weight) {
-                $qcBobot = 'safe';
-            } else {
-                $qcBobot = 'overload';
-            }
-
-            // QC Volume
-            if ($totalVolume <= (0.95 * $data->container->max_volume) && $totalVolume >= (0.8 * $data->container->max_volume)) {
-                $qcVolume = 'safe';
-            } else {
-                $qcVolume = 'reject';
-            }
-
-            $lossSpace = $data->container->max_volume - $totalVolume;
-        }
-
-        $data->weight_status = $qcBobot;
-        $data->volume_status = $qcVolume;
-        $data->loss_space = $lossSpace;
-        $data->save();
-
-        return redirect()->route('export.qcpenpos', $data->Team_id)->with('status', 'Proses QC Kontainer ' . $data->code . ' Telah Selesai!');
-    }
-
-    public function qcPenposModalDetail(Request $request)
-    {
-        $idShipping = $request->get('idShipping');
-        $dataContainer = ShippingContainer::find($idShipping);
-
-        return response()->json(array('data' => view('penpos.export-modaldetail', compact('dataContainer'))->render()), 200);
-    }
-
     // Import
     public function indexImport()
     {
@@ -310,7 +348,7 @@ class DepoAgentController extends Controller
             $idConts = $idConts . $lCont->id . ',';
         }
         $idConts = rtrim($idConts, ',');
-        $checkBlmJawab = DB::select(DB::raw("select count(demand_id) as 'jmlh' from container_product where final_decision is null and shipping_id in (".$idConts.");"))[0]->jmlh;
+        $checkBlmJawab = DB::select(DB::raw("select count(demand_id) as 'jmlh' from container_product where final_decision is null and shipping_id in (" . $idConts . ");"))[0]->jmlh;
 
         return view('import.depo-agent', compact('listContainers', 'checkBlmJawab'));
     }

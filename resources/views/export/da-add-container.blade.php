@@ -13,7 +13,7 @@
     <style>
         /* STYLE PAGE */
         body {
-            background: url("/assets/bg-agent.png") no-repeat;  
+            background: url("/assets/bg-agent.png") no-repeat;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -21,6 +21,7 @@
             margin: 0px;
             width: 100%;
         }
+
         .title {
             padding-top: 20px;
             font-family: "Montserrat", sans-serif;
@@ -29,29 +30,34 @@
             font-weight: 900;
             letter-spacing: 1px;
         }
+
         .combobox-title {
             font-size: 30px;
             font-family: "Montserrat", sans-serif;
             margin-bottom: 10px;
             font-weight: 700;
-            color:#2c56a7;
+            color: #2c56a7;
         }
+
         table {
             background: white;
         }
-        .table-title{
+
+        .table-title {
             font-size: 20px;
             font-family: "Montserrat", sans-serif;
             font-weight: 500;
             color: white;
             background: #2c56a7;
         }
+
         .table-text {
             font-size: 20px;
             font-family: "Montserrat", sans-serif;
             font-weight: 500;
-            color:#2c56a7;
+            color: #2c56a7;
         }
+
         .button-kontainer {
             border: 3px solid #2C56A7;
             background: #2C56A7;
@@ -64,11 +70,13 @@
             padding: 0.5rem 1.6rem;
             text-align: center;
         }
+
         .button-kontainer:hover {
             border: 3px solid #2C56A7;
             background: white;
             color: #2C56A7;
         }
+
         .button-batal {
             background: white;
             border: 3px solid red;
@@ -82,10 +90,12 @@
             text-align: center;
             margin-left: 5px;
         }
+
         .button-batal:hover {
             background-color: red;
             color: #fff;
         }
+
         .combobox {
             border: 3px solid #2C56A7;
             border-radius: 1.5rem;
@@ -102,11 +112,13 @@
             font-size: 50px;
             font-family: "Montserrat", sans-serif;
             font-weight: 700;
-            color:#2c56a7;
+            color: #2c56a7;
         }
+
         .modal-body {
-            background: rgb(228,242,252);
+            background: rgb(228, 242, 252);
         }
+
         .modal-table-title {
             font-size: 17px;
             font-family: "Montserrat", sans-serif;
@@ -114,11 +126,12 @@
             color: white;
             background: #2c56a7;
         }
+
         .modal-table {
             font-size: 15px;
             font-family: "Montserrat", sans-serif;
             font-weight: 500;
-            color:#2c56a7;
+            color: #2c56a7;
         }
     </style>
 </head>
@@ -133,9 +146,9 @@
             <div class="row">
                 <div class="col-12">
                     @if (session('error'))
-                        <div class="alert alert-danger" role="alert">
-                            {{ session('error') }}
-                        </div>
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('error') }}
+                    </div>
                     @endif
                     <form action="{{ route('export.saveexportcontainer') }}" method="post">
                         @csrf
@@ -143,17 +156,17 @@
                             <div class="row">
                                 <label for="cbContainer" class="combobox-title">Kontainer</label>
                                 <div class="col-9 mb-2">
-                                    <select name="container" id="cbContainer" class="form-select combobox">
+                                    <select name="container" id="cbContainer" class="form-select combobox" required>
                                         @foreach ($containers as $container)
-                                            <option value="{{ $container->id }}">{{ $container->name }} -
-                                                {{ $container->size }}
-                                            </option>
+                                        <option value="{{ $container->id }}">{{ $container->name }} -
+                                            {{ $container->size }}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="col-3">
-                                    <button type="button" class="btn btn-info button-kontainer"
-                                        data-bs-toggle="modal" data-bs-target="#listContainerModal">List
+                                    <button type="button" class="btn btn-info button-kontainer" data-bs-toggle="modal"
+                                        data-bs-target="#listContainerModal">List
                                         Kontainer</button>
                                 </div>
                             </div>
@@ -172,24 +185,32 @@
                                 </thead>
                                 <tbody class="table-text">
                                     @foreach ($demands as $demand)
-                                        <tr>
-                                            <td class="text-center">{{ $demand->name }}</td>
-                                            <td class="text-center">{{ $demand->volume }} m<sup>3</sup></td>
-                                            <td class="text-center">{{ $demand->quantity }}</td>
-                                            <td class="text-center">{{ $demand->weight }}</td>
-                                            <td class="text-center">
-                                                {{ $demand->city }}</td>
-                                            <td><input type="number" class="form-control mx-auto" style="width: 80px;"
-                                                    min="0" max="{{ $demand->quantity }}" value="0"
-                                                    name="qty{{ $demand->id }}" id="">
-                                            </td>
-                                        </tr>
+                                    @if($demand->quantity > 0)
+                                    <tr>
+                                        <td class="text-center">{{ $demand->name }}</td>
+                                        <td class="text-center">{{ $demand->volume }}
+                                            @if($demand->container == 'Tank Container')
+                                            L
+                                            @else
+                                            m<sup>3</sup>
+                                            @endif
+                                        </td>
+                                        <td class="text-center">{{ $demand->quantity }}</td>
+                                        <td class="text-center">{{ $demand->weight }}</td>
+                                        <td class="text-center">
+                                            {{ $demand->city }}</td>
+                                        <td><input type="number" class="form-control mx-auto" style="width: 80px;"
+                                                min="0" max="{{ $demand->quantity }}" value="0"
+                                                name="qty{{ $demand->id }}" id="">
+                                        </td>
+                                    </tr>
+                                    @endif
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
                         <button type="submit" class="btn btn-primary button-kontainer">Simpan Kontainer</button>
-                        <a href="{{ route('export.da-addcontainer') }}" class="btn btn-secondary mb-3 button-check">Cek Kontainer</a>
+                        <a href="{{ route('export.depo-agent') }}" class="btn btn-primary button-kontainer">Back</a>
                     </form>
                 </div>
             </div>
@@ -213,6 +234,7 @@
                             <th>20 Feet</th>
                             <th>40 Feet</th>
                         </tr>
+
                         <!-- General Container -->
                         <tr>
                             <td rowspan="5" class="fw-bold align-middle">General Container</td>
@@ -235,38 +257,40 @@
                             <td>25.000 kg</td>
                             <td>27.000 kg</td>
                         </tr>
-                        <tr>
+                        <tr style="border-bottom-width: 10px; border-color: blue">
                             <td>Volume</td>
-                            <td>38,296 m<sup>3</sup></td>
-                            <td>77,0359 m<sup>3</sup></td>
+                            <td>33,2 m<sup>3</sup></td>
+                            <td>67,8 m<sup>3</sup></td>
                         </tr>
+
                         <!-- Refrigerated Container -->
                         <tr>
                             <td rowspan="5" class="fw-bold align-middle">Refrigerated Container</td>
                             <td>Panjang</td>
-                            <td>6,06 m</td>
-                            <td>12,19 m</td>
+                            <td>5,46 m</td>
+                            <td>11,58 m</td>
                         </tr>
                         <tr>
                             <td>Lebar</td>
-                            <td>2,44 m</td>
-                            <td>2,44 m</td>
+                            <td>2,29 m</td>
+                            <td>2,29 m</td>
                         </tr>
                         <tr>
                             <td>Tinggi</td>
-                            <td>2,59 m</td>
-                            <td>2,59 m</td>
+                            <td>2,27 m</td>
+                            <td>2,56 m</td>
                         </tr>
                         <tr>
                             <td>Payload Capacity</td>
-                            <td>25.000 kg</td>
-                            <td>27.000 kg</td>
+                            <td>27.470 kg</td>
+                            <td>29.300 kg</td>
                         </tr>
                         <tr>
                             <td>Volume</td>
-                            <td>38,296 m<sup>3</sup></td>
-                            <td>77,0359 m<sup>3</sup></td>
+                            <td>27,3 m<sup>3</sup></td>
+                            <td>64,9 m<sup>3</sup></td>
                         </tr>
+
                         <!-- Fantainer/Ventilation -->
                         <tr>
                             <td rowspan="5" class="fw-bold align-middle">Fantainer/Ventilation</td>
@@ -291,8 +315,8 @@
                         </tr>
                         <tr>
                             <td>Volume</td>
-                            <td>38,296 m<sup>3</sup></td>
-                            <td>77,0359 m<sup>3</sup></td>
+                            <td>33,2 m<sup>3</sup></td>
+                            <td>67,8 m<sup>3</sup></td>
                         </tr>
                     </table>
 

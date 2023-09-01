@@ -19,7 +19,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '32',
                 'weight' => '2',
                 'city' => 'Thailand',
-                'container' => 'Refrigerator',
+                'container' => 'Refrigerated Container',
                 'period_id' => '1',
             ],
             [
@@ -28,7 +28,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '39',
                 'weight' => '4',
                 'city' => 'Thailand',
-                'container' => 'Refrigerator',
+                'container' => 'Refrigerated Container',
                 'period_id' => '1',
             ],
             [
@@ -37,7 +37,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '40',
                 'weight' => '1',
                 'city' => 'Malaysia',
-                'container' => 'Refrigerator',
+                'container' => 'Refrigerated Container',
                 'period_id' => '1',
             ],
             [
@@ -46,7 +46,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '9',
                 'weight' => '2',
                 'city' => 'Thailand',
-                'container' => 'General',
+                'container' => 'General Container',
                 'period_id' => '1',
             ],
             [
@@ -64,7 +64,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '11',
                 'weight' => '2',
                 'city' => 'Thailand',
-                'container' => 'General',
+                'container' => 'General Container',
                 'period_id' => '1',
             ],
             [
@@ -73,7 +73,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '69',
                 'weight' => '405',
                 'city' => 'Philippines',
-                'container' => 'General',
+                'container' => 'General Container',
                 'period_id' => '1',
             ],
             [
@@ -82,7 +82,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '17',
                 'weight' => '3',
                 'city' => 'Thailand',
-                'container' => 'General',
+                'container' => 'General Container',
                 'period_id' => '1',
             ],
             [
@@ -91,7 +91,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '45',
                 'weight' => '1',
                 'city' => 'Thailand',
-                'container' => 'Refrigerator',
+                'container' => 'Refrigerated Container',
                 'period_id' => '1',
             ],
             [
@@ -109,7 +109,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '12',
                 'weight' => '3',
                 'city' => 'Malaysia',
-                'container' => 'Refrigerator',
+                'container' => 'Refrigerated Container',
                 'period_id' => '1',
             ],
             [
@@ -127,7 +127,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '7',
                 'weight' => '149',
                 'city' => 'Thailand',
-                'container' => 'General',
+                'container' => 'General Container',
                 'period_id' => '1',
             ],
             [
@@ -136,7 +136,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '15',
                 'weight' => '1',
                 'city' => 'Malaysia',
-                'container' => 'Refrigerator',
+                'container' => 'Refrigerated Container',
                 'period_id' => '1',
             ],
             [
@@ -163,7 +163,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '7',
                 'weight' => '8',
                 'city' => 'Vietnam',
-                'container' => 'General/Fantainer/Ventilation',
+                'container' => 'General Container/Fantainer/Ventilation',
                 'period_id' => '1',
             ],
             [
@@ -172,7 +172,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '4',
                 'weight' => '2',
                 'city' => 'Thailand',
-                'container' => 'General',
+                'container' => 'General Container',
                 'period_id' => '1',
             ],
             [
@@ -181,7 +181,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '7',
                 'weight' => '20',
                 'city' => 'Vietnam',
-                'container' => 'General',
+                'container' => 'General Container',
                 'period_id' => '1',
             ],
             [
@@ -190,7 +190,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '12',
                 'weight' => '1',
                 'city' => 'Thailand',
-                'container' => 'Refrigerator',
+                'container' => 'Refrigerated Container',
                 'period_id' => '1',
             ],
             [
@@ -199,7 +199,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '10',
                 'weight' => '20',
                 'city' => 'Philippines',
-                'container' => 'General',
+                'container' => 'General Container',
                 'period_id' => '1',
             ],
             [
@@ -208,7 +208,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '12',
                 'weight' => '20',
                 'city' => 'Vietnam',
-                'container' => 'General',
+                'container' => 'General Container',
                 'period_id' => '1',
             ],
             [
@@ -226,7 +226,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '89',
                 'weight' => '1',
                 'city' => 'Thailand',
-                'container' => 'General',
+                'container' => 'General Container',
                 'period_id' => '1',
             ],
             [
@@ -244,7 +244,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '2',
                 'weight' => '16590',
                 'city' => 'Thailand',
-                'container' => 'Tank',
+                'container' => 'Tank Container',
                 'period_id' => '1',
             ],
             [
@@ -253,7 +253,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '3',
                 'weight' => '11519',
                 'city' => 'Malaysia',
-                'container' => 'Tank',
+                'container' => 'Tank Container',
                 'period_id' => '1',
             ],
             [
@@ -262,7 +262,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '2',
                 'weight' => '12853',
                 'city' => 'Philippines',
-                'container' => 'Tank',
+                'container' => 'Tank Container',
                 'period_id' => '1',
             ],
             [
@@ -271,7 +271,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '3',
                 'weight' => '16030',
                 'city' => 'Thailand',
-                'container' => 'Tank',
+                'container' => 'Tank Container',
                 'period_id' => '1',
             ],
             [
@@ -280,7 +280,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '3',
                 'weight' => '16210',
                 'city' => 'Vietnam',
-                'container' => 'Tank',
+                'container' => 'Tank Container',
                 'period_id' => '1',
             ],
             [
@@ -289,7 +289,7 @@ class DemandSeeder extends Seeder
                 'quantity' => '2',
                 'weight' => '16030',
                 'city' => 'Vietnam',
-                'container' => 'Tank',
+                'container' => 'Tank Container',
                 'period_id' => '1',
             ],
         ];

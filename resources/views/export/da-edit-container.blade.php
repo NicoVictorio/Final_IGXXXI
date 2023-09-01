@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
         body {
-            background: url("/assets/bg-agent.png") no-repeat;  
+            background: url("/assets/bg-agent.png") no-repeat;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -20,6 +20,7 @@
             margin: 0px;
             width: 100%;
         }
+
         .title {
             padding-top: 20px;
             font-family: "Montserrat", sans-serif;
@@ -28,29 +29,34 @@
             font-weight: 900;
             letter-spacing: 1px;
         }
+
         .container-title {
             font-size: 30px;
             font-family: "Montserrat", sans-serif;
             margin-bottom: 10px;
             font-weight: 700;
-            color:#2c56a7;
+            color: #2c56a7;
         }
+
         table {
             background: white;
         }
-        .table-title{
+
+        .table-title {
             font-size: 20px;
             font-family: "Montserrat", sans-serif;
             font-weight: 500;
             color: white;
             background: #2c56a7;
         }
+
         .table-text {
             font-size: 20px;
             font-family: "Montserrat", sans-serif;
             font-weight: 500;
-            color:#2c56a7;
+            color: #2c56a7;
         }
+
         .button-container {
             border: 3px solid #2C56A7;
             background: #2C56A7;
@@ -63,11 +69,13 @@
             padding: 0.5rem 1.6rem;
             text-align: center;
         }
+
         .button-container:hover {
             border: 3px solid #2C56A7;
             background: white;
             color: #2C56A7;
         }
+
         .button-batal {
             background: white;
             border: 3px solid red;
@@ -81,10 +89,12 @@
             text-align: center;
             margin-left: 5px;
         }
+
         .button-batal:hover {
             background-color: red;
             color: #fff;
         }
+
         .container-name {
             border: 3px solid #2C56A7;
             background: white;
@@ -108,9 +118,9 @@
             <div class="row">
                 <div class="col-12">
                     @if (session('error'))
-                        <div class="alert alert-danger" role="alert">
-                            {{ session('error') }}
-                        </div>
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('error') }}
+                    </div>
                     @endif
                     <form action="{{ route('export.resetexportcontainer') }}" method="post">
                         @csrf
@@ -123,8 +133,8 @@
                                 </div>
                                 <div class="col-3">
                                     @csrf
-                                <input type="hidden" name="idShipping" value="{{ $sContainer->id }}">
-                                <button type="submit" class="btn btn-danger button-container">Reset Kontainer</button>
+                                    <input type="hidden" name="idShipping" value="{{ $sContainer->id }}">
+                                    <button type="submit" class="btn btn-danger button-container">Reset Kontainer</button>
                                 </div>
                             </div>
                         </div>
@@ -146,24 +156,27 @@
                                 </thead>
                                 <tbody class="table-text">
                                     @foreach ($demands as $demand)
-                                        <tr>
-                                            <td class="">{{ $demand->name }}</td>
-                                            <td class="text-center">{{ $demand->volume }} m<sup>3</sup></td>
-                                            <td class="text-center">{{ $demand->quantity }}</td>
-                                            <td class="text-center">{{ $demand->weight }}</td>
-                                            <td class="text-center">
-                                                {{ $demand->city }}</td>
-                                            <td><input type="number" class="form-control mx-auto" style="width: 80px;"
-                                                    min="0" max="{{ $demand->quantity }}"
-                                                    value="{{ $demand->jmlhProdukMasuk ? $demand->jmlhProdukMasuk : 0 }}"
-                                                    name="qty{{ $demand->id }}" id=""></td>
-                                        </tr>
+                                    @if($demand->quantity > 0)
+                                    <tr>
+                                        <td class="">{{ $demand->name }}</td>
+                                        <td class="text-center">{{ $demand->volume }} m<sup>3</sup></td>
+                                        <td class="text-center">{{ $demand->quantity }}</td>
+                                        <td class="text-center">{{ $demand->weight }}</td>
+                                        <td class="text-center">
+                                            {{ $demand->city }}</td>
+                                        <td><input type="number" class="form-control mx-auto" style="width: 80px;"
+                                                min="0" max="{{ $demand->quantity }}"
+                                                value="{{ $demand->jmlhProdukMasuk ? $demand->jmlhProdukMasuk : 0 }}"
+                                                name="qty{{ $demand->id }}" id=""></td>
+                                    </tr>
+                                    @endif
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
                         <button type="submit" class="btn btn-primary button-container">Update Kontainer</button>
-                        <a type="button" href="{{ route('export.depo-agent') }}" class="btn btn-outline-danger button-batal">Batal</a>
+                        <a type="button" href="{{ route('export.depo-agent') }}"
+                            class="btn btn-outline-danger button-batal">Batal</a>
                     </form>
                 </div>
             </div>

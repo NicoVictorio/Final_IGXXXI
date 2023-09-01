@@ -33,7 +33,7 @@
             padding-top: 20px;
             padding-bottom: 10px;
             font-family: "Montserrat", sans-serif;
-            font-size: 60px;
+            font-size: 40px;
             color: #2c56a7;
             font-weight: 900;
             letter-spacing: 1px;
@@ -157,6 +157,21 @@
         <div class="text-center">
             <h1 class="title text-center fw-bolder">CONTAINER AGENT</h1>
         </div>
+        @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+        @endif
+        @if (session('error'))
+        <div class="alert alert-danger" role="alert">
+            {{ session('error') }}
+        </div>
+        @endif
+        @if ($errors->any())
+        <div class="alert alert-danger" role="alert">
+            Belum semua pilihan diisi!
+        </div>
+        @endif
         <div class="spacer"></div>
         <div class="body px-5 py-2 mb-4">
             <div class="col-12">
@@ -176,7 +191,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier6#bay1/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier6#bay1/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier6#bay1/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier6#bay1/', $arrPlot);
@@ -193,7 +208,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier5#bay1/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier5#bay1/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier5#bay1/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier5#bay1/', $arrPlot);
@@ -210,7 +225,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier4#bay1/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier4#bay1/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier4#bay1/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier4#bay1/', $arrPlot);
@@ -227,7 +242,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier3#bay1/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier3#bay1/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier3#bay1/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier3#bay1/', $arrPlot);
@@ -244,7 +259,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier2#bay1/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier2#bay1/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier2#bay1/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier2#bay1/', $arrPlot);
@@ -261,7 +276,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier1#bay1/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier1#bay1/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier1#bay1/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier1#bay1/', $arrPlot);
@@ -289,7 +304,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier6#bay3/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier6#bay3/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier6#bay3/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier6#bay3/', $arrPlot);
@@ -306,7 +321,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier5#bay3/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier5#bay3/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier5#bay3/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier5#bay3/', $arrPlot);
@@ -323,7 +338,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier4#bay3/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier4#bay3/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier4#bay3/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier4#bay3/', $arrPlot);
@@ -340,7 +355,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier3#bay3/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier3#bay3/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier3#bay3/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier3#bay3/', $arrPlot);
@@ -357,7 +372,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier2#bay3/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier2#bay3/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier2#bay3/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier2#bay3/', $arrPlot);
@@ -374,7 +389,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier1#bay3/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier1#bay3/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier1#bay3/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier1#bay3/', $arrPlot);
@@ -404,7 +419,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier6#bay2/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier6#bay2/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier6#bay2/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier6#bay2/', $arrPlot);
@@ -420,7 +435,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier5#bay2/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier5#bay2/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier5#bay2/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier5#bay2/', $arrPlot);
@@ -436,7 +451,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier4#bay2/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier4#bay2/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier4#bay2/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier4#bay2/', $arrPlot);
@@ -452,7 +467,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier3#bay2/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier3#bay2/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier3#bay2/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier3#bay2/', $arrPlot);
@@ -468,7 +483,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier2#bay2/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier2#bay2/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier2#bay2/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier2#bay2/', $arrPlot);
@@ -484,7 +499,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier1#bay2/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier1#bay2/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier1#bay2/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier1#bay2/', $arrPlot);
@@ -511,7 +526,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier6#bay4/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier6#bay4/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier6#bay4/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier6#bay4/', $arrPlot);
@@ -527,7 +542,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier5#bay4/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier5#bay4/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier5#bay4/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier5#bay4/', $arrPlot);
@@ -543,7 +558,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier4#bay4/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier4#bay4/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier4#bay4/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier4#bay4/', $arrPlot);
@@ -559,7 +574,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier3#bay4/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier3#bay4/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier3#bay4/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier3#bay4/', $arrPlot);
@@ -575,7 +590,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier2#bay4/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier2#bay4/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier2#bay4/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier2#bay4/', $arrPlot);
@@ -591,7 +606,7 @@
                             <div class="row">
                                 @foreach([1,2,3,4] as $i)
                                 <div
-                                    class="space {{ preg_grep('/row'.$i.'#tier1#bay4/', $arrPlot) ? 'bg-primary' : '' }}">
+                                    class="space {{ preg_grep('/row'.$i.'#tier1#bay4/', $arrPlot) ? 'bg-primary' : '' }}" style="display: flex; align-items: center; justify-content:center;">
                                     @php
                                     if(preg_grep('/row'.$i.'#tier1#bay4/', $arrPlot)){
                                     $arrVal = preg_grep('/row'.$i.'#tier1#bay4/', $arrPlot);
@@ -613,11 +628,24 @@
                         <div class="row">
                             <label for="cbKontainer" class="combobox-title">Kontainer</label>
                             <div class="row">
-                                <select name="kontainer" id="cbKontainer" class="form-select combobox">
-                                    @foreach($containerShips as $contShip)
+                                <select name="kontainer" id="cbKontainer" class="form-select combobox" required>
+                                    <option value="" selected disabled>Pilih Kontainer</option>
+                                    @php
+                                    $counter = 0;
+                                    @endphp
+                                    @foreach($containerShips as $key=>$contShip)
+                                    @if($counter==0)
                                     <option value="{{ $contShip->id }}">{{ $contShip->code }} ({{
                                         number_format($contShip->stuff_weight,2,',','.') }}kg)
                                     </option>
+                                    @else
+                                    <option value="{{ $contShip->id }}" disabled>{{ $contShip->code }} ({{
+                                        number_format($contShip->stuff_weight,2,',','.') }}kg)
+                                    </option>
+                                    @endif
+                                    @php
+                                    $counter ++;
+                                    @endphp
                                     @endforeach
                                 </select>
                             </div>
@@ -625,7 +653,8 @@
                         <div class="row py-5">
                             <label for="cbBay" class="combobox-title">Bay</label>
                             <div class="row">
-                                <select name="bay" id="cbBay" class="form-select combobox">
+                                <select name="bay" id="cbBay" class="form-select combobox" required>
+                                    <option value="" selected disabled>Pilih Bay</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -636,7 +665,8 @@
                         <div class="row py-5">
                             <label for="cbRow" class="combobox-title">Row</label>
                             <div class="row">
-                                <select name="row" id="cbRow" class="form-select combobox">
+                                <select name="row" id="cbRow" class="form-select combobox" required>
+                                    <option value="" selected disabled>Pilih Row</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -644,28 +674,24 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="row py-5">
-                            <label for="cbTier" class="combobox-title">Tier</label>
-                            <div class="row">
-                                <select name="tier" id="cbtier" class="form-select combobox">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                </select>
-                            </div>
+                        <div class="row py-5" id="divTier">
+                            <label class="combobox-title">Tier: Belum Pilih Row</label>
                         </div>
-                        <br>
                         <div class="row py-5">
                             <button type="submit" class="btn btn-primary button-layout">Simpan Kontainer</button>
                         </div>
                     </form>
                     <div class="row py-3">
                         <button type="button" class="btn btn-info button-layout" data-bs-toggle="modal"
-                            data-bs-target="#listContainerModal">List
-                            Kontainer</button>
+                            data-bs-target="#listContainerModal">List Kontainer</button>
+                    </div>
+                    <br>
+                    <div class="row py-3">
+                        <button type="button" class="btn btn-primary button-layout" id="reset">Reset</button>
+                    </div>
+                    <br>
+                    <div class="row py-3">
+                        <a href="{{ route('export.index') }}" class="btn btn-primary button-layout">Back</a>
                     </div>
                 </div>
             </div>
@@ -691,13 +717,19 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $counter = 1;
+                            @endphp
                             @foreach($listContainer as $key => $lCont)
                             <tr>
-                                <td>{{ $key+1 }}</td>
+                                <td>{{ $counter }}</td>
                                 <td>{{ $lCont->code }}</td>
                                 <td>{{ $lCont->city }}</td>
                                 <td>{{number_format($lCont->stuff_weight,2,',','.')}}kg</td>
                             </tr>
+                            @php
+                                $counter++;
+                            @endphp
                             @endforeach
                         </tbody>
                     </table>
@@ -708,7 +740,58 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+        $('#cbBay').on('change', function(){
+            $('#cbRow').html("<option value='-' selected disabled>Pilih Row</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option>");
+            $('#divTier').html("<input type='hidden' name='tier' value=''><label class='combobox-title'>Tier: Belum Pilih Row</label>");
+        });
+        $('#reset').on('click', function(){
+            $.ajax({
+                type: 'POST',
+                url: '{{ route("export.ca-reset") }}',
+                data: {
+                    '_token': '<?php echo csrf_token(); ?>',
+                },
+                success: function(data) {
+                    window.location.reload();
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert('Terjadi Kesalahan, Hubungi Tim Panitia.\nError Message [Reset ECA]: ' + errorThrown);
+                }
+            });
+        });
+        $('#cbRow').on('change', function(){
+            var idShipping = $('#cbKontainer').val();
+            var bay = $('#cbBay').val();
+            var row = $('#cbRow').val();
+
+            if(idShipping == null || bay == null){
+                if(idShipping == null){
+                    alert('Belum memilih container');
+                }
+                if(bay == null){
+                    alert('Belum memilih bay!');                    
+                }
+            }
+            else{            
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route("export.ca-gettier") }}',
+                    data: {
+                        '_token': '<?php echo csrf_token(); ?>',
+                        'bay': bay,
+                        'row': row,
+                    },
+                    success: function(data) {
+                        $('#divTier').html("<input type='hidden' name='tier' value='"+data.tier+"'><label class='combobox-title'>Tier: " + data.tier + "</label>");
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert('Terjadi Kesalahan, Hubungi Tim Panitia.\nError Message [View Tier ECA]: ' + errorThrown);
+                    }
+                });
+            };
+        });
+    </script>
 </body>
 
 </html>

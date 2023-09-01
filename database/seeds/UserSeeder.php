@@ -18,7 +18,13 @@ class UserSeeder extends Seeder
                 'username' => 'tim1',
                 'password' => Hash::make('12345678'),
                 'role'=>'player',
-                'team_id'=>1
+                'team_id'=>1,
+            ],
+            [
+                'username' => 'penpos',
+                'password' => Hash::make('12345678'),
+                'role'=>'penpos',
+                'team_id'=>null,
             ],
         ];
         DB::table('users')->insert($users);

@@ -16,16 +16,16 @@ class ShippingContainer extends Model
 
     public function team()
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(Team::class, 'Team_id');
     }
     
     public function containerProducts()
     {
-        return $this->hasMany(ContainerProduct::class, 'shipping_id');
+        return $this->hasMany(ContainerProduct::class, 'Shipping_id');
     }
 
     public function period()
     {
-        return $this->belongsTo(Period::class, 'period_id', 'id');
+        return $this->belongsTo(Period::class, 'Period_id', 'id');
     }
 }

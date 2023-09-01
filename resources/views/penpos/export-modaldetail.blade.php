@@ -14,27 +14,39 @@
             <th>Total Volume</th>
         </tr>
         @php
-            $totalBobot = 0;
-            $totalVolume = 0;
+        $totalBobot = 0;
+        $totalVolume = 0;
         @endphp
         @foreach ($dataContainer->containerProducts as $productCont)
-            <tr>
-                <td>{{ $productCont->demand->name }}</td>
-                <td>{{ number_format($productCont->demand->volume,2,',','.') }}m<sup>3</sup></td>
-                <td>{{ $productCont->quantity }}</td>
-                <td>{{ number_format($productCont->demand->weight, 2, ',', '.') }}kg</td>
-                <td>{{ number_format($productCont->demand->weight * $productCont->quantity, 2, ',', '.') }}kg</td>
-                <td>{{ number_format($productCont->demand->volume * $productCont->quantity, 2, ',', '.') }}m<sup>3</sup></td>
-                @php
-                    $totalBobot += $productCont->demand->weight * $productCont->quantity;
-                    $totalVolume += $productCont->demand->volume * $productCont->quantity;
-                @endphp
-            </tr>
+        <tr>
+            <td>{{ $productCont->demand->name }}</td>
+            <td>{{ number_format($productCont->demand->volume,2,',','.') }}m<sup>3</sup></td>
+            <td>{{ $productCont->quantity }}</td>
+            <td>{{ number_format($productCont->demand->weight, 2, ',', '.') }}kg</td>
+            <td>{{ number_format($productCont->demand->weight * $productCont->quantity, 2, ',', '.') }}kg</td>
+            <td>{{ number_format($productCont->demand->volume * $productCont->quantity, 2, ',', '.') }}
+                @if($productCont->demand->container == 'Tank Container')
+                L
+                @else
+                m<sup>3</sup>
+                @endif
+            </td>
+            @php
+            $totalBobot += $productCont->demand->weight * $productCont->quantity;
+            $totalVolume += $productCont->demand->volume * $productCont->quantity;
+            @endphp
+        </tr>
         @endforeach
         <tr>
             <td colspan="4" class="fw-bold">Total</td>
             <td>{{ number_format($totalBobot, 2, ',', '.') }}kg</td>
-            <td>{{ number_format($totalVolume, 2, ',', '.') }}m<sup>3</sup></td>
+            <td>{{ number_format($totalVolume, 2, ',', '.') }}
+                @if($dataContainer->container->name == 'Tank Container')
+                L
+                @else
+                m<sup>3</sup>
+                @endif
+            </td>
         </tr>
     </table>
     <p class="mb-2 fw-bold">Status Kontainer</p>
@@ -44,20 +56,43 @@
         </tr>
         <tr>
             <td>Volume Kontainer</td>
-            <td>{{ number_format($dataContainer->container->max_volume, 2, ',', '.') }}m<sup>3</sup></td>
+            <td>{{ number_format($dataContainer->container->volume, 2, ',', '.') }}
+                @if($dataContainer->container->name == 'Tank Container')
+                L
+                @else
+                m<sup>3</sup>
+                @endif
+            </td>
         </tr>
         <tr>
             <td>Loss Space</td>
-            <td>{{ number_format($dataContainer->container->max_volume - $totalVolume, 2, ',', '.') }}m<sup>3</sup>
+            <td>{{ number_format($dataContainer->container->max_volume - $totalVolume, 2, ',', '.') }}
+                @if($dataContainer->container->name == 'Tank Container')
+                L
+                @else
+                m<sup>3</sup>
+                @endif
             </td>
         </tr>
         <tr>
             <td>2/3 Kapasitas</td>
-            <td>{{ number_format((2 / 3.0) * $dataContainer->container->max_volume, 2, ',', '.') }}m<sup>3</sup></td>
+            <td>{{ number_format($dataContainer->container->max_volume, 2, ',', '.') }}
+                @if($dataContainer->container->name == 'Tank Container')
+                L
+                @else
+                m<sup>3</sup>
+                @endif
+            </td>
         </tr>
         <tr>
             <td>1/3 Kapasitas</td>
-            <td>{{ number_format((1 / 3.0) * $dataContainer->container->max_volume, 2, ',', '.') }}m<sup>3</sup></td>
+            <td>{{ number_format($dataContainer->container->min_volume, 2, ',', '.') }}
+                @if($dataContainer->container->name == 'Tank Container')
+                L
+                @else
+                m<sup>3</sup>
+                @endif
+            </td>
         </tr>
         <tr>
             <td colspan="2" class="fw-bold">Status Bobot</td>

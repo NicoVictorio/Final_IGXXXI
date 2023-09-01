@@ -165,11 +165,14 @@
     <footer class="footer mt-auto text-inverse shadow" style="background: black">
         <div class="d-flex flex-row justify-content-center position-fixed w-100" style="bottom: 10%">
             <a type="button" class="btn btn-block btn-outline-primary shadow m-2 button-agent"
-                href="{{ route('export.depo-agent') }}"><i class="button-depo-agent"></i> Depo Agent</a>
+                href="{{ route('export.depo-agent') }}"><i class="button-depo-agent" {{
+                    ($statusPeriod->status=="depo-agent") ? "" : "disabled" }}></i> Depo Agent</a>
             <a type="button" class="btn btn-block btn-outline-primary shadow m-2 button-agent"
-                href="{{ route('export.container-agent') }}"><i class="button-container-agent"></i> Container Agent</a>
+                href="{{ route('export.container-agent') }}"><i class="button-container-agent" {{
+                    ($statusPeriod->status=="container-agent") ? "" : "disabled" }}></i> Container Agent</a>
             <a type="button" class="btn btn-block btn-outline-primary shadow m-2 button-agent"
-                href="{{ route('export.shipping-agent') }}"><i class="button-shipping-agent"></i> Shipping Agent</a>
+                href="{{ route('export.shipping-agent') }}"><i class="button-shipping-agent" {{
+                    ($statusPeriod->status=="shipping-agent") ? "" : "disabled" }}></i> Shipping Agent</a>
         </div>
     </footer>
     <script src="{{ asset('vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>

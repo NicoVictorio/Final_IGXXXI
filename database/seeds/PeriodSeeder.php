@@ -14,40 +14,16 @@ class PeriodSeeder extends Seeder
     {
         $period = [
             [
-                'name' => 'Export',
-                'status' => 'Depo-Agent',
+                'name' => 'export',
+                'status' => 'depo-agent',
             ],
             [
-                'name' => 'Export',
-                'status' => 'Container-Agent',
+                'name' => 'import',
+                'status' => 'standby',
             ],
             [
-                'name' => 'Export',
-                'status' => 'Shipping-Agent',
-            ],
-            [
-                'name' => 'Import',
-                'status' => 'Depo-Agent',
-            ],
-            [
-                'name' => 'Import',
-                'status' => 'Container-Agent',
-            ],
-            [
-                'name' => 'Import',
-                'status' => 'Shipping-Agent',
-            ],
-            [
-                'name' => 'ExportImport',
-                'status' => 'Depo-Agent',
-            ],
-            [
-                'name' => 'ExportImport',
-                'status' => 'Container-Agent',
-            ],
-            [
-                'name' => 'ExportImport',
-                'status' => 'Shipping-Agent',
+                'name' => 'exportimport',
+                'status' => 'standby',
             ],
         ];
         DB::table('periods')->insert($period);

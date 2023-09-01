@@ -104,6 +104,8 @@
                     @endif
                     <a href="{{ route('export.da-addcontainer') }}"
                         class="btn btn-secondary mb-3 button-tambah-kontainer">Tambah Kontainer</a>
+                    <a href="{{ route('export.index') }}"
+                        class="btn btn-secondary mb-3 button-tambah-kontainer">Back</a>                        
                     <div class="table-responsive">
                         <table class="table table-centered table-bordered table-wrap">
                             <thead>
@@ -154,9 +156,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="d-flex justify-content-end px-5 py-4 position-fixed" style="bottom: 5%">
-            <button class="button-kirim-kontainer" role="button">Kirim Kontainer</button>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
