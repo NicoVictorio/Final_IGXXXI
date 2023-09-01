@@ -16,10 +16,10 @@ class ContainerAgentController extends Controller
         $statusPeriodAktif = Period::select('name', 'status')->where('status', '!=', 'standby')->first();
         if ($statusPeriodAktif->name == 'export' && $statusPeriodAktif->status == 'container-agent') {
             $idTeam = Auth::user()->team->id;
-            $containerShipsUS = ShippingContainer::whereRaw("(volume_status='safe' or volume_status='less') and weight_status='safe'")->where('row', null)->where('tier', null)->where('bay', null)->where('team_id', $idTeam)->get();
+            $containerShipsUS = ShippingContainer::whereRaw("(volume_status='safe' or volume_status='less') and weight_status='safe'")->where('row', null)->where('tier', null)->where('bay', null)->where('team_id', $idTeam)->where('Period_id', 1)->get();
             $listContainerUS = ShippingContainer::whereRaw("(volume_status='safe' or volume_status='less') and weight_status='safe'")->where('team_id', $idTeam)->get();
 
-            $plots = ShippingContainer::select('code', 'row', 'tier', 'bay')->where('row', '!=', null)->where('tier', '!=', null)->where('bay', '!=', null)->where('team_id', $idTeam)->get();
+            $plots = ShippingContainer::select('code', 'row', 'tier', 'bay')->where('row', '!=', null)->where('tier', '!=', null)->where('bay', '!=', null)->where('team_id', $idTeam)->where('Period_id', 1)->get();
             $arrPlot = [];
             foreach ($plots as $plot) {
                 $arrPlot[] = $plot->code . '#row' . $plot->row . '#tier' . $plot->tier . '#bay' . $plot->bay;

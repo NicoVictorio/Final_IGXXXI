@@ -61,6 +61,7 @@ Route::middleware(['auth', 'player'])->group(function () {
     Route::post('/export/container-agent/push', [ContainerAgentController::class, 'pushCAExportBay'])->name('export.ca-push');
 
     Route::get('/export/shipping-agent', [ShippingAgentController::class, 'showSAExportPage'])->name('export.shipping-agent');
+    Route::post('/export/shipping-agent/push', [ShippingAgentController::class, 'pushSAExportDeck'])->name('export.sa-push');
 
 
     // Import
