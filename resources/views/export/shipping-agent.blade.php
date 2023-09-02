@@ -196,7 +196,7 @@
         <div class="body mb-9">
             <div class="row mb-5">
                 <!-- LAYOUT CONTAINER START -->
-                <div class="col-5">
+                <div class="col-4" style="padding-left: 40px;">
                     <h1 class="layout-title">Layout Kontainer</h1>
                     <div class="cell">
                         <div>
@@ -404,7 +404,7 @@
                     </div>
                 </div>
                 <!-- CONTROL START -->
-                <div class="col-3">
+                <div class="col-4 px-5">
                     <h1 class="layout-title">Layout Kontainer</h1>
                     <form action="{{ route('export.sa-push') }}" method="post">
                         @csrf
@@ -467,7 +467,7 @@
                     </form>
                 </div>
                 <!-- IN DECK START -->
-                <div class="col-4">
+                <div class="col-4 px-5">
                     <h1 class="layout-title">In Deck</h1>
                     <div class="cell">
                         <div>
