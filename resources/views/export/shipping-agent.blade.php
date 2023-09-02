@@ -201,7 +201,7 @@
                     <div class="cell">
                         <div>
                             <div class="row">
-                                <div class="bay">Bay 1</div>
+                                <div class="bay">Block 1</div>
                             </div>
                             <div class="row row-bay">
                                 <div class="nomor">1</div>
@@ -254,7 +254,7 @@
                         </div>
                         <div>
                             <div class="row">
-                                <div class="bay">Bay 3</div>
+                                <div class="bay">Block 3</div>
                             </div>
                             <div class="row row-bay">
                                 <div class="nomor">1</div>
@@ -309,7 +309,7 @@
                     <div class="cell">
                         <div class="px-4">
                             <div class="row">
-                                <div class="bay">Bay 2</div>
+                                <div class="bay">Block 2</div>
                             </div>
                             <div class="row row-bay">
                                 <div class="nomor">1</div>
@@ -356,7 +356,7 @@
                         </div>
                         <div class="px-4">
                             <div class="row">
-                                <div class="bay">Bay 4</div>
+                                <div class="bay">Block 4</div>
                             </div>
                             <div class="row row-bay">
                                 <div class="nomor">1</div>
@@ -513,47 +513,6 @@
                         </div>
                         <div>
                             <div class="row row-bay">
-                                <div class="bay-ship">Bay 2</div>
-                            </div>
-                            <div class="row row-bay">
-                                <div class="nomor">06</div>
-                                <div class="nomor">04</div>
-                                <div class="nomor">02</div>
-                                <div class="blank"> </div>
-                                <div class="nomor">01</div>
-                                <div class="nomor">03</div>
-                                <div class="nomor">05</div>
-                            </div>
-                            <div class="row row-bay">
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="sep"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                            </div>
-                            <div class="row row-bay">
-                                <div class="blank"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="sep"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="blank"> </div>
-                            </div>
-                            <div class="row row-bay">
-                                <div class="blank"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="sep"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="blank"> </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="row row-bay">
                                 <div class="bay-ship">Bay 3</div>
                             </div>
                             <div class="row row-bay">
@@ -593,9 +552,51 @@
                                 <div class="blank"> </div>
                             </div>
                         </div>
+                        <br>
                         <div>
                             <div class="row row-bay">
-                                <div class="bay-ship">Bay 4</div>
+                                <div class="bay-ship">Bay 5</div>
+                            </div>
+                            <div class="row row-bay">
+                                <div class="nomor">06</div>
+                                <div class="nomor">04</div>
+                                <div class="nomor">02</div>
+                                <div class="blank"> </div>
+                                <div class="nomor">01</div>
+                                <div class="nomor">03</div>
+                                <div class="nomor">05</div>
+                            </div>
+                            <div class="row row-bay">
+                                <div class="space"> </div>
+                                <div class="space"> </div>
+                                <div class="space"> </div>
+                                <div class="sep"> </div>
+                                <div class="space"> </div>
+                                <div class="space"> </div>
+                                <div class="space"> </div>
+                            </div>
+                            <div class="row row-bay">
+                                <div class="blank"> </div>
+                                <div class="space"> </div>
+                                <div class="space"> </div>
+                                <div class="sep"> </div>
+                                <div class="space"> </div>
+                                <div class="space"> </div>
+                                <div class="blank"> </div>
+                            </div>
+                            <div class="row row-bay">
+                                <div class="blank"> </div>
+                                <div class="space"> </div>
+                                <div class="space"> </div>
+                                <div class="sep"> </div>
+                                <div class="space"> </div>
+                                <div class="space"> </div>
+                                <div class="blank"> </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="row row-bay">
+                                <div class="bay-ship">Bay 7</div>
                             </div>
                             <div class="row row-bay">
                                 <div class="nomor">06</div>
@@ -689,6 +690,46 @@
                             <tr class="table-title">
                                 <th class="border-0 text-center" colspan="2">Difference: Port and Starboard
                                 </th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-text">
+                            <tr>
+                                <td class="text-center" colspan="2">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-centered table-bordered table-wrap">
+                        <thead>
+                            <tr class="table-title">
+                                <th class="border-0 text-center" colspan="2">TOTAL BERAT KAPAL</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-text">
+                            <tr>
+                                <td class="text-center" colspan="2">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-centered table-bordered table-wrap">
+                        <thead>
+                            <tr class="table-title">
+                                <th class="border-0 text-center w-50">Keputusan 1</th>
+                                <th class="border-0 text-center w-50">Keputusan 2</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-text">
+                            <tr>
+                                <td class="text-center">0</td>
+                                <td class="text-center">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-centered table-bordered table-wrap">
+                        <thead>
+                            <tr class="table-title">
+                                <th class="border-0 text-center" colspan="2">Keputusan Akhir</th>
                             </tr>
                         </thead>
                         <tbody class="table-text">

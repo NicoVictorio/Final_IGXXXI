@@ -180,7 +180,7 @@
                     <div class="cell">
                         <div>
                             <div class="row">
-                                <div class="bay">Bay 1</div>
+                                <div class="bay">Block 1</div>
                             </div>
                             <div class="row">
                                 <div class="nomor">1</div>
@@ -293,7 +293,7 @@
                         </div>
                         <div>
                             <div class="row">
-                                <div class="bay">Bay 3</div>
+                                <div class="bay">Block 3</div>
                             </div>
                             <div class="row">
                                 <div class="nomor">1</div>
@@ -408,7 +408,7 @@
                     <div class="cell">
                         <div class="px-4">
                             <div class="row">
-                                <div class="bay">Bay 2</div>
+                                <div class="bay">Block 2</div>
                             </div>
                             <div class="row">
                                 <div class="nomor">1</div>
@@ -515,7 +515,7 @@
                         </div>
                         <div class="px-4">
                             <div class="row">
-                                <div class="bay">Bay 4</div>
+                                <div class="bay">Block 4</div>
                             </div>
                             <div class="row">
                                 <div class="nomor">1</div>
@@ -651,10 +651,10 @@
                             </div>
                         </div>
                         <div class="row py-5">
-                            <label for="cbBay" class="combobox-title">Bay</label>
+                            <label for="cbBay" class="combobox-title">Block</label>
                             <div class="row">
                                 <select name="bay" id="cbBay" class="form-select combobox" required>
-                                    <option value="" selected disabled>Pilih Bay</option>
+                                    <option value="" selected disabled>Pilih Block</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -770,7 +770,7 @@
                     alert('Belum memilih container');
                 }
                 if(bay == null){
-                    alert('Belum memilih bay!');                    
+                    alert('Belum memilih block!');                    
                 }
             }
             else{            
