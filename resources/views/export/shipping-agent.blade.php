@@ -984,8 +984,8 @@
                             </thead>
                             <tbody class="table-text">
                                 <tr>
-                                    <td class="text-center">0</td>
-                                    <td class="text-center">0</td>
+                                    <td class="text-center">{{ $totalWeightPort }}</td>
+                                    <td class="text-center">{{ $totalWeightStarboard }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -998,7 +998,7 @@
                             </thead>
                             <tbody class="table-text">
                                 <tr>
-                                    <td class="text-center" colspan="2">0</td>
+                                    <td class="text-center" colspan="2">{{ $diffPortStarboard }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1008,26 +1008,26 @@
                             <thead>
                                 <tr class="table-title">
                                     <th class="border-0 text-center w-50">Total Weight: Bow</th>
-                                    <th class="border-0 text-center w-50">Total Weight: Starboard</th>
+                                    <th class="border-0 text-center w-50">Total Weight: Stern</th>
                                 </tr>
                             </thead>
                             <tbody class="table-text">
                                 <tr>
-                                    <td class="text-center">0</td>
-                                    <td class="text-center">0</td>
+                                    <td class="text-center">{{ $totalWeightBow }}</td>
+                                    <td class="text-center">{{ $totalWeightStern }}</td>
                                 </tr>
                             </tbody>
                         </table>
                         <table class="table table-centered table-bordered table-wrap">
                             <thead>
                                 <tr class="table-title">
-                                    <th class="border-0 text-center" colspan="2">Difference: Port and Starboard
+                                    <th class="border-0 text-center" colspan="2">Difference: Port and Stern
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="table-text">
                                 <tr>
-                                    <td class="text-center" colspan="2">0</td>
+                                    <td class="text-center" colspan="2">{{ $diffBowStern }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1042,7 +1042,7 @@
                         </thead>
                         <tbody class="table-text">
                             <tr>
-                                <td class="text-center" colspan="2">0</td>
+                                <td class="text-center" colspan="2">{{ $totalWeightShip }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1055,8 +1055,8 @@
                         </thead>
                         <tbody class="table-text">
                             <tr>
-                                <td class="text-center">0</td>
-                                <td class="text-center">0</td>
+                                <td class="text-center">{{ ucfirst($decision1) }}</td>
+                                <td class="text-center">{{ ucfirst($decision2) }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1068,10 +1068,18 @@
                         </thead>
                         <tbody class="table-text">
                             <tr>
-                                <td class="text-center" colspan="2">0</td>
+                                <td class="text-center" colspan="2">{{ ucfirst($finalDecision) }}</td>
                             </tr>
                         </tbody>
                     </table>
+                    @if($finalDecision == 'send')
+                    <div class="row">
+                        <form action="#" method="post">
+                            @csrf
+                            <button type="submit" name="submit" class="btn btn-primary">Kirim</button>
+                        </form>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -1079,7 +1087,58 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+        $('#cbBay').on('change', function(){
+            $('#cbRow').html("<option value='-' selected disabled>Pilih Row</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option>");
+            $('#divTier').html("<input type='hidden' name='tier' value=''><label class='combobox-title'>Tier: Belum Pilih Row</label>");
+        });
+        $('#reset').on('click', function(){
+            $.ajax({
+                type: 'POST',
+                url: '{{ route("export.ca-reset") }}',
+                data: {
+                    '_token': '<?php echo csrf_token(); ?>',
+                },
+                success: function(data) {
+                    window.location.reload();
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert('Terjadi Kesalahan, Hubungi Tim Panitia.\nError Message [Reset ECA]: ' + errorThrown);
+                }
+            });
+        });
+        $('#cbRow').on('change', function(){
+            var idShipping = $('#cbKontainer').val();
+            var bay = $('#cbBay').val();
+            var row = $('#cbRow').val();
+
+            if(idShipping == null || bay == null){
+                if(idShipping == null){
+                    alert('Belum memilih container');
+                }
+                if(bay == null){
+                    alert('Belum memilih bay!');                    
+                }
+            }
+            else{            
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route("export.sa-gettier") }}',
+                    data: {
+                        '_token': '<?php echo csrf_token(); ?>',
+                        'bay': bay,
+                        'row': row,
+                    },
+                    success: function(data) {
+                        $('#divTier').html("<input type='hidden' name='tier' value='"+data.tier+"'><label class='combobox-title'>Tier: " + data.tier + "</label>");
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert('Terjadi Kesalahan, Hubungi Tim Panitia.\nError Message [View Tier ECA]: ' + errorThrown);
+                    }
+                });
+            };
+        });
+    </script>
 </body>
 
 </html>

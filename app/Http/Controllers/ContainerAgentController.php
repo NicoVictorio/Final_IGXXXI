@@ -103,9 +103,9 @@ class ContainerAgentController extends Controller
             $dataContainerShip->bay = $bay;
             $dataContainerShip->save();
 
-            return redirect()->route('export.container-agent')->with('status', 'Kontainer telah berhasil dimasukkan ke dalam Bay ' . $bay . ' dengan Row ' . $row . ' dan Tier ' . $tier);
+            return redirect()->route('export.container-agent')->with('status', 'Kontainer telah berhasil dimasukkan ke dalam Block ' . $bay . ' dengan Row ' . $row . ' dan Tier ' . $tier);
         } else {
-            return redirect()->route('export.container-agent')->with('error', 'Row, Tier, dan Bay terkait telah terisi. Silakan pilih row, tier, dan bay lainnya.');
+            return redirect()->route('export.container-agent')->with('error', 'Row, Tier, dan Block terkait telah terisi. Silakan pilih row, tier, dan block lainnya.');
         }
     }
 }
