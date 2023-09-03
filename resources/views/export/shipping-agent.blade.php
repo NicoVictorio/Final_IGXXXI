@@ -683,9 +683,11 @@
                                 <select name="bay" id="cbBay" class="form-select combobox" required>
                                     <option value="" selected disabled>Pilih Bay</option>
                                     <option value="1">1</option>
-                                    <option value="2">2</option>
                                     <option value="3">3</option>
-                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="7">7</option>
+                                    <option value="9">9</option>
+                                    <option value="11">11</option>
                                 </select>
                             </div>
                         </div>
@@ -694,10 +696,9 @@
                             <div class="row">
                                 <select name="row" id="cbRow" class="form-select combobox" required>
                                     <option value="" selected disabled>Pilih Row</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
+                                    <option value="2">02</option>
+                                    <option value="4">04</option>
+                                    <option value="6">06</option>
                                 </select>
                             </div>
                         </div>
