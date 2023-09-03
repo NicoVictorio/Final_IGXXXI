@@ -124,8 +124,6 @@
                                         <tr>
                                             <th colspan="10">
                                                 <select name="tier" id="cbTier" class="form-select combobox">
-                                                    <option value="82">Tier 90</option>
-                                                    <option value="84">Tier 88</option>
                                                     <option value="82">Tier 86</option>
                                                     <option value="84">Tier 84</option>
                                                     <option value="86">Tier 82</option>
@@ -134,7 +132,7 @@
                                         </tr>
                                         <tr>
                                             <th colspan="2" rowspan="2"></th>
-                                            <th colspan="8">Bay (top view)</th>
+                                            <th colspan="8">Bay (Top View)</th>
                                         </tr>
                                         <tr>
                                             <th style="width: 100px;">7</th>
@@ -213,7 +211,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td></td>
+                                        <td>0</td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
