@@ -89,6 +89,13 @@ class ContainerAgentController extends Controller
         }
 
         $cekSama = DB::select(DB::raw("select count(id) as 'count' from shipping_container where (volume_status='safe' or volume_status='less') and weight_status='safe' and Team_id='" . $idTeam . "' and `row`='" . $row . "' and tier='" . $tier . "' and bay='" . $bay . "'"))[0]->count * 1;
+        $cekTierBawah = DB::select(DB::raw("select code from shipping_container where (volume_status='safe' or volume_status='less') and weight_status='safe' and Team_id='" . $idTeam . "' and `row`='" . $row . "' and tier='" . ($tier - 1) . "' and bay='" . $bay . "'"));
+        if ($cekTierBawah != null) {
+            $codeContainerShip = ShippingContainer::select('code')->where('id', $idContainer)->first();
+            if (substr($cekTierBawah[0]->code, 0, 1) == '2' && substr($codeContainerShip->code, 0, 1) == '4') {
+                return redirect()->route('export.container-agent')->with('error', 'Kontainer 40 feet tidak boleh ditaruh di atas kontainer 20 feet!');
+            }
+        }
         if ($cekSama == 0) {
             $dataContainerShip = ShippingContainer::find($idContainer);
             $dataContainerShip->row = $row;
