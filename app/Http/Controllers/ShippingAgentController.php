@@ -13,7 +13,7 @@ class ShippingAgentController extends Controller
     public function showSAExportPage()
     {
         $idTeam = Auth::user()->team->id;
-        $containerShipsUS = ShippingContainer::whereRaw("(volume_status='safe' or volume_status='less') and weight_status='safe'")->where('row', '!=', null)->where('tier', '!=', null)->where('bay', '!=', null)->where('team_id', $idTeam)->where('Period_id', 1)->get();
+        $containerShipsUS = ShippingContainer::whereRaw("(volume_status='safe' or volume_status='less') and weight_status='safe'")->where('row', '!=', null)->where('tier', '!=', null)->where('bay', '!=', null)->where('ica_target_row', null)->where('ica_sequence',null)->where('ica_target_bay', null)->where('team_id', $idTeam)->where('Period_id', 1)->get();
 
         $plots = ShippingContainer::select('code', 'row', 'tier', 'bay')->where('row', '!=', null)->where('tier', '!=', null)->where('bay', '!=', null)->where('team_id', $idTeam)->where('Period_id', 1)->get();
         $plotsBay = ShippingContainer::select('code', 'ica_target_row', 'ica_sequence', 'ica_target_bay', 'isa_due_date')->where('ica_target_row', '!=', null)->where('ica_sequence', '!=', null)->where('ica_target_bay', '!=', null)->where('team_id', $idTeam)->where('Period_id', 1)->get();
@@ -158,9 +158,9 @@ class ShippingAgentController extends Controller
             }
             $dataContainerShip->save();
 
-            return redirect()->route('export.container-agent')->with('status', 'Kontainer telah berhasil dimasukkan ke dalam Bay ' . $bay . ' dengan Row ' . $row . ' dan Tier ' . $tier);
+            return redirect()->route('export.shipping-agent')->with('status', 'Kontainer telah berhasil dimasukkan ke dalam Bay ' . $bay . ' dengan Row ' . $row . ' dan Tier ' . $tier);
         } else {
-            return redirect()->route('export.container-agent')->with('error', 'Row, Tier, dan Bay terkait telah terisi. Silakan pilih row, tier, dan bay lainnya.');
+            return redirect()->route('export.shipping-agent')->with('error', 'Row, Tier, dan Bay terkait telah terisi. Silakan pilih row, tier, dan bay lainnya.');
         }
     }
 
