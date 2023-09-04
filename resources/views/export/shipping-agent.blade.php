@@ -689,7 +689,7 @@
                         </div>
                         <br>
                         <div class="row">
-                            <button type="submit" class="btn btn-primary button-layout">Reset</button>
+                            <button type="button" class="btn btn-primary button-layout" id="reset">Reset</button>
                         </div>
                         <br>
                         <div class="row">
@@ -1090,7 +1090,7 @@
         $('#reset').on('click', function() {
             $.ajax({
                 type: 'POST',
-                url: '{{ route('export.ca-reset') }}',
+                url: '{{ route('export.sa-reset') }}',
                 data: {
                     '_token': '<?php echo csrf_token(); ?>',
                 },
@@ -1098,7 +1098,7 @@
                     window.location.reload();
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    alert('Terjadi Kesalahan, Hubungi Tim Panitia.\nError Message [Reset ECA]: ' +
+                    alert('Terjadi Kesalahan, Hubungi Tim Panitia.\nError Message [Reset ESA]: ' +
                         errorThrown);
                 }
             });

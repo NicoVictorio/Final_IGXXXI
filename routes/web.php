@@ -63,6 +63,7 @@ Route::middleware(['auth', 'player'])->group(function () {
     Route::get('/export/shipping-agent', [ShippingAgentController::class, 'showSAExportPage'])->name('export.shipping-agent');
     Route::post('/export/shipping-agent/push', [ShippingAgentController::class, 'pushSAExportDeck'])->name('export.sa-push');
     Route::post('/export/shipping-agent/getTier', [ShippingAgentController::class, 'getTierSAExport'])->name('export.sa-gettier');
+    Route::post('/export/shipping-agent/reset', [ShippingAgentController::class, 'resetPositionSAExport'])->name('export.sa-reset');
 
 
     // Import

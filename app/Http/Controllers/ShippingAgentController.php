@@ -184,6 +184,14 @@ class ShippingAgentController extends Controller
         return response()->json(array('tier' => $cekNomor), 200);
     }
 
+    public function resetPositionSAExport(){
+        $idTeam = Auth::user()->team->id;
+
+        DB::update("update shipping_container set ica_target_row=null, ica_target_bay=null, ica_sequence=null, isa_due_date=null where Team_id='" . $idTeam . "' and Period_id=1");
+
+        return response()->json(array('message' => "ok"), 200);
+    }
+
     // Import
     public function showSAImportPage()
     {
