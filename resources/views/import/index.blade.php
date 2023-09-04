@@ -87,7 +87,7 @@
             <div class="d-flex flex-row justify-content-between w-100" id="navbarSupportedContent">
                 {{-- NAMA TEAM --}}
                 <div class="shadow m-2 nama-team" id="batch">
-                    Nama Team
+                    {{ Auth::user()->team->name }}
                 </div>
 
                 {{-- LOGOUT --}}
