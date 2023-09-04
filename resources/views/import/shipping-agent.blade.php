@@ -331,7 +331,7 @@
             var tier = $('#cbTier').val();
             $.ajax({
                 type: 'POST',
-                url: '{{ route('import.sa-ceklateness') }}',
+                url: '{{ route('import.sa-getrowbaytable') }}',
                 data: {
                     '_token': '<?php echo csrf_token(); ?>',
                     'tier': tier,

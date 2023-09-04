@@ -74,7 +74,7 @@ Route::middleware(['auth', 'player'])->group(function () {
 
     Route::get('/import/shipping-agent', [ShippingAgentController::class, 'showSAImportPage'])->name('import.shipping-agent');
     Route::post('/import/shipping-agent/cek', [ShippingAgentController::class, 'checkSALateness'])->name('import.sa-ceklateness');
-    Route::post('/import/shipping-agent/getrowbaytable', [ShippingAgentController::class, 'getrowbaytable'])->name('import.sa-ceklateness');
+    Route::post('/import/shipping-agent/getrowbaytable', [ShippingAgentController::class, 'getrowbaytable'])->name('import.sa-getrowbaytable');
 
     Route::get('/import/container-agent', [ContainerAgentController::class, 'showCAImportPage'])->name('import.container-agent');
 

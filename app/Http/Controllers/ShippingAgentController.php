@@ -219,11 +219,20 @@ class ShippingAgentController extends Controller
     public function checkSALateness(Request $request)
     {
         $request->validate(['sequence'=>'required', 'sequence.*'=>'distinct', 'containerShip'=>'required'], ['sequence.*.distinct'=>'Sequence harus berbeda!']);
+
         $idTeam = Auth::user()->team->id;
 
         $sequences = $request->get('sequence');
         $containerShipIds = $request->get('containerShip');
 
+        foreach($sequences as $key=>$sequence){
+            $containerData = ShippingContainer::find($containerShipIds[$key]);
+            $countTierAtas = DB::select(DB::raw("select count(id) as 'count' from shipping_container where `row`='".$containerData->row."' and tier='".($containerData->tier+2)."' and bay='".$containerData->bay."' and Team_id='" . $idTeam . "' and Period_id=2 order by tier desc"))[0]->count;
+            if($countTierAtas > 0){
+                return redirect()->route('import.shipping-agent')->with('error', 'Terdapat kontainer lain di atas kontainer '.$containerData->loss_space.'!');
+            }
+        }
+        
         foreach($sequences as $key=>$sequence){
             $containerData = ShippingContainer::find($containerShipIds[$key]);
             $containerData->ica_sequence = $sequence;
@@ -240,7 +249,7 @@ class ShippingAgentController extends Controller
         $arrPlot = [];
 
         foreach($rowBays as $rB){
-            $arrPlot[] = $rB->code . '#row' . $rB->row . '#bay' . $rB->bay;
+            $arrPlot[] = $rB->loss_space . '#row' . $rB->row . '#bay' . $rB->bay;
         }
 
         return response()->json(array('data' => view('import.sa-rowbaytable', compact('arrPlot'))->render()), 200);
