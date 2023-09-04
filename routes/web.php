@@ -72,11 +72,13 @@ Route::middleware(['auth', 'player'])->group(function () {
         return view('import.index');
     });
 
-    Route::get('/import/depo-agent', [DepoAgentController::class, 'showDAImportPage'])->name('import.depo-agent');
-    Route::post('/import/shipping-agent/save', [DepoAgentController::class, 'saveDAImport'])->name('import.da-save');
+    Route::get('/import/shipping-agent', [ShippingAgentController::class, 'showSAImportPage'])->name('import.shipping-agent');
+    Route::post('/import/shipping-agent/cek', [ShippingAgentController::class, 'checkSALateness'])->name('import.sa-ceklateness');
 
     Route::get('/import/container-agent', [ContainerAgentController::class, 'showCAImportPage'])->name('import.container-agent');
-    Route::get('/import/shipping-agent', [ShippingAgentController::class, 'showSAImportPage'])->name('import.shipping-agent');
+
+    Route::get('/import/depo-agent', [DepoAgentController::class, 'showDAImportPage'])->name('import.depo-agent');
+    Route::post('/import/depo-agent/save', [DepoAgentController::class, 'saveDAImport'])->name('import.da-save');
 });
 
 Route::middleware(['auth', 'penpos'])->group(function () {

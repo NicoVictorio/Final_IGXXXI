@@ -195,6 +195,41 @@ class ShippingAgentController extends Controller
     // Import
     public function showSAImportPage()
     {
-        return view('import.shipping-agent');
+        $idTeam = Auth::user()->team->id;
+        $containers = ShippingContainer::where('Team_id', $idTeam)->where('Period_id', 2)->orderBy('ica_sequence')->get();
+        $countContainers = count($containers);
+        
+        $completionTime = 0;
+        foreach($containers as $key=>$cont){
+            if($key==0){
+                $completionTime = $cont->total_r_time;
+            }
+            else{
+                $completionTime += $cont->total_r_time;
+            }
+            $cont->completion_time = $completionTime;
+            $cont->lateness = max(0, ($cont->completion_time-$cont->isa_due_date));
+        }
+
+        $totalLateness = $containers->sum('lateness');
+
+        return view('import.shipping-agent', compact('containers', 'countContainers', 'totalLateness'));
+    }
+
+    public function checkSALateness(Request $request)
+    {
+        $request->validate(['sequence'=>'required', 'sequence.*'=>'distinct', 'containerShip'=>'required'], ['sequence.*.distinct'=>'Sequence harus berbeda!']);
+        $idTeam = Auth::user()->team->id;
+
+        $sequences = $request->get('sequence');
+        $containerShipIds = $request->get('containerShip');
+
+        foreach($sequences as $key=>$sequence){
+            $containerData = ShippingContainer::find($containerShipIds[$key]);
+            $containerData->ica_sequence = $sequence;
+            $containerData->save();
+        }
+
+        return redirect()->route('import.shipping-agent')->with('status', 'Pengecekan selesai!');
     }
 }
