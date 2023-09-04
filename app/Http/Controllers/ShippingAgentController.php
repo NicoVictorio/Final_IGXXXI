@@ -13,7 +13,7 @@ class ShippingAgentController extends Controller
     public function showSAExportPage()
     {
         $idTeam = Auth::user()->team->id;
-        $containerShipsUS = ShippingContainer::whereRaw("(volume_status='safe' or volume_status='less') and weight_status='safe'")->where('row', '!=', null)->where('tier', '!=', null)->where('bay', '!=', null)->where('ica_target_row', null)->where('ica_sequence',null)->where('ica_target_bay', null)->where('team_id', $idTeam)->where('Period_id', 1)->get();
+        $containerShipsUS = ShippingContainer::whereRaw("(volume_status='safe' or volume_status='less') and weight_status='safe'")->where('row', '!=', null)->where('tier', '!=', null)->where('bay', '!=', null)->where('ica_target_row', null)->where('ica_sequence', null)->where('ica_target_bay', null)->where('team_id', $idTeam)->where('Period_id', 1)->get();
 
         $plots = ShippingContainer::select('code', 'row', 'tier', 'bay')->where('row', '!=', null)->where('tier', '!=', null)->where('bay', '!=', null)->where('team_id', $idTeam)->where('Period_id', 1)->get();
         $plotsBay = ShippingContainer::select('code', 'ica_target_row', 'ica_sequence', 'ica_target_bay', 'isa_due_date')->where('ica_target_row', '!=', null)->where('ica_sequence', '!=', null)->where('ica_target_bay', '!=', null)->where('team_id', $idTeam)->where('Period_id', 1)->get();
@@ -47,7 +47,7 @@ class ShippingAgentController extends Controller
             $totalWeightStarboard = 0;
         }
         $diffPortStarboard = abs($totalWeightPort - $totalWeightStarboard);
-        $totalWeightBow = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.ica_target_bay in (1,3,5) and sc.team_id='.$idTeam.' and sc.Period_id=1;"));
+        $totalWeightBow = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.team_id='.$idTeam.' and sc.Period_id=1 and (sc.ica_target_bay=1 or sc.ica_target_bay=3 or sc.ica_target_bay=5)"));
         if ($totalWeightBow != null) {
             $totalWeightBow = $totalWeightBow[0]->weight;
         } else {
@@ -60,8 +60,8 @@ class ShippingAgentController extends Controller
             $totalWeightStern = 0;
         }
         $diffBowStern = abs($totalWeightBow - $totalWeightStern);
-        $totalWeightShip = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.ica_target_row != null and sc.ica_target_bay != null and sc.ica_sequence != null and sc.team_id='.$idTeam.' and sc.Period_id=1;"));
-        dd($totalWeightShip);
+        $totalWeightShip = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.ica_target_row is not null and sc.ica_target_bay is not null and sc.ica_sequence is not null and sc.team_id='.$idTeam.' and sc.Period_id=1;"));
+
         if ($totalWeightShip != null) {
             $totalWeightShip = $totalWeightShip[0]->weight;
         } else {
@@ -105,44 +105,46 @@ class ShippingAgentController extends Controller
 
         $idTeam = Auth::user()->team->id;
         if ($tier > 6) {
-            return redirect()->route('export.container-agent')->with('error', 'Kontainer tidak dapat ditumpuk dengan lebih dari 3 tumpukan!');
+            return redirect()->route('export.shipping-agent')->with('error', 'Kontainer tidak dapat ditumpuk dengan lebih dari 3 tumpukan!');
         }
 
-        $cekTierBawah = DB::select(DB::raw("select code from shipping_container where (volume_status='safe' or volume_status='less') and weight_status='safe' and Team_id='" . $idTeam . "' and ica_target_row='" . $row . "' and ica_sequence='" . ($tier - 1) . "' and ica_target_bay='" . $bay . "'"));
+        $cekTierBawah = DB::select(DB::raw("select code from shipping_container where (volume_status='safe' or volume_status='less') and weight_status='safe' and Team_id='" . $idTeam . "' and ica_target_row='" . $row . "' and ica_sequence='" . ($tier - 2) . "' and ica_target_bay='" . $bay . "'"));
+
         if ($cekTierBawah != null) {
             $codeContainerShip = ShippingContainer::select('code')->where('id', $idContainer)->first();
             if (substr($cekTierBawah[0]->code, 0, 1) == '2' && substr($codeContainerShip->code, 0, 1) == '4') {
-                return redirect()->route('export.container-agent')->with('error', 'Kontainer 40 feet tidak boleh ditaruh di atas kontainer 20 feet!');
+                return redirect()->route('export.shipping-agent')->with('error', 'Kontainer 40 feet tidak boleh ditaruh di atas kontainer 20 feet!');
             }
         }
 
-        $cekSama = DB::select(DB::raw("select count(id) as 'count' from shipping_container where (volume_status='safe' or volume_status='less') and weight_status='safe' and Team_id='" . $idTeam . "' and `row`='" . $row . "' and tier='" . $tier . "' and bay='" . $bay . "'"))[0]->count * 1;
+        $cekSama = DB::select(DB::raw("select count(id) as 'count' from shipping_container where (volume_status='safe' or volume_status='less') and weight_status='safe' and Team_id='" . $idTeam . "' and `ica_target_row`='" . $row . "' and ica_sequence='" . $tier . "' and ica_target_bay='" . $bay . "'"))[0]->count * 1;
         if ($cekSama == 0) {
             $cekBay40Feet = 0;
+
+            if ($bay == 1) {
+                $cekBay40Feet = DB::select(DB::raw("select count(isa_due_date) as 'count' from shipping_container where ica_target_row = '" . $row . "' and ica_sequence = '" . $tier . "' and isa_due_date='1'"))[0]->count;
+            } elseif ($bay == 3) {
+                $cekBay40Feet = DB::select(DB::raw("select count(isa_due_date) as 'count' from shipping_container where ica_target_row = '" . $row . "' and ica_sequence = '" . $tier . "' and isa_due_date='3'"))[0]->count;
+            } else if ($bay == 5) {
+                $cekBay40Feet = DB::select(DB::raw("select count(isa_due_date) as 'count' from shipping_container where ica_target_row = '" . $row . "' and ica_sequence = '" . $tier . "' and isa_due_date='5'"))[0]->count;
+            } elseif ($bay == 7) {
+                $cekBay40Feet = DB::select(DB::raw("select count(isa_due_date) as 'count' from shipping_container where ica_target_row = '" . $row . "' and ica_sequence = '" . $tier . "' and isa_due_date='7'"))[0]->count;
+            } else if ($bay == 9) {
+                $cekBay40Feet = DB::select(DB::raw("select count(isa_due_date) as 'count' from shipping_container where ica_target_row = '" . $row . "' and ica_sequence = '" . $tier . "' and isa_due_date='9'"))[0]->count;
+            } elseif ($bay == 11) {
+                $cekBay40Feet = DB::select(DB::raw("select count(isa_due_date) as 'count' from shipping_container where ica_target_row = '" . $row . "' and ica_sequence = '" . $tier . "' and isa_due_date='11'"))[0]->count;
+            }
+
+            if ($cekBay40Feet > 0) {
+                return redirect()->route('export.shipping-agent')->with('error', 'Kontainer tidak dapat dimasukkan ke dalam Bay ' . $bay . ' dengan Row ' . $row . ' dan Tier ' . $tier . ' karena terdapat kontainer 40 feet pada bay berpasangan (1-3 atau 5-7 atau 9-11)');
+            }
 
             $dataContainerShip = ShippingContainer::find($idContainer);
             $dataContainerShip->ica_target_row = $row;
             $dataContainerShip->ica_sequence = $tier;
             $dataContainerShip->ica_target_bay = $bay;
+            
             if (substr($dataContainerShip->code, 0, 1) == '4') {
-                if ($bay == 1) {
-                    $cekBay40Feet = DB::select(DB::raw("select count(isa_due_date) as 'count' from shipping_containers where ica_target_row = '.$row.' and ica_sequence = '.$tier.' and isa_due_date='3'"))[0]->count;
-                } elseif ($bay == 3) {
-                    $cekBay40Feet = DB::select(DB::raw("select count(isa_due_date) as 'count' from shipping_containers where ica_target_row = '.$row.' and ica_sequence = '.$tier.' and isa_due_date='1'"))[0]->count;
-                } else if ($bay == 5) {
-                    $cekBay40Feet = DB::select(DB::raw("select count(isa_due_date) as 'count' from shipping_containers where ica_target_row = '.$row.' and ica_sequence = '.$tier.' and isa_due_date='7'"))[0]->count;
-                } elseif ($bay == 7) {
-                    $cekBay40Feet = DB::select(DB::raw("select count(isa_due_date) as 'count' from shipping_containers where ica_target_row = '.$row.' and ica_sequence = '.$tier.' and isa_due_date='5'"))[0]->count;
-                } else if ($bay == 9) {
-                    $cekBay40Feet = DB::select(DB::raw("select count(isa_due_date) as 'count' from shipping_containers where ica_target_row = '.$row.' and ica_sequence = '.$tier.' and isa_due_date='11'"))[0]->count;
-                } elseif ($bay == 11) {
-                    $cekBay40Feet = DB::select(DB::raw("select count(isa_due_date) as 'count' from shipping_containers where ica_target_row = '.$row.' and ica_sequence = '.$tier.' and isa_due_date='9'"))[0]->count;
-                }
-
-                if ($cekBay40Feet > 0) {
-                    return redirect()->route('export.container-agent')->with('status', 'Kontainer telah berhasil dimasukkan ke dalam Bay ' . $bay . ' dengan Row ' . $row . ' dan Tier ' . $tier . ' karena terdapat kontainer 40 feet pada bay berpasangan (1-3 atau 5-7 atau 9-11)');
-                }
-
                 if ($bay == 1) {
                     $dataContainerShip->isa_due_date = 3;
                 } elseif ($bay == 3) {
@@ -171,7 +173,7 @@ class ShippingAgentController extends Controller
         $bay = $request->get('bay');
         $row = $request->get('row');
 
-        $cekNomor = DB::select(DB::raw("select ica_sequence as 'tier' from shipping_container where bay='" . $bay . "' and  `row`='" . $row . "' and Team_id='" . $idTeam . "' and Period_id=1 order by tier desc"));
+        $cekNomor = DB::select(DB::raw("select ica_sequence as 'tier' from shipping_container where ica_target_bay='" . $bay . "' and  ica_target_row='" . $row . "' and Team_id='" . $idTeam . "' and Period_id=1 order by tier desc"));
         if ($cekNomor == null) {
             $cekNomor = 2;
         } else {
