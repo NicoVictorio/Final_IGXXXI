@@ -232,4 +232,17 @@ class ShippingAgentController extends Controller
 
         return redirect()->route('import.shipping-agent')->with('status', 'Pengecekan selesai!');
     }
+
+    public function getrowbaytable(Request $request){
+        $idTeam = Auth::user()->team->id;
+        $tier = $request->get('tier');
+        $rowBays = ShippingContainer::select('code', 'row', 'bay')->where('tier', $tier)->where('Team_id', $idTeam)->where('Period_id', 2)->get();
+        $arrPlot = [];
+
+        foreach($rowBays as $rB){
+            $arrPlot[] = $rB->code . '#row' . $rB->row . '#bay' . $rB->bay;
+        }
+
+        return response()->json(array('data' => view('import.sa-rowbaytable', compact('arrPlot'))->render()), 200);
+    }
 }

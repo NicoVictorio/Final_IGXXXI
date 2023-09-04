@@ -141,6 +141,7 @@
                                     <tr>
                                         <th colspan="10">
                                             <select name="tier" id="cbTier" class="form-select combobox">
+                                                <option value="" selected disabled>Pilih Tier</option>
                                                 <option value="82">Tier 86</option>
                                                 <option value="84">Tier 84</option>
                                                 <option value="86">Tier 82</option>
@@ -162,19 +163,51 @@
                                         <th style="width: 100px;">8</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tableBodyRBT">
                                     <tr>
                                         <td class="table-title" rowspan="5" style="width: 100px;">Row</td>
                                         <td class="table-title" style="width: 100px;">4</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <td class="table-title" style="width: 100px;">3</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <td class="table-title" style="width: 100px;">2</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <td class="table-title" style="width: 100px;">1</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <td class="table-title" style="width: 100px;">0</td>
@@ -293,7 +326,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+        $('#cbTier').on('change', function() {
+            var tier = $('#cbTier').val();
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('import.sa-ceklateness') }}',
+                data: {
+                    '_token': '<?php echo csrf_token(); ?>',
+                    'tier': tier,
+                },
+                success: function(data) {
+                    $('#tableBodyRBT').html(data.data);
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert('Terjadi Kesalahan, Hubungi Tim Panitia.\nError Message [Tier Table ISA]: ' +
+                        errorThrown);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
