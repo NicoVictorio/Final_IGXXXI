@@ -68,6 +68,17 @@
             color: white;
         }
 
+        .combobox {
+            border: 3px solid #2C56A7;
+            border-radius: 1.5rem;
+            color: #2C56A7;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.5rem 1.6rem;
+        }
+
         /* STYLE MODAL */
         .modal-title {
             font-size: 50px;
@@ -107,6 +118,11 @@
             <h1 class="title text-center fw-bolder">CONTAINER AGENT</h1>
         </div>
         <div class="spacer"></div>
+        <div class="row">
+            <div class="d-flex justify-content-end px-1" style="bottom: 5%">
+                <button type="button" class="btn btn-info button-list-kontainer" data-bs-toggle="modal" data-bs-target="#listContainerModal">List Kontainer</button>
+            </div>
+        </div>
         <div class="body px-1 py-4">
             <div class="row">
                 <div class="col-12">
@@ -119,49 +135,160 @@
                         class="btn btn-secondary mb-3 button-tambah-kontainer">Tambah Kontainer</a> --}}
                     <div class="table-responsive">
                         <table class="table table-centered table-bordered table-wrap">
-                            <thead>
-                                <tr class="table-title">
-                                    <th class="border-0 text-center">Sequence</th>
-                                    <th class="border-0 text-center">Container number</th>
-                                    <th class="border-0 text-center">Current row position</th>
-                                    <th class="border-0 text-center">Current bay position</th>
-                                    <th class="border-0 text-center">Target row position</th>
-                                    <th class="border-0 text-center">Target bay position</th>
-                                    <th class="border-0 text-center">Retrieval time (row direction)</th>
-                                    <th class="border-0 text-center">Empty retrieval time (bay direction)</th>
-                                    <th class="border-0 text-center">Loaded retrieval time (bay direction)</th>
-                                    <th class="border-0 text-center">Total retrieval time (minute)</th>
-                                    <th class="border-0 text-center">Completion time (minute)</th>
-                                </tr>
-                            </thead>
-                            <tbody class="table-text">
-                                <tr>
-                                    <td class="border-0 text-center">0</td>
-                                    <td class="border-0 text-center">0</td>
-                                    <td class="border-0 text-center">0</td>
-                                    <td class="border-0 text-center">0</td>
-                                    <td class="border-0 text-center">0</td>
-                                    <td class="border-0 text-center">0</td>
-                                    <td class="border-0 text-center">0</td>
-                                    <td class="border-0 text-center">0</td>
-                                    <td class="border-0 text-center">0</td>
-                                    <td class="border-0 text-center">0</td>
-                                    <td class="border-0 text-center">0</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td class="border-0 text-center table-title fw-bold" colspan="10">Total completion time (minutes)</td>
-                                    <td class="border-0 text-center table-text">0</td>
-                                </tr>
-                            </tfoot>
+                            <tr>
+                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane  gantry travel time (in minute, per bay)</td>
+                                <td class="border-0 text-center table-text">1</td>
+                            </tr>
+                            <tr>
+                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane travel time (in minute, per row)</td>
+                                <td class="border-0 text-center table-text">1</td>
+                            </tr>
+                            <tr>
+                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane  gantry travel time (in minute, per tier)</td>
+                                <td class="border-0 text-center table-text">0,5</td>
+                            </tr>
+                            <tr>
+                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane's current bay position</td>
+                                <td class="border-0 text-center table-text">1</td>
+                            </tr>
+                            <tr>
+                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane's current row position</td>
+                                <td class="border-0 text-center table-text">0</td>
+                            </tr>
+                            <tr>
+                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane's current tier position</td>
+                                <td class="border-0 text-center table-text">5</td>
+                            </tr>
                         </table>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="d-flex justify-content-end px-1" style="bottom: 5%">
-            <button type="button" class="btn btn-info button-list-kontainer" data-bs-toggle="modal" data-bs-target="#listContainerModal">List Kontainer</button>
+            <div class="row">
+                <div class="col-4 px-5">
+                    <table class="table table-bordered modal-table border-0 text-center">
+                        <thead class="modal-table-title">
+                            <tr>
+                                <th colspan="6">
+                                    <select name="yard" id="cbYard"
+                                        class="form-select combobox" required>
+                                        <option value="import">Import Yard</option>
+                                        <option value="rf">RF Yard</option>
+                                    </select>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th colspan="6">
+                                    <select name="tier" id="cbTier"
+                                        class="form-select combobox" required>
+                                        <option value="1">Tier 1</option>
+                                        <option value="2">Tier 2</option>
+                                        <option value="3">Tier 3</option>
+                                    </select>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th colspan="5">Bay</th>
+                            </tr>
+                            <tr>
+                                <th>Row</th>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4</th>
+                                <th>5</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="modal-table-title">3</td>
+                            </tr>
+                            <tr>
+                                <td class="modal-table-title">2</td>
+                            </tr>
+                            <tr>
+                                <td class="modal-table-title">1</td>
+                            </tr>
+                            <tr>
+                                <td class="modal-table-title">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-4 px-5">
+                    <h1 class="layout-title">Layout Kontainer</h1>
+                    <form action="{{ route('export.sa-push') }}" method="post">
+                        @csrf
+                        <div class="row">
+                            <label for="cbKontainer" class="combobox-title">Kontainer</label>
+                            <div class="row">
+                                <select name="kontainer" id="cbKontainer" class="form-select combobox" required>
+                                    <option value="" selected disabled>Pilih Kontainer</option>
+                                    @php
+                                        $counter = 0;
+                                    @endphp
+                                    @foreach ($containerShips as $key => $contShip)
+                                        @if ($counter == 0)
+                                            <option value="{{ $contShip->id }}">{{ $contShip->code }}
+                                                ({{ number_format($contShip->stuff_weight, 2, ',', '.') }}kg)
+                                            </option>
+                                        @else
+                                            <option value="{{ $contShip->id }}" disabled>{{ $contShip->code }}
+                                                ({{ number_format($contShip->stuff_weight, 2, ',', '.') }}kg)
+                                            </option>
+                                        @endif
+                                        @php
+                                            $counter++;
+                                        @endphp
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="cbBay" class="combobox-title">Bay</label>
+                            <div class="row">
+                                <select name="bay" id="cbBay" class="form-select combobox" required>
+                                    <option value="" selected disabled>Pilih Bay</option>
+                                    <option value="1">1</option>
+                                    <option value="3">3</option>
+                                    <option value="5">5</option>
+                                    <option value="7">7</option>
+                                    <option value="9">9</option>
+                                    <option value="11">11</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="cbRow" class="combobox-title">Row</label>
+                            <div class="row">
+                                <select name="row" id="cbRow" class="form-select combobox" required>
+                                    <option value="" selected disabled>Pilih Row</option>
+                                    <option value="1">01</option>
+                                    <option value="2">02</option>
+                                    <option value="3">03</option>
+                                    <option value="4">04</option>
+                                    <option value="5">05</option>
+                                    <option value="6">06</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row" id="divTier">
+                            <label class="combobox-title">Tier: Belum Pilih Row</label>
+                        </div>
+                        <div class="row">
+                            <button type="submit" class="btn btn-primary button-layout">Simpan Kontainer</button>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <button type="button" class="btn btn-primary button-layout" id="reset">Reset</button>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <a href="{{ route('export.index') }}" class="btn btn-primary button-layout">Back</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Modal -->
@@ -181,158 +308,12 @@
                                 <th>Container number</th>
                                 <th>Current row position</th>
                                 <th>Current bay position</th>
-                                <th>Target row position</th>
-                                <th>Target bay position</th>
+                                <th>Current Tier position</th>
+                                <th>Tujuan kontainer</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td></td>
-                                <td>4</td>
-                                <td>2</td>
-                                <td>1</td>
-                                <td>12</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td></td>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>1</td>
-                                <td>9</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td></td>
-                                <td>4</td>
-                                <td>5</td>
-                                <td>1</td>
-                                <td>8</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td></td>
-                                <td>4</td>
-                                <td>`</td>
-                                <td>1</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td></td>
-                                <td>4</td>
-                                <td>6</td>
-                                <td>1</td>
-                                <td>7</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td></td>
-                                <td>4</td>
-                                <td>11</td>
-                                <td>1</td>
-                                <td>6</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td></td>
-                                <td>4</td>
-                                <td>9</td>
-                                <td>1</td>
-                                <td>5</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td></td>
-                                <td>4</td>
-                                <td>7</td>
-                                <td>1</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td></td>
-                                <td>4</td>
-                                <td>8</td>
-                                <td>1</td>
-                                <td>4</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td></td>
-                                <td>4</td>
-                                <td>10</td>
-                                <td>1</td>
-                                <td>2</td>
-                            </tr>
                         </tbody>
-                    </table>
-
-                    <table class="table table-bordered modal-table">
-                        <tr>
-                            <td class="modal-table-title col-8">Yard Crane traverse travel time (in minute, per row)</th>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td class="modal-table-title col-8">Yard Crane gantry travel time (in minute, per bay)</th>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td class="modal-table-title col-8">Yard Crane's current bay position</th>
-                            <td>1</td>
-                        </tr>
-                    </table>
-
-                    <table class="table table-bordered modal-table border-0 text-center">
-                        <thead class="modal-table-title">
-                            <tr>
-                                <th colspan="15">Sequence 0</th>
-                            </tr>
-                            <tr>
-                                <th colspan="3" rowspan="2"></th>
-                                <th colspan="12">Bay (top view)</th>
-                            </tr>
-                            <tr>
-                                <th style="width: 70px;">1</th>
-                                <th style="width: 70px;">2</th>
-                                <th style="width: 70px;">3</th>
-                                <th style="width: 70px;">4</th>
-                                <th style="width: 70px;">5</th>
-                                <th style="width: 70px;">6</th>
-                                <th style="width: 70px;">7</th>
-                                <th style="width: 70px;">8</th>
-                                <th style="width: 70px;">9</th>
-                                <th style="width: 70px;">10</th>
-                                <th style="width: 70px;">11</th>
-                                <th style="width: 70px;">12</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="modal-table-title"rowspan="4">Row</td>
-                                <td class="modal-table-title">4</td>
-                                <td class="modal-table-title">Marshall</td>
-                            </tr>
-                            <tr>
-                                <td class="modal-table-title">3</td>
-                                <td class="modal-table-title">Depo</td>
-                            </tr>
-                            <tr>
-                                <td class="modal-table-title">2</td>
-                                <td class="modal-table-title">Pick Up</td>
-                            </tr>
-                            <tr>
-                                <td class="modal-table-title">1</td>
-                                <td class="modal-table-title">Drop Off</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td class="modal-table-title" colspan="3">0</td>
-                                <td class="modal-crane">Crane</td>
-                            </tr>
-                        </tfoot>
                     </table>
                 </div>
             </div>
