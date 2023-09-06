@@ -124,7 +124,9 @@
                     <div class="col-12">
                         <div class="d-flex d-sm-block">
                             <h2 class="mb-0">Stowage Plan</h2>
-                            <h2 id="profit" class="mb-2 mt-1 fw-bold" id="profit">Nama Team</h2>
+                            <h2 id="profit" class="mb-2 mt-1" id="profit">
+                                0
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -138,7 +140,9 @@
                     <div class="col-12 ">
                         <div class="d-flex d-sm-block">
                             <h2 class="mb-0">Durasi Docking</h2>
-                            <h1 class="fw-extrabold text-success mb-2" id="market-share">Nama Team</h1>
+                            <h2 class="mb-2 mt-1" id="market-share">
+                                0
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -153,7 +157,9 @@
                         <div class="d-flex d-sm-block">
                             <h2 class="mb-0">Teus</h2>
                             <div class="d-flex">
-                                <h3 class="fs-1 mb-2" id="sigma-level">Nama Team</h3>
+                                <h2 class="mb-2 mt-1" id="sigma-level">
+                                    0
+                                </h2>
                             </div>
                         </div>
                     </div>

@@ -12,11 +12,38 @@ class TeamSeeder extends Seeder
      */
     public function run()
     {
-        // $teams = [
-        //     [
-        //         'name' => 'Tim Nico Hore',
-        //     ],
-        // ];
-        // DB::table('teams')->insert($teams);
+        $teams = [
+            [
+                'name' => 'Tim 1',
+            ],
+            [
+                'name' => 'Tim 2',
+            ],
+            [
+                'name' => 'Tim 3',
+            ],
+            [
+                'name' => 'Tim 4',
+            ],
+            [
+                'name' => 'Tim 5',
+            ],
+            [
+                'name' => 'Tim 6',
+            ],
+            [
+                'name' => 'Tim 7',
+            ],
+            [
+                'name' => 'Tim 8',
+            ],
+            [
+                'name' => 'Tim 9',
+            ],
+            [
+                'name' => 'Tim 10',
+            ],
+        ];
+        DB::table('teams')->insert($teams);
     }
 }

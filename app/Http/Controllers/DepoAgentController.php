@@ -6,6 +6,7 @@ use App\Container;
 use App\ContainerProduct;
 use App\Demand;
 use App\Period;
+use App\Scoring;
 use App\ShippingContainer;
 use App\Team;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class DepoAgentController extends Controller
     public function qcPenpos(Team $team)
     {
         $teamList = Team::orderBy('name', 'asc')->get();
-        $containerShips = ShippingContainer::where('team_id', $team->id)->get();
+        $containerShips = ShippingContainer::where('team_id', $team->id)->where('Period_id', 1)->get();
         return view('penpos.export-qc', compact('teamList', 'team', 'containerShips'));
     }
 
