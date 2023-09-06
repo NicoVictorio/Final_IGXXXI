@@ -140,6 +140,7 @@ class ShippingAgentController extends Controller
             }
 
             $dataContainerShip = ShippingContainer::find($idContainer);
+            $dataContainerShip->tier = $dataContainerShip->tier + 2;
             $dataContainerShip->ica_target_row = $row;
             $dataContainerShip->ica_sequence = $tier;
             $dataContainerShip->ica_target_bay = $bay;
