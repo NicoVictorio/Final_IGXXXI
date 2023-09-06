@@ -79,6 +79,51 @@
             padding: 0.5rem 1.6rem;
         }
 
+        .layout-title {
+            font-size: 30px;
+            font-family: "Montserrat", sans-serif;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #2c56a7;
+        }
+
+        .button-layout {
+            border: 3px solid #2C56A7;
+            background: #2C56A7;
+            border-radius: 1.5rem;
+            color: white;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.5rem 1.6rem;
+            text-align: center;
+        }
+
+        .button-layout:hover {
+            border: 3px solid #2C56A7;
+            background: white;
+            color: #2C56A7;
+        }
+
+        .combobox-title {
+            font-size: 25px;
+            font-family: "Montserrat", sans-serif;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #2c56a7;
+        }
+
+        .combobox {
+            border: 3px solid #2C56A7;
+            border-radius: 1.5rem;
+            color: #2C56A7;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.5rem 1.6rem;
+        }
         /* STYLE MODAL */
         .modal-title {
             font-size: 50px;
@@ -118,21 +163,17 @@
             <h1 class="title text-center fw-bolder">CONTAINER AGENT</h1>
         </div>
         <div class="spacer"></div>
+        <br>
         <div class="row">
-            <div class="d-flex justify-content-end px-1" style="bottom: 5%">
-                <button type="button" class="btn btn-info button-list-kontainer" data-bs-toggle="modal" data-bs-target="#listContainerModal">List Kontainer</button>
-            </div>
-        </div>
-        <div class="body px-1 py-4">
-            <div class="row">
-                <div class="col-12">
+            <div class="col-6 px-5">
+                <div class="row">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
-                    {{-- <a href="{{ route('export.da-addcontainer') }}"
-                        class="btn btn-secondary mb-3 button-tambah-kontainer">Tambah Kontainer</a> --}}
+                {{-- <a href="{{ route('export.da-addcontainer') }}"
+                    class="btn btn-secondary mb-3 button-tambah-kontainer">Tambah Kontainer</a> --}}
                     <div class="table-responsive">
                         <table class="table table-centered table-bordered table-wrap">
                             <tr>
@@ -162,9 +203,7 @@
                         </table>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-4 px-5">
+                <div class="row">
                     <table class="table table-bordered modal-table border-0 text-center">
                         <thead class="modal-table-title">
                             <tr>
@@ -215,79 +254,54 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-4 px-5">
-                    <h1 class="layout-title">Layout Kontainer</h1>
-                    <form action="{{ route('export.sa-push') }}" method="post">
-                        @csrf
+            </div>
+            <div class="col-6 px-5">
+                <h1 class="layout-title">Layout Kontainer</h1>
+                <form action="{{ route('export.sa-push') }}" method="post">
+                    @csrf
+                    <div class="row">
+                        <label for="cbKontainer" class="combobox-title">Kontainer</label>
                         <div class="row">
-                            <label for="cbKontainer" class="combobox-title">Kontainer</label>
-                            <div class="row">
-                                <select name="kontainer" id="cbKontainer" class="form-select combobox" required>
-                                    <option value="" selected disabled>Pilih Kontainer</option>
-                                    @php
-                                        $counter = 0;
-                                    @endphp
-                                    @foreach ($containerShips as $key => $contShip)
-                                        @if ($counter == 0)
-                                            <option value="{{ $contShip->id }}">{{ $contShip->code }}
-                                                ({{ number_format($contShip->stuff_weight, 2, ',', '.') }}kg)
-                                            </option>
-                                        @else
-                                            <option value="{{ $contShip->id }}" disabled>{{ $contShip->code }}
-                                                ({{ number_format($contShip->stuff_weight, 2, ',', '.') }}kg)
-                                            </option>
-                                        @endif
-                                        @php
-                                            $counter++;
-                                        @endphp
-                                    @endforeach
-                                </select>
-                            </div>
+                            <select name="kontainer" id="cbKontainer" class="form-select combobox" required>
+                                <option value="" selected disabled>Pilih Kontainer</option>
+                            </select>
                         </div>
+                    </div>
+                    <div class="row">
+                        <label for="cbBay" class="combobox-title">Bay</label>
                         <div class="row">
-                            <label for="cbBay" class="combobox-title">Bay</label>
-                            <div class="row">
-                                <select name="bay" id="cbBay" class="form-select combobox" required>
-                                    <option value="" selected disabled>Pilih Bay</option>
-                                    <option value="1">1</option>
-                                    <option value="3">3</option>
-                                    <option value="5">5</option>
-                                    <option value="7">7</option>
-                                    <option value="9">9</option>
-                                    <option value="11">11</option>
-                                </select>
-                            </div>
+                            <select name="bay" id="cbBay" class="form-select combobox" required>
+                                <option value="" selected disabled>Pilih Bay</option>
+                            </select>
                         </div>
+                    </div>
+                    <div class="row">
+                        <label for="cbRow" class="combobox-title">Row</label>
                         <div class="row">
-                            <label for="cbRow" class="combobox-title">Row</label>
-                            <div class="row">
-                                <select name="row" id="cbRow" class="form-select combobox" required>
-                                    <option value="" selected disabled>Pilih Row</option>
-                                    <option value="1">01</option>
-                                    <option value="2">02</option>
-                                    <option value="3">03</option>
-                                    <option value="4">04</option>
-                                    <option value="5">05</option>
-                                    <option value="6">06</option>
-                                </select>
-                            </div>
+                            <select name="row" id="cbRow" class="form-select combobox" required>
+                                <option value="" selected disabled>Pilih Row</option>
+                            </select>
                         </div>
-                        <div class="row" id="divTier">
-                            <label class="combobox-title">Tier: Belum Pilih Row</label>
-                        </div>
-                        <div class="row">
-                            <button type="submit" class="btn btn-primary button-layout">Simpan Kontainer</button>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <button type="button" class="btn btn-primary button-layout" id="reset">Reset</button>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <a href="{{ route('export.index') }}" class="btn btn-primary button-layout">Back</a>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="row" id="divTier">
+                        <label class="combobox-title">Tier: Belum Pilih Row</label>
+                    </div>
+                    <div class="row">
+                        <button type="submit" class="btn btn-primary button-layout">Simpan Kontainer</button>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <button type="button" class="btn btn-primary button-layout" id="reset">Reset</button>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <a href="{{ route('export.index') }}" class="btn btn-primary button-layout">Back</a>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <button type="button" class="btn btn-info  button-list-kontainer" data-bs-toggle="modal" data-bs-target="#listContainerModal">List Kontainer</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
