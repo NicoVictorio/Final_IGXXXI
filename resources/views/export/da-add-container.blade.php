@@ -257,7 +257,7 @@
                             <td>25.000 kg</td>
                             <td>27.000 kg</td>
                         </tr>
-                        <tr style="border-bottom-width: 10px; border-color: blue">
+                        <tr>
                             <td>Volume</td>
                             <td>33,2 m<sup>3</sup></td>
                             <td>67,8 m<sup>3</sup></td>

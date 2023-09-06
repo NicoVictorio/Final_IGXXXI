@@ -117,21 +117,21 @@
         <div class="body px-1 py-4">
             <div class="row">
                 @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
                 @endif
                 @if (session('error'))
-                    <div class="alert alert-danger" role="alert">
-                        {{ session('error') }}
-                    </div>
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
                 @endif
                 @if ($errors->any())
-                    @if ($errors->all()[0] == 'Sequence harus berbeda!')
-                        <div class="alert alert-danger" role="alert">
-                            Sequence harus berbeda!
-                        </div>
-                    @endif
+                @if ($errors->all()[0] == 'Sequence harus berbeda!')
+                <div class="alert alert-danger" role="alert">
+                    Sequence harus berbeda!
+                </div>
+                @endif
                 @endif
                 <div class="table-responsive">
                     <div class="row">
@@ -263,44 +263,43 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($containers as $cont)
-                                        <tr>
-                                            <td>
-                                                <select name="sequence[]" id="cbSequence" class="form-select" required>
-                                                    @for ($i = 1; $i <= $countContainers; $i++)
-                                                        @if ($cont->ica_sequence == $i)
-                                                            <option value="{{ $i }}" selected>
-                                                                {{ $i }}
-                                                            </option>
-                                                        @else
-                                                            <option value="{{ $i }}">{{ $i }}
-                                                            </option>
-                                                        @endif
+                                    <tr>
+                                        <td>
+                                            <select name="sequence[]" id="cbSequence" class="form-select" required>
+                                                @for ($i = 1; $i <= $countContainers; $i++) @if ($cont->ica_sequence ==
+                                                    $i)
+                                                    <option value="{{ $i }}" selected>
+                                                        {{ $i }}
+                                                    </option>
+                                                    @else
+                                                    <option value="{{ $i }}">{{ $i }}
+                                                    </option>
+                                                    @endif
                                                     @endfor
-                                                </select>
-                                                <input type="hidden" name="containerShip[]"
-                                                    value="{{ $cont->id }}">
-                                            </td>
-                                            <td>{{ $cont->loss_space }}</td>
-                                            <td>{{ $cont->row }}</td>
-                                            <td>{{ $cont->bay }}</td>
-                                            <td>{{ $cont->tier }}</td>
-                                            <td>{{ $cont->total_r_time }}</td>
-                                            <td>
-                                                @if ($cont->completion_time)
-                                                    {{ $cont->completion_time }}
-                                                @else
-                                                    0
-                                                @endif
-                                            </td>
-                                            <td>{{ $cont->isa_due_date }}</td>
-                                            <td>
-                                                @if ($cont->lateness)
-                                                    {{ $cont->lateness }}
-                                                @else
-                                                    0
-                                                @endif
-                                            </td>
-                                        </tr>
+                                            </select>
+                                            <input type="hidden" name="containerShip[]" value="{{ $cont->id }}">
+                                        </td>
+                                        <td>{{ $cont->loss_space }}</td>
+                                        <td>{{ $cont->row }}</td>
+                                        <td>{{ $cont->bay }}</td>
+                                        <td>{{ $cont->tier }}</td>
+                                        <td>{{ $cont->total_r_time }}</td>
+                                        <td>
+                                            @if ($cont->completion_time)
+                                            {{ $cont->completion_time }}
+                                            @else
+                                            0
+                                            @endif
+                                        </td>
+                                        <td>{{ $cont->isa_due_date }}</td>
+                                        <td>
+                                            @if ($cont->lateness)
+                                            {{ $cont->lateness }}
+                                            @else
+                                            0
+                                            @endif
+                                        </td>
+                                    </tr>
                                     @endforeach
                                     <tr>
                                         <td colspan="8" class="text-end fw-bold">Total Lateness</td>
@@ -311,8 +310,11 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <button type="submit" class="btn button-cek">Cek Lateness</button>
+                    <a href="{{ route('import.index') }}" class="btn btn-primary button-kontainer">Back</a>
+                    <button type="submit" class="btn button-primary button-kontainer">Cek Lateness</button>
                     </form>
+                </div>
+                <div class="col-6 text-end">
                     <form action="#" method="post">
                         @csrf
                         <input type="hidden" name="lateness" value="{{ $totalLateness }}">

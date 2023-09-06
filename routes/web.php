@@ -68,9 +68,6 @@ Route::middleware(['auth', 'player'])->group(function () {
 
     // Import
     Route::get('/import', [DepoAgentController::class, 'indexImport'])->name('import.index');
-    Route::get('/import', function () {
-        return view('import.index');
-    });
 
     Route::get('/import/shipping-agent', [ShippingAgentController::class, 'showSAImportPage'])->name('import.shipping-agent');
     Route::post('/import/shipping-agent/cek', [ShippingAgentController::class, 'checkSALateness'])->name('import.sa-ceklateness');

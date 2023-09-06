@@ -140,7 +140,6 @@ class ShippingAgentController extends Controller
             }
 
             $dataContainerShip = ShippingContainer::find($idContainer);
-            $dataContainerShip->tier = $dataContainerShip->tier + 2;
             $dataContainerShip->ica_target_row = $row;
             $dataContainerShip->ica_sequence = $tier;
             $dataContainerShip->ica_target_bay = $bay;
@@ -226,17 +225,22 @@ class ShippingAgentController extends Controller
         $sequences = $request->get('sequence');
         $containerShipIds = $request->get('containerShip');
 
+        DB::update("update shipping_container set ica_sequence=null where Period_id=2 and Team_id='".$idTeam."'");
+
+        $arrCek = [];
         foreach($sequences as $key=>$sequence){
-            $containerData = ShippingContainer::find($containerShipIds[$key]);
-            $countTierAtas = DB::select(DB::raw("select count(id) as 'count' from shipping_container where `row`='".$containerData->row."' and tier='".($containerData->tier+2)."' and bay='".$containerData->bay."' and Team_id='" . $idTeam . "' and Period_id=2 order by tier desc"))[0]->count;
+            $arrCek[] = array('sequence'=>$sequence, 'contShipId'=>$containerShipIds[$key]);
+        }
+
+        $arrCek = collect($arrCek)->sortBy('sequence');
+        
+        foreach($arrCek as $data){
+            $containerData = ShippingContainer::find($data['contShipId']);
+            $countTierAtas = DB::select(DB::raw("select count(id) as 'count' from shipping_container where `row`='".$containerData->row."' and tier='".($containerData->tier+2)."' and bay='".$containerData->bay."' and Team_id='" . $idTeam . "' and ica_sequence is null and Period_id=2"))[0]->count;
             if($countTierAtas > 0){
                 return redirect()->route('import.shipping-agent')->with('error', 'Terdapat kontainer lain di atas kontainer '.$containerData->loss_space.'!');
             }
-        }
-        
-        foreach($sequences as $key=>$sequence){
-            $containerData = ShippingContainer::find($containerShipIds[$key]);
-            $containerData->ica_sequence = $sequence;
+            $containerData->ica_sequence = $data['sequence'];
             $containerData->save();
         }
 
