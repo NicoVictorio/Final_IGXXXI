@@ -74,6 +74,9 @@ Route::middleware(['auth', 'player'])->group(function () {
     Route::post('/import/shipping-agent/getrowbaytable', [ShippingAgentController::class, 'getrowbaytable'])->name('import.sa-getrowbaytable');
 
     Route::get('/import/container-agent', [ContainerAgentController::class, 'showCAImportPage'])->name('import.container-agent');
+    Route::post('/import/container-agent/push', [ContainerAgentController::class, 'pushCAImportYard'])->name('import.ca-push');
+    Route::post('/import/container-agent/getTier', [ContainerAgentController::class, 'getTierCAImport'])->name('import.ca-gettier');
+    Route::post('/import/container-agent/reset', [ContainerAgentController::class, 'resetCAImport'])->name('import.ca-reset');
 
     Route::get('/import/depo-agent', [DepoAgentController::class, 'showDAImportPage'])->name('import.depo-agent');
     Route::post('/import/depo-agent/save', [DepoAgentController::class, 'saveDAImport'])->name('import.da-save');

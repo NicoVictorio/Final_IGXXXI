@@ -173,7 +173,7 @@ class ShippingAgentController extends Controller
         $bay = $request->get('bay');
         $row = $request->get('row');
 
-        $cekNomor = DB::select(DB::raw("select ica_sequence as 'tier' from shipping_container where ica_target_bay='" . $bay . "' and  ica_target_row='" . $row . "' and Team_id='" . $idTeam . "' and Period_id=1 order by tier desc"));
+        $cekNomor = DB::select(DB::raw("select ica_sequence as 'tier' from shipping_container where ica_target_bay='" . $bay . "' and  ica_target_row='" . $row . "' and Team_id='" . $idTeam . "' and Period_id=1 order by tier desc limit 1"));
         if ($cekNomor == null) {
             $cekNomor = 2;
         } else {

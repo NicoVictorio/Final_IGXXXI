@@ -39,7 +39,7 @@
             font-family: "Montserrat", sans-serif;
             font-weight: 500;
             color: white;
-            background: #2c56a7!important;
+            background: #2c56a7 !important;
         }
 
         .table-text {
@@ -124,39 +124,45 @@
             line-height: 1;
             padding: 0.5rem 1.6rem;
         }
+
         /* STYLE MODAL */
         .modal-title {
             font-size: 50px;
             font-family: "Montserrat", sans-serif;
             font-weight: 700;
-            color:#2c56a7;
+            color: #2c56a7;
         }
+
         .modal-body {
-            background: rgb(228,242,252);
+            background: rgb(228, 242, 252);
         }
+
         .modal-table-title {
             font-size: 17px;
             font-family: "Montserrat", sans-serif;
             font-weight: 550;
             color: white;
-            background: #2c56a7!important;
+            background: #2c56a7 !important;
         }
+
         .modal-table {
             font-size: 15px;
             font-family: "Montserrat", sans-serif;
             font-weight: 500;
-            color:#2c56a7;
+            color: #2c56a7;
         }
+
         .modal-crane {
             font-size: 15px;
             font-family: "Montserrat", sans-serif;
             font-weight: 500;
             color: white;
-            background: orange!important;
+            background: orange !important;
             text-align: center;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="text-center">
@@ -168,36 +174,42 @@
             <div class="col-6 px-5">
                 <div class="row">
                     @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
                     @endif
-                {{-- <a href="{{ route('export.da-addcontainer') }}"
+                    {{-- <a href="{{ route('export.da-addcontainer') }}"
                     class="btn btn-secondary mb-3 button-tambah-kontainer">Tambah Kontainer</a> --}}
                     <div class="table-responsive">
                         <table class="table table-centered table-bordered table-wrap">
                             <tr>
-                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane  gantry travel time (in minute, per bay)</td>
+                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane gantry travel
+                                    time (in minute, per bay)</td>
                                 <td class="border-0 text-center table-text">1</td>
                             </tr>
                             <tr>
-                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane travel time (in minute, per row)</td>
+                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane travel time (in
+                                    minute, per row)</td>
                                 <td class="border-0 text-center table-text">1</td>
                             </tr>
                             <tr>
-                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane  gantry travel time (in minute, per tier)</td>
+                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane gantry travel
+                                    time (in minute, per tier)</td>
                                 <td class="border-0 text-center table-text">0,5</td>
                             </tr>
                             <tr>
-                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane's current bay position</td>
+                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane's current bay
+                                    position</td>
                                 <td class="border-0 text-center table-text">1</td>
                             </tr>
                             <tr>
-                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane's current row position</td>
+                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane's current row
+                                    position</td>
                                 <td class="border-0 text-center table-text">0</td>
                             </tr>
                             <tr>
-                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane's current tier position</td>
+                                <td class="border-0 text-center table-title">Rubber Tyred Gantry Crane's current tier
+                                    position</td>
                                 <td class="border-0 text-center table-text">5</td>
                             </tr>
                         </table>
@@ -208,8 +220,7 @@
                         <thead class="modal-table-title">
                             <tr>
                                 <th colspan="6">
-                                    <select name="yard" id="cbYard"
-                                        class="form-select combobox" required>
+                                    <select name="yard" id="cbYardTable" class="form-select combobox" required>
                                         <option value="import">Import Yard</option>
                                         <option value="rf">RF Yard</option>
                                     </select>
@@ -217,8 +228,7 @@
                             </tr>
                             <tr>
                                 <th colspan="6">
-                                    <select name="tier" id="cbTier"
-                                        class="form-select combobox" required>
+                                    <select name="tier" id="cbTier" class="form-select combobox" required>
                                         <option value="1">Tier 1</option>
                                         <option value="2">Tier 2</option>
                                         <option value="3">Tier 3</option>
@@ -257,13 +267,40 @@
             </div>
             <div class="col-6 px-5">
                 <h1 class="layout-title">Layout Kontainer</h1>
-                <form action="{{ route('export.sa-push') }}" method="post">
+                <form action="{{ route('import.ca-push') }}" method="post">
                     @csrf
                     <div class="row">
                         <label for="cbKontainer" class="combobox-title">Kontainer</label>
                         <div class="row">
                             <select name="kontainer" id="cbKontainer" class="form-select combobox" required>
                                 <option value="" selected disabled>Pilih Kontainer</option>
+                                @php
+                                    $counter = 0;
+                                @endphp
+                                @foreach ($containerShips as $key => $contShip)
+                                    @if ($counter == 0)
+                                        <option value="{{ $contShip->id }}">{{ $contShip->code }}
+                                            ({{ number_format($contShip->stuff_weight, 2, ',', '.') }}kg)
+                                        </option>
+                                    @else
+                                        <option value="{{ $contShip->id }}" disabled>{{ $contShip->code }}
+                                            ({{ number_format($contShip->stuff_weight, 2, ',', '.') }}kg)
+                                        </option>
+                                    @endif
+                                    @php
+                                        $counter++;
+                                    @endphp
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="cbYard" class="combobox-title">Yard</label>
+                        <div class="row">
+                            <select name="yard" id="cbYard" class="form-select combobox" required>
+                                <option value="" selected disabled>Pilih Yard</option>
+                                <option value="import">Import Yard</option>
+                                <option value="rf">RF Yard</option>
                             </select>
                         </div>
                     </div>
@@ -272,6 +309,11 @@
                         <div class="row">
                             <select name="bay" id="cbBay" class="form-select combobox" required>
                                 <option value="" selected disabled>Pilih Bay</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                         </div>
                     </div>
@@ -280,11 +322,15 @@
                         <div class="row">
                             <select name="row" id="cbRow" class="form-select combobox" required>
                                 <option value="" selected disabled>Pilih Row</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
                             </select>
                         </div>
                     </div>
-                    <div class="row" id="divTier">
+                    <div class="row mb-5" id="divTier">
                         <label class="combobox-title">Tier: Belum Pilih Row</label>
+                        <input type="hidden" name="tier" value="">
                     </div>
                     <div class="row">
                         <button type="submit" class="btn btn-primary button-layout">Simpan Kontainer</button>
@@ -295,19 +341,20 @@
                     </div>
                     <br>
                     <div class="row">
-                        <a href="{{ route('export.index') }}" class="btn btn-primary button-layout">Back</a>
+                        <a href="{{ route('import.index') }}" class="btn btn-primary button-layout">Back</a>
                     </div>
                     <br>
                     <div class="row">
-                        <button type="button" class="btn btn-info  button-list-kontainer" data-bs-toggle="modal" data-bs-target="#listContainerModal">List Kontainer</button>
+                        <button type="button" class="btn btn-info  button-list-kontainer" data-bs-toggle="modal"
+                            data-bs-target="#listContainerModal">List Kontainer</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal modal-lg fade" id="listContainerModal" tabindex="-1" aria-labelledby="listContainerModalLabel"
-        aria-hidden="true">
+    <div class="modal modal-lg fade" id="listContainerModal" tabindex="-1"
+        aria-labelledby="listContainerModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -327,6 +374,22 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($containerShips as $key => $contShip)
+                                <tr>
+                                    <td>{{ $contShip->loss_space }}</td>
+                                    <td>{{ $contShip->code }}</td>
+                                    <td>{{ $contShip->row }}</td>
+                                    <td>{{ $contShip->bay }}</td>
+                                    <td>{{ $contShip->tier }}</td>
+                                    <td>
+                                        @if ($contShip->city == 'drop_off')
+                                            Drop Off
+                                        @else
+                                            Pick Up
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -336,6 +399,130 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+        $('#cbKontainer').on('change', function() {
+            $('#cbBay').html(
+                "<option value='' selected disabled>Pilih Bay</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option>"
+            );
+            $('#cbYard').html(
+                "<option value='' selected disabled>Pilih Yard</option><option value='import'>Import Yard</option><option value='rf'>RF Yard</option>"
+            );
+            $('#cbRow').html(
+                "<option value='' selected disabled>Pilih Row</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>"
+            );
+            $('#divTier').html(
+                "<input type='hidden' name='tier' value=''><label class='combobox-title'>Tier: Belum Pilih Row</label>"
+            );
+        });
+        $('#cbYard').on('change', function() {
+            $('#cbBay').html(
+                "<option value='' selected disabled>Pilih Bay</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option>"
+            );
+            $('#cbRow').html(
+                "<option value='' selected disabled>Pilih Row</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>"
+            );
+            $('#divTier').html(
+                "<input type='hidden' name='tier' value=''><label class='combobox-title'>Tier: Belum Pilih Row</label>"
+            );
+        });
+        $('#cbBay').on('change', function() {
+            $('#cbRow').html(
+                "<option value='' selected disabled>Pilih Row</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>"
+            );
+            $('#divTier').html(
+                "<input type='hidden' name='tier' value=''><label class='combobox-title'>Tier: Belum Pilih Row</label>"
+            );
+        });
+        $('#cbRow').on('change', function() {
+            var idShipping = $('#cbKontainer').val();
+            var bay = $('#cbBay').val();
+            var row = $('#cbRow').val();
+            var yard = $('#cbYard').val();
+
+            if (idShipping == null || bay == null || yard == null) {
+                if (idShipping == null) {
+                    alert('Belum memilih container');
+                    $('#cbBay').html(
+                        "<option value='' selected disabled>Pilih Bay</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option>"
+                    );
+                    $('#cbYard').html(
+                        "<option value='' selected disabled>Pilih Yard</option><option value='import'>Import Yard</option><option value='rf'>RF Yard</option>"
+                    );
+                    $('#cbRow').html(
+                        "<option value='' selected disabled>Pilih Row</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>"
+                    );
+                    $('#divTier').html(
+                        "<input type='hidden' name='tier' value=''><label class='combobox-title'>Tier: Belum Pilih Row</label>"
+                    );
+                }
+                if (bay == null) {
+                    alert('Belum memilih bay!');
+                    $('#cbBay').html(
+                        "<option value='' selected disabled>Pilih Bay</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option>"
+                    );
+                    $('#cbYard').html(
+                        "<option value='' selected disabled>Pilih Yard</option><option value='import'>Import Yard</option><option value='rf'>RF Yard</option>"
+                    );
+                    $('#cbRow').html(
+                        "<option value='' selected disabled>Pilih Row</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>"
+                    );
+                    $('#divTier').html(
+                        "<input type='hidden' name='tier' value=''><label class='combobox-title'>Tier: Belum Pilih Row</label>"
+                    );
+                }
+                if (yard == null) {
+                    alert('Belum memilih yard!');
+                    $('#cbBay').html(
+                        "<option value='' selected disabled>Pilih Bay</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option>"
+                    );
+                    $('#cbYard').html(
+                        "<option value='' selected disabled>Pilih Yard</option><option value='import'>Import Yard</option><option value='rf'>RF Yard</option>"
+                    );
+                    $('#cbRow').html(
+                        "<option value='' selected disabled>Pilih Row</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option>"
+                    );
+                    $('#divTier').html(
+                        "<input type='hidden' name='tier' value=''><label class='combobox-title'>Tier: Belum Pilih Row</label>"
+                    );
+                }
+            } else {
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route('import.ca-gettier') }}',
+                    data: {
+                        '_token': '<?php echo csrf_token(); ?>',
+                        'bay': bay,
+                        'row': row,
+                        'yard': yard,
+                    },
+                    success: function(data) {
+                        $('#divTier').html("<input type='hidden' name='tier' value='" + data.tier +
+                            "'><label class='combobox-title'>Tier: " + data.tier + "</label>");
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert('Terjadi Kesalahan, Hubungi Tim Panitia.\nError Message [View Tier ICA]: ' +
+                            errorThrown);
+                    }
+                });
+            };
+        });
+        $('#reset').on('click', function() {
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('import.ca-reset') }}',
+                data: {
+                    '_token': '<?php echo csrf_token(); ?>',
+                },
+                success: function(data) {
+                    window.location.reload();
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert('Terjadi Kesalahan, Hubungi Tim Panitia.\nError Message [Reset ICA]: ' +
+                        errorThrown);
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
