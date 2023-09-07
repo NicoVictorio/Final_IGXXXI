@@ -125,7 +125,11 @@
                         <div class="d-flex d-sm-block">
                             <h2 class="mb-0">Stowage Plan</h2>
                             <h2 id="profit" class="mb-2 mt-1" id="profit">
-                                0
+                                @if ($scoring->stowage_plan != null)
+                                    {{ $scoring->stowage_plan }}
+                                @else
+                                    0
+                                @endif
                             </h2>
                         </div>
                     </div>
@@ -141,7 +145,11 @@
                         <div class="d-flex d-sm-block">
                             <h2 class="mb-0">Durasi Docking</h2>
                             <h2 class="mb-2 mt-1" id="market-share">
-                                0
+                                @if ($scoring->docking_duration != null)
+                                    {{ $scoring->docking_duration }}
+                                @else
+                                    0
+                                @endif
                             </h2>
                         </div>
                     </div>
@@ -158,7 +166,11 @@
                             <h2 class="mb-0">Teus</h2>
                             <div class="d-flex">
                                 <h2 class="mb-2 mt-1" id="sigma-level">
-                                    0
+                                    @if ($scoring->teus != null)
+                                        {{ $scoring->teus }}
+                                    @else
+                                        0
+                                    @endif
                                 </h2>
                             </div>
                         </div>
@@ -168,17 +180,17 @@
         </div>
     </main>
 
-    <footer class="footer mt-auto text-inverse shadow" style="background: black">
-        <div class="d-flex flex-row justify-content-center position-fixed w-100" style="bottom: 10%">
+    <footer class="footer mt-0 text-inverse mb-3">
+        <div class="d-flex flex-row justify-content-center w-100" style="bottom: 10%">
             <a type="button" class="btn btn-block btn-outline-primary shadow m-2 button-agent"
-                href="{{ route('export.depo-agent') }}"><i class="button-depo-agent" {{
-                    ($statusPeriod->status=="depo-agent") ? "" : "disabled" }}></i> Depo Agent</a>
+                href="{{ route('export.depo-agent') }}"><i class="button-depo-agent"
+                    {{ $statusPeriod->status == 'depo-agent' ? '' : 'disabled' }}></i> Depo Agent</a>
             <a type="button" class="btn btn-block btn-outline-primary shadow m-2 button-agent"
-                href="{{ route('export.container-agent') }}"><i class="button-container-agent" {{
-                    ($statusPeriod->status=="container-agent") ? "" : "disabled" }}></i> Container Agent</a>
+                href="{{ route('export.container-agent') }}"><i class="button-container-agent"
+                    {{ $statusPeriod->status == 'container-agent' ? '' : 'disabled' }}></i> Container Agent</a>
             <a type="button" class="btn btn-block btn-outline-primary shadow m-2 button-agent"
-                href="{{ route('export.shipping-agent') }}"><i class="button-shipping-agent" {{
-                    ($statusPeriod->status=="shipping-agent") ? "" : "disabled" }}></i> Shipping Agent</a>
+                href="{{ route('export.shipping-agent') }}"><i class="button-shipping-agent"
+                    {{ $statusPeriod->status == 'shipping-agent' ? '' : 'disabled' }}></i> Shipping Agent</a>
         </div>
     </footer>
     <script src="{{ asset('vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>

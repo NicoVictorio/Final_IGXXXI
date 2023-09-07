@@ -113,7 +113,7 @@ class DemandSeeder extends Seeder
                 'period_id' => '1',
             ],
             [
-                'name' => 'Bijih Kopi',
+                'name' => 'Biji Kopi',
                 'volume' => '1.13',
                 'quantity' => '23',
                 'weight' => '50',

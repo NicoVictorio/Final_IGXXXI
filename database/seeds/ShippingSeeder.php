@@ -27,6 +27,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -42,6 +43,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -57,6 +59,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -72,6 +75,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -87,6 +91,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -102,6 +107,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -117,6 +123,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -132,6 +139,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -147,6 +155,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -162,6 +171,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -177,6 +187,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -192,6 +203,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -207,6 +219,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -222,6 +235,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -237,6 +251,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -252,6 +267,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -267,6 +283,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -282,6 +299,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -297,6 +315,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -312,6 +331,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -327,6 +347,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -342,6 +363,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -357,6 +379,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -372,6 +395,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -387,6 +411,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -402,6 +427,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -417,6 +443,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -432,6 +459,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -447,6 +475,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -462,6 +491,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -477,6 +507,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '1',
@@ -492,6 +523,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -507,6 +539,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -522,6 +555,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '28',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -537,6 +571,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -552,6 +587,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '8',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '1',
@@ -567,6 +603,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -582,6 +619,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -597,6 +635,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -612,6 +651,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -627,6 +667,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -642,6 +683,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -657,6 +699,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -672,6 +715,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -687,6 +731,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -702,6 +747,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -717,6 +763,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -732,6 +779,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -747,6 +795,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -762,6 +811,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -777,6 +827,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -792,6 +843,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -807,6 +859,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -822,6 +875,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -837,6 +891,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -852,6 +907,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -867,6 +923,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -882,6 +939,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -897,6 +955,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -912,6 +971,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -927,6 +987,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -942,6 +1003,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -957,6 +1019,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -972,6 +1035,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -987,6 +1051,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -1002,6 +1067,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -1017,6 +1083,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -1032,6 +1099,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '2',
@@ -1047,6 +1115,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -1062,6 +1131,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -1077,6 +1147,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '28',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -1092,6 +1163,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -1107,6 +1179,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '8',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '2',
@@ -1122,6 +1195,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1137,6 +1211,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1152,6 +1227,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1167,6 +1243,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1182,6 +1259,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1197,6 +1275,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1212,6 +1291,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1227,6 +1307,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1242,6 +1323,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1257,6 +1339,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1272,6 +1355,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1287,6 +1371,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1302,6 +1387,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1317,6 +1403,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1332,6 +1419,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1347,6 +1435,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1362,6 +1451,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1377,6 +1467,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1392,6 +1483,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1407,6 +1499,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1422,6 +1515,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1437,6 +1531,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1452,6 +1547,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1467,6 +1563,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1482,6 +1579,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1497,6 +1595,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1512,6 +1611,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1527,6 +1627,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1542,6 +1643,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1557,6 +1659,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1572,6 +1675,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1587,6 +1691,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '3',
@@ -1602,6 +1707,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1617,6 +1723,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1632,6 +1739,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '28',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1647,6 +1755,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1662,6 +1771,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '8',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '3',
@@ -1677,6 +1787,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -1692,6 +1803,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -1707,6 +1819,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -1722,6 +1835,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -1737,6 +1851,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -1752,6 +1867,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -1767,6 +1883,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -1782,6 +1899,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -1797,6 +1915,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -1812,6 +1931,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -1827,6 +1947,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -1842,6 +1963,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -1857,6 +1979,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -1872,6 +1995,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -1887,6 +2011,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -1902,6 +2027,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -1917,6 +2043,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -1932,6 +2059,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -1947,6 +2075,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -1962,6 +2091,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -1977,6 +2107,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -1992,6 +2123,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -2007,6 +2139,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -2022,6 +2155,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -2037,6 +2171,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -2052,6 +2187,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -2067,6 +2203,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -2082,6 +2219,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -2097,6 +2235,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -2112,6 +2251,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -2127,6 +2267,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -2142,6 +2283,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '4',
@@ -2157,6 +2299,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -2172,6 +2315,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -2187,6 +2331,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '28',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -2202,6 +2347,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -2217,6 +2363,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '8',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '4',
@@ -2232,6 +2379,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2247,6 +2395,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2262,6 +2411,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2277,6 +2427,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2292,6 +2443,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2307,6 +2459,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2322,6 +2475,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2337,6 +2491,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2352,6 +2507,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2367,6 +2523,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2382,6 +2539,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2397,6 +2555,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2412,6 +2571,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2427,6 +2587,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2442,6 +2603,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2457,6 +2619,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2472,6 +2635,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2487,6 +2651,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2502,6 +2667,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2517,6 +2683,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2532,6 +2699,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2547,6 +2715,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2562,6 +2731,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2577,6 +2747,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2592,6 +2763,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2607,6 +2779,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2622,6 +2795,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2637,6 +2811,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2652,6 +2827,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2667,6 +2843,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2682,6 +2859,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2697,6 +2875,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '5',
@@ -2712,6 +2891,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2727,6 +2907,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2742,6 +2923,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '28',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2757,6 +2939,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2772,6 +2955,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '8',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '5',
@@ -2787,6 +2971,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -2802,6 +2987,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -2817,6 +3003,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -2832,6 +3019,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -2847,6 +3035,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -2862,6 +3051,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -2877,6 +3067,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -2892,6 +3083,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -2907,6 +3099,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -2922,6 +3115,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -2937,6 +3131,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -2952,6 +3147,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -2967,6 +3163,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -2982,6 +3179,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -2997,6 +3195,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -3012,6 +3211,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -3027,6 +3227,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -3042,6 +3243,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -3057,6 +3259,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -3072,6 +3275,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -3087,6 +3291,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -3102,6 +3307,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -3117,6 +3323,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -3132,6 +3339,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -3147,6 +3355,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -3162,6 +3371,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -3177,6 +3387,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -3192,6 +3403,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -3207,6 +3419,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -3222,6 +3435,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -3237,6 +3451,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -3252,6 +3467,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '6',
@@ -3267,6 +3483,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -3282,6 +3499,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -3297,6 +3515,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '28',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -3312,6 +3531,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -3327,6 +3547,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '8',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '6',
@@ -3342,6 +3563,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3357,6 +3579,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3372,6 +3595,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3387,6 +3611,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3402,6 +3627,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3417,6 +3643,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3432,6 +3659,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3447,6 +3675,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3462,6 +3691,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3477,6 +3707,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3492,6 +3723,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3507,6 +3739,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3522,6 +3755,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3537,6 +3771,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3552,6 +3787,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3567,6 +3803,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3582,6 +3819,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3597,6 +3835,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3612,6 +3851,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3627,6 +3867,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3642,6 +3883,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3657,6 +3899,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3672,6 +3915,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3687,6 +3931,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3702,6 +3947,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3717,6 +3963,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3732,6 +3979,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3747,6 +3995,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3762,6 +4011,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3777,6 +4027,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3792,6 +4043,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3807,6 +4059,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '7',
@@ -3822,6 +4075,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3837,6 +4091,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3852,6 +4107,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '28',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3867,6 +4123,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3882,6 +4139,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '8',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '7',
@@ -3897,6 +4155,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -3912,6 +4171,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -3927,6 +4187,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -3942,6 +4203,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -3957,6 +4219,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -3972,6 +4235,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -3987,6 +4251,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4002,6 +4267,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -4017,6 +4283,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4032,6 +4299,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4047,6 +4315,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -4062,6 +4331,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -4077,6 +4347,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4092,6 +4363,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -4107,6 +4379,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4122,6 +4395,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -4137,6 +4411,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4152,6 +4427,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -4167,6 +4443,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -4182,6 +4459,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4197,6 +4475,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -4212,6 +4491,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4227,6 +4507,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -4242,6 +4523,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4257,6 +4539,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -4272,6 +4555,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -4287,6 +4571,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4302,6 +4587,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -4317,6 +4603,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4332,6 +4619,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -4347,6 +4635,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4362,6 +4651,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '8',
@@ -4377,6 +4667,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4392,6 +4683,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4407,6 +4699,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '28',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4422,6 +4715,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4437,6 +4731,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '8',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '8',
@@ -4452,6 +4747,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4467,6 +4763,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4482,6 +4779,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4497,6 +4795,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4512,6 +4811,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4527,6 +4827,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4542,6 +4843,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4557,6 +4859,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4572,6 +4875,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4587,6 +4891,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4602,6 +4907,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4617,6 +4923,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4632,6 +4939,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4647,6 +4955,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4662,6 +4971,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4677,6 +4987,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4692,6 +5003,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4707,6 +5019,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4722,6 +5035,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4737,6 +5051,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4752,6 +5067,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4767,6 +5083,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4782,6 +5099,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4797,6 +5115,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4812,6 +5131,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4827,6 +5147,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4842,6 +5163,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4857,6 +5179,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4872,6 +5195,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4887,6 +5211,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4902,6 +5227,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4917,6 +5243,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '9',
@@ -4932,6 +5259,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4947,6 +5275,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4962,6 +5291,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '28',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4977,6 +5307,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -4992,6 +5323,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '8',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '9',
@@ -5007,6 +5339,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5022,6 +5355,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5037,6 +5371,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5052,6 +5387,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5067,6 +5403,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5082,6 +5419,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5097,6 +5435,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5112,6 +5451,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5127,6 +5467,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5142,6 +5483,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5157,6 +5499,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5172,6 +5515,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5187,6 +5531,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5202,6 +5547,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5217,6 +5563,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5232,6 +5579,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5247,6 +5595,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '18',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5262,6 +5611,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5277,6 +5627,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5292,6 +5643,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5307,6 +5659,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5322,6 +5675,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5337,6 +5691,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5352,6 +5707,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5367,6 +5723,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5382,6 +5739,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '20',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5397,6 +5755,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '16',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5412,6 +5771,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5427,6 +5787,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '14',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5442,6 +5803,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '22',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5457,6 +5819,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5472,6 +5835,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'rf',
             ],
             [
                 'Team_id' => '10',
@@ -5487,6 +5851,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '24',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5502,6 +5867,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '26',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5517,6 +5883,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '28',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5532,6 +5899,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'pick_up',
                 'total_r_time' => '12',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5547,6 +5915,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '8',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
             [
                 'Team_id' => '10',
@@ -5562,6 +5931,7 @@ class ShippingSeeder extends Seeder
                 'city' => 'drop_off',
                 'total_r_time' => '10',
                 'period_id' => '2',
+                'ica_yard' => 'import',
             ],
         ];
         DB::table('shipping_container')->insert($shipping);

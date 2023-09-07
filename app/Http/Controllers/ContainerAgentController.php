@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Period;
+use App\Scoring;
 use App\ShippingContainer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,7 @@ class ContainerAgentController extends Controller
 
             return view('export.container-agent', compact('containerShips', 'arrPlot', 'listContainer'));
         } else {
-            return redirect()->back();
+            return redirect()->route('import.index')->with('error', 'Saat ini, sesi container agent sedang tidak aktif!');
         }
     }
 
@@ -107,22 +108,66 @@ class ContainerAgentController extends Controller
     // Import
     public function showCAImportPage()
     {
-        $idTeam = Auth::user()->team->id;
-        $containerShipsUS = ShippingContainer::whereNotNull('ica_sequence')->whereNull('ica_target_row')->whereNull('ica_target_bay')->whereNull('ica_target_tier')->where('Team_id', $idTeam)->where('Period_id', 2)->get();
+        $statusPeriodAktif = Period::select('name', 'status')->where('status', '!=', 'standby')->first();
+        if ($statusPeriodAktif->name == 'import' && $statusPeriodAktif->status == 'container-agent') {
+            $idTeam = Auth::user()->team->id;
+            $scoring = Scoring::select('completion_time')->where('Team_id', $idTeam)->where('Period_id', 2)->first();
+            if ($scoring->completion_time != null) {
+                return redirect()->route('import.index')->with('error', 'Anda telah menyimpan permanen hasil container agent anda! Anda tidak dapat mengakses container agent kembali.');
+            }
+            $containerShips = ShippingContainer::whereNotNull('ica_sequence')->whereNull('ica_target_row')->whereNull('ica_target_bay')->whereNull('ica_target_tier')->where('Team_id', $idTeam)->where('Period_id', 2)->get();
+            $containerShipsAll = ShippingContainer::whereNotNull('ica_sequence')->where('Team_id', $idTeam)->where('Period_id', 2)->get();
 
-        foreach ($containerShipsUS as $cs) {
-            $stuff_weight = DB::select(DB::raw("select sum(d.weight*cp.quantity) as 'totalBobot' from container_product cp inner join demands d on cp.demand_id=d.id where shipping_id=" . $cs->id . ";"))[0]->totalBobot * 1;
-            $cs->stuff_weight = $stuff_weight;
+            $countContainers = ShippingContainer::whereNotNull('ica_sequence')->where('Team_id', $idTeam)->where('Period_id', 2)->count();
+            $countDone = DB::select(DB::raw("select count(id) as 'count' from shipping_container where ica_target_row is not null and ica_target_bay is not null and ica_target_tier is not null and ica_yard is not null and Team_id='" . $idTeam . "' and Period_id=2"))[0]->count;
+            $totalTime = 0;
+            $done = false;
+            if ($countDone == $countContainers) {
+                $done = true;
+                //Penilaian
+                $containersDone = ShippingContainer::whereNotNull('ica_sequence')->whereNotNull('ica_target_row')->whereNotNull('ica_target_bay')->whereNotNull('ica_target_tier')->whereNotNull('ica_yard')->where('Team_id', $idTeam)->where('Period_id', 2)->get();
+                $posCraneRow = 0;
+                $posCraneTier = 5;
+                $posCraneBay = 1;
+
+                $containersDone = $containersDone->sortByDesc('city');
+
+                foreach ($containersDone as $cD) {
+                    // Ambil
+                    $selisihRow = abs($cD->ica_target_row - $posCraneRow);
+                    $posCraneRow = $cD->ica_target_row;
+                    $selisihTier = abs($cD->ica_target_tier - $posCraneTier) * 0.5;
+                    $posCraneTier = $cD->ica_target_tier;
+                    $selisihBay = abs($cD->ica_target_bay - $posCraneBay);
+                    $posCraneBay = $cD->ica_target_bay;
+
+                    // Buang
+                    if ($cD->city == 'pick_up') {
+                        $selisihRow += abs($posCraneRow);
+                        $posCraneRow = 0;
+                        $selisihTier += abs($posCraneTier - 1) * 0.5;
+                        $posCraneTier = 1;
+                    } else {
+                        $selisihRow += abs($posCraneRow - 5);
+                        $posCraneRow = 5;
+                        $selisihTier += ($posCraneTier - 1) * 0.5;
+                        $posCraneTier = 1;
+                    }
+
+                    $totalTime += ($selisihRow + $selisihBay + $selisihTier);
+                }
+            }
+
+            return view('import.container-agent', compact('containerShips', 'containerShipsAll', 'totalTime', 'done'));
+        } else {
+            return redirect()->route('import.index')->with('error', 'Saat ini, sesi container agent sedang tidak aktif!');
         }
-
-        $containerShips = $containerShipsUS->sortByDesc('stuff_weight');
-
-        return view('import.container-agent', compact('containerShips'));
     }
 
-    public function resetCAImport(){
+    public function resetCAImport()
+    {
         $idTeam = Auth::user()->team->id;
-        
+
         DB::update("update shipping_container set ica_target_row=null, ica_target_bay=null, ica_target_tier=null, ica_yard=null where Team_id='" . $idTeam . "' and Period_id=2");
 
         return response()->json(array('message' => "ok"), 200);
@@ -158,8 +203,8 @@ class ContainerAgentController extends Controller
         if ($tier >= 4) {
             return redirect()->route('import.container-agent')->with('error', 'Kontainer tidak dapat ditumpuk dengan lebih dari 3 tumpukan!');
         }
-        $cekSama = DB::select(DB::raw("select count(id) as 'count' from shipping_container where Team_id='" . $idTeam . "' and ica_target_row='" . $row . "' and ica_target_tier='" . $tier . "' and ica_target_bay='" . $bay . "' and ica_yard='".$yard."'"))[0]->count * 1;
-        $cekTierBawah = DB::select(DB::raw("select code from shipping_container where Team_id='" . $idTeam . "' and ica_target_row='" . $row . "' and ica_target_tier='" . ($tier - 1) . "' and ica_target_bay='" . $bay . "' and ica_yard='".$yard."'"));
+        $cekSama = DB::select(DB::raw("select count(id) as 'count' from shipping_container where Team_id='" . $idTeam . "' and ica_target_row='" . $row . "' and ica_target_tier='" . $tier . "' and ica_target_bay='" . $bay . "' and ica_yard='" . $yard . "'"))[0]->count * 1;
+        $cekTierBawah = DB::select(DB::raw("select code from shipping_container where Team_id='" . $idTeam . "' and ica_target_row='" . $row . "' and ica_target_tier='" . ($tier - 1) . "' and ica_target_bay='" . $bay . "' and ica_yard='" . $yard . "'"));
         if ($cekTierBawah != null) {
             $codeContainerShip = ShippingContainer::select('code')->where('id', $idContainer)->first();
             if (substr($cekTierBawah[0]->code, 0, 1) == '2' && substr($codeContainerShip->code, 0, 1) == '4') {
@@ -168,15 +213,21 @@ class ContainerAgentController extends Controller
         }
         if ($cekSama == 0) {
             $dataContainerShip = ShippingContainer::find($idContainer);
+            if ($dataContainerShip->container->name == 'Refrigerated Container' && $yard != 'rf') {
+                return redirect()->route('import.container-agent')->with('error', 'Refrigerated Container harus diletakkan pada RF Yard!');
+            }
+            if ($dataContainerShip->container->name != 'Refrigerated Container' && $yard == 'rf') {
+                return redirect()->route('import.container-agent')->with('error', 'Kontainer selain Refrigerated Container harus diletakkan pada Import Yard!');
+            }
             $dataContainerShip->ica_target_row = $row;
             $dataContainerShip->ica_target_tier = $tier;
             $dataContainerShip->ica_target_bay = $bay;
             $dataContainerShip->ica_yard = $yard;
             $dataContainerShip->save();
 
-            return redirect()->route('import.container-agent')->with('status', 'Kontainer telah berhasil dimasukkan ke dalam Bay ' . $bay . ' dengan Row ' . $row . ' dan Tier ' . $tier . ' pada Yard '.ucfirst($yard));
+            return redirect()->route('import.container-agent')->with('status', 'Kontainer telah berhasil dimasukkan ke dalam Bay ' . $bay . ' dengan Row ' . $row . ' dan Tier ' . $tier . ' pada Yard ' . ucfirst($yard));
         } else {
-            return redirect()->route('import.container-agent')->with('error', 'Row, Tier, dan Bay pada Yard terkait telah terisi. Silakan pilih row, tier, dan bay lainnya pada Yard '.ucfirst($yard).'.');
+            return redirect()->route('import.container-agent')->with('error', 'Row, Tier, dan Bay pada Yard terkait telah terisi. Silakan pilih row, tier, dan bay lainnya pada Yard ' . ucfirst($yard) . '.');
         }
     }
 }

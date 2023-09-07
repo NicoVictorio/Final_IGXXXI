@@ -3,6 +3,7 @@
 use App\Http\Controllers\PeriodController;
 use App\Http\Controllers\ContainerAgentController;
 use App\Http\Controllers\DepoAgentController;
+use App\Http\Controllers\ScoringController;
 use App\Http\Controllers\ShippingAgentController;
 use App\Period;
 use Illuminate\Support\Facades\Route;
@@ -77,6 +78,7 @@ Route::middleware(['auth', 'player'])->group(function () {
     Route::post('/import/container-agent/push', [ContainerAgentController::class, 'pushCAImportYard'])->name('import.ca-push');
     Route::post('/import/container-agent/getTier', [ContainerAgentController::class, 'getTierCAImport'])->name('import.ca-gettier');
     Route::post('/import/container-agent/reset', [ContainerAgentController::class, 'resetCAImport'])->name('import.ca-reset');
+    Route::post('/import/container-agent/scoring', [ScoringController::class, 'CalculateCompletionTime'])->name('scoring.ca-scoring');
 
     Route::get('/import/depo-agent', [DepoAgentController::class, 'showDAImportPage'])->name('import.depo-agent');
     Route::post('/import/depo-agent/save', [DepoAgentController::class, 'saveDAImport'])->name('import.da-save');

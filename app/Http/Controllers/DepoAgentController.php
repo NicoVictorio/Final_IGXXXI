@@ -128,7 +128,7 @@ class DepoAgentController extends Controller
 
             return view('export.depo-agent', compact('listContainers'));
         } else {
-            return redirect()->back();
+            return redirect()->route('import.index')->with('error', 'Saat ini, sesi depo agent sedang tidak aktif!');
         }
     }
 
@@ -338,20 +338,27 @@ class DepoAgentController extends Controller
     // Import
     public function indexImport()
     {
-        return view('import.index');
+        $teamId = Auth::user()->team->id;
+        $scoring = Scoring::where('Period_id', 2)->where('Team_id', $teamId)->first();
+        return view('import.index', compact('scoring'));
     }
     public function showDAImportPage()
     {
-        $teamId = Auth::user()->team->id;
-        $listContainers = ShippingContainer::select('id', 'team_id', 'container_id', 'code', 'volume_status', 'weight_status', 'city', 'period_id')->where('team_id', $teamId)->where('period_id', '2')->get();
-        $idConts = "";
-        foreach ($listContainers as $lCont) {
-            $idConts = $idConts . $lCont->id . ',';
-        }
-        $idConts = rtrim($idConts, ',');
-        $checkBlmJawab = DB::select(DB::raw("select count(demand_id) as 'jmlh' from container_product where final_decision is null and shipping_id in (" . $idConts . ");"))[0]->jmlh;
+        $statusPeriodAktif = Period::select('name', 'status')->where('status', '!=', 'standby')->first();
+        if ($statusPeriodAktif->name == 'import' && $statusPeriodAktif->status == 'depo-agent') {
+            $teamId = Auth::user()->team->id;
+            $listContainers = ShippingContainer::select('id', 'team_id', 'container_id', 'code', 'volume_status', 'weight_status', 'city', 'period_id')->where('team_id', $teamId)->where('period_id', '2')->get();
+            $idConts = "";
+            foreach ($listContainers as $lCont) {
+                $idConts = $idConts . $lCont->id . ',';
+            }
+            $idConts = rtrim($idConts, ',');
+            $checkBlmJawab = DB::select(DB::raw("select count(demand_id) as 'jmlh' from container_product where final_decision is null and shipping_id in (" . $idConts . ");"))[0]->jmlh;
 
-        return view('import.depo-agent', compact('listContainers', 'checkBlmJawab'));
+            return view('import.depo-agent', compact('listContainers', 'checkBlmJawab'));
+        } else {
+            return redirect()->route('import.index')->with('error', 'Saat ini, sesi depo agent sedang tidak aktif!');
+        }
     }
     public function saveDAImport(Request $request)
     {

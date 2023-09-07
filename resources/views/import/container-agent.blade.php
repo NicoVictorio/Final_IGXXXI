@@ -274,22 +274,8 @@
                         <div class="row">
                             <select name="kontainer" id="cbKontainer" class="form-select combobox" required>
                                 <option value="" selected disabled>Pilih Kontainer</option>
-                                @php
-                                    $counter = 0;
-                                @endphp
                                 @foreach ($containerShips as $key => $contShip)
-                                    @if ($counter == 0)
-                                        <option value="{{ $contShip->id }}">{{ $contShip->code }}
-                                            ({{ number_format($contShip->stuff_weight, 2, ',', '.') }}kg)
-                                        </option>
-                                    @else
-                                        <option value="{{ $contShip->id }}" disabled>{{ $contShip->code }}
-                                            ({{ number_format($contShip->stuff_weight, 2, ',', '.') }}kg)
-                                        </option>
-                                    @endif
-                                    @php
-                                        $counter++;
-                                    @endphp
+                                    <option value="{{ $contShip->id }}">{{ $contShip->code }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -345,10 +331,23 @@
                     </div>
                     <br>
                     <div class="row">
-                        <button type="button" class="btn btn-info  button-list-kontainer" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-primary button-layout" data-bs-toggle="modal"
                             data-bs-target="#listContainerModal">List Kontainer</button>
                     </div>
                 </form>
+                @if ($done == true)
+                    <form action="{{ route('scoring.ca-scoring') }}" method="post" class="mt-3">
+                        <div class="row">
+                            <label class="combobox-title">Completion Time: {{ $totalTime }} menit</label>
+                        </div>
+                        <div class="row">
+                            @csrf
+                            <input type="hidden" name="completionTime" value="{{ $totalTime }}">
+                            <button type="submit" name="submit"
+                                class="btn btn-primary button-layout w-100" onclick="return confirm('Apakah anda ingin menyimpan permanen hasil completion time {{ $totalTime }} menit?');">Submit</button>
+                        </div>
+                    </form>
+                @endif
             </div>
         </div>
     </div>
@@ -374,7 +373,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($containerShips as $key => $contShip)
+                            @foreach ($containerShipsAll as $key => $contShip)
                                 <tr>
                                     <td>{{ $contShip->loss_space }}</td>
                                     <td>{{ $contShip->code }}</td>

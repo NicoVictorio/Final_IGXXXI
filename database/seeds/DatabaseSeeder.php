@@ -1,5 +1,6 @@
 <?php
 
+use App\ContainerProduct;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PeriodSeeder::class);
         $this->call(DemandSeeder::class);
         $this->call(ShippingSeeder::class);
+        $this->call(ContainerProduct::class);
         $this->call(UserSeeder::class);
     }
 }
