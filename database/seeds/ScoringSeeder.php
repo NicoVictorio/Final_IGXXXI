@@ -213,6 +213,26 @@ class ScoringSeeder extends Seeder
                 'completion_time' => null,
                 'acceptance' => null,
             ],
+            [
+                'period_id' => '1',
+                'team_id' => '11',
+                'stowage_plan' => null,
+                'docking_duration' => null,
+                'teus' => null,
+                'lateness' => null,
+                'completion_time' => null,
+                'acceptance' => null,
+            ],
+            [
+                'period_id' => '2',
+                'team_id' => '11',
+                'stowage_plan' => null,
+                'docking_duration' => null,
+                'teus' => null,
+                'lateness' => null,
+                'completion_time' => null,
+                'acceptance' => null,
+            ],
         ];
         DB::table('scorings')->insert($scoring);
     }
