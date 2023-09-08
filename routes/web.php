@@ -95,5 +95,8 @@ Route::middleware(['auth', 'penpos'])->group(function () {
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('admin', [AdminController::class, 'indexAdmin'])->name('admin.index');
+    Route::get('/admin', [AdminController::class, 'indexAdmin'])->name('admin.index');
+    Route::post('/admin/changestateexport', [AdminController::class, 'changeStateExport'])->name('admin.changestateexport');
+    Route::post('/admin/changestateimport', [AdminController::class, 'changeStateImport'])->name('admin.changestateimport');
+    Route::get('/admin/listscoring', [AdminController::class, 'scoringList'])->name('admin.listscoring');
 });
