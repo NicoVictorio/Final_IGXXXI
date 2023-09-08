@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ShippingContainer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -36,8 +37,13 @@ class ScoringController extends Controller
     {
         $teamId = Auth::user()->team->id;
         $lateness = $request->get('lateness');
-        DB::update("update scorings set lateness='" . $lateness . "' where Period_id=2 and Team_id='" . $teamId . "';");
-        return response()->json(array('message' => "ok"), 200);
+        $cekKosong = ShippingContainer::select('ica_sequence')->whereNull('ica_sequence')->where('Team_id', $teamId)->where('Period_id', 2)->count();
+        if ($cekKosong == 0) {
+            DB::update("update scorings set lateness='" . $lateness . "' where Period_id=2 and Team_id='" . $teamId . "';");
+            return response()->json(array('message' => "ok"), 200);
+        } else {
+            return redirect()->route('import.shipping-agent')->with('error', 'Belum Semua Kontainer Memiliki Urutan!');
+        }
     }
 
     public function CalculateCompletionTime(Request $request)

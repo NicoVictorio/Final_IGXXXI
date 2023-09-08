@@ -142,9 +142,9 @@
                                         <th colspan="10">
                                             <select name="tier" id="cbTier" class="form-select combobox">
                                                 <option value="" selected disabled>Pilih Tier</option>
-                                                <option value="82">Tier 86</option>
+                                                <option value="86">Tier 86</option>
                                                 <option value="84">Tier 84</option>
-                                                <option value="86">Tier 82</option>
+                                                <option value="82">Tier 82</option>
                                             </select>
                                         </th>
                                     </tr>
@@ -315,7 +315,7 @@
                     </form>
                 </div>
                 <div class="col-6 text-end">
-                    <form action="#" method="post">
+                    <form action="{{ route('scoring.isa') }}" method="post">
                         @csrf
                         <input type="hidden" name="lateness" value="{{ $totalLateness }}">
                         <button type="submit" class="btn btn-primary button-kontainer"

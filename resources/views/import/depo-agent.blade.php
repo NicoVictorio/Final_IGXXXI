@@ -149,7 +149,7 @@
                                                     </select>
                                                 </td>
                                             @else
-                                                @if ($pro->final_decision == 1)
+                                                @if ($pro->final_decision == 'accepted')
                                                     <td>Accepted</td>
                                                 @else
                                                     <td>Rejected</td>

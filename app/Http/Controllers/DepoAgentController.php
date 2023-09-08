@@ -369,9 +369,9 @@ class DepoAgentController extends Controller
 
         foreach ($shipConts as $key => $sc) {
             if ($keputusans[$key] == 'accepted') {
-                DB::update("update container_product set final_decision=1 where Demand_id='" . $proIds[$key] . "' and Shipping_id='" . $sc . "'");
+                DB::update("update container_product set final_decision='accepted' where Demand_id='" . $proIds[$key] . "' and Shipping_id='" . $sc . "'");
             } else {
-                DB::update("update container_product set final_decision=0 where Demand_id='" . $proIds[$key] . "' and Shipping_id='" . $sc . "'");
+                DB::update("update container_product set final_decision='reject' where Demand_id='" . $proIds[$key] . "' and Shipping_id='" . $sc . "'");
             }
         }
         return redirect()->route('import.depo-agent')->with('status', 'Penyimpanan Keputusan Berhasil.');

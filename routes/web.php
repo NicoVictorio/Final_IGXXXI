@@ -80,12 +80,13 @@ Route::middleware(['auth', 'player'])->group(function () {
     Route::get('/import/shipping-agent', [ShippingAgentController::class, 'showSAImportPage'])->name('import.shipping-agent');
     Route::post('/import/shipping-agent/cek', [ShippingAgentController::class, 'checkSALateness'])->name('import.sa-ceklateness');
     Route::post('/import/shipping-agent/getrowbaytable', [ShippingAgentController::class, 'getrowbaytable'])->name('import.sa-getrowbaytable');
+    Route::post('/import/shipping-agent/scoring', [ScoringController::class, 'CalculateLateness'])->name('scoring.isa');
 
     Route::get('/import/container-agent', [ContainerAgentController::class, 'showCAImportPage'])->name('import.container-agent');
     Route::post('/import/container-agent/push', [ContainerAgentController::class, 'pushCAImportYard'])->name('import.ca-push');
     Route::post('/import/container-agent/getTier', [ContainerAgentController::class, 'getTierCAImport'])->name('import.ca-gettier');
     Route::post('/import/container-agent/reset', [ContainerAgentController::class, 'resetCAImport'])->name('import.ca-reset');
-    Route::post('/import/container-agent/scoring', [ScoringController::class, 'CalculateCompletionTime'])->name('scoring.ca-scoring');
+    Route::post('/import/container-agent/scoring', [ScoringController::class, 'CalculateCompletionTime'])->name('scoring.ica');
 
     Route::get('/import/depo-agent', [DepoAgentController::class, 'showDAImportPage'])->name('import.depo-agent');
     Route::post('/import/depo-agent/save', [DepoAgentController::class, 'saveDAImport'])->name('import.da-save');

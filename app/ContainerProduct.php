@@ -16,6 +16,6 @@ class ContainerProduct extends Model
 
     public function shippingContainer()
     {
-        return $this->belongsTo(ShippingContainer::class, 'shipping_id');
+        return $this->belongsTo(ShippingContainer::class, 'Shipping_id');
     }
 }

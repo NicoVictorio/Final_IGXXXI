@@ -260,15 +260,13 @@ class ShippingAgentController extends Controller
 
     public function getrowbaytable(Request $request)
     {
-        $idTeam = Auth::user()->team->id;
         $tier = $request->get('tier');
-        $rowBays = ShippingContainer::select('code', 'row', 'bay')->where('tier', $tier)->where('Team_id', $idTeam)->where('Period_id', 2)->get();
-        $arrPlot = [];
-
-        foreach ($rowBays as $rB) {
-            $arrPlot[] = $rB->loss_space . '#row' . $rB->row . '#bay' . $rB->bay;
+        if ($tier == '82') {
+            return response()->json(array('data' => view('import.rowbaytable82')->render()), 200);
+        } else if ($tier == '84') {
+            return response()->json(array('data' => view('import.rowbaytable84')->render()), 200);
+        } else if ($tier == '86') {
+            return response()->json(array('data' => view('import.rowbaytable86')->render()), 200);
         }
-
-        return response()->json(array('data' => view('import.sa-rowbaytable', compact('arrPlot'))->render()), 200);
     }
 }

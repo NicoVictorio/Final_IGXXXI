@@ -178,8 +178,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    {{-- <a href="{{ route('export.da-addcontainer') }}"
-                    class="btn btn-secondary mb-3 button-tambah-kontainer">Tambah Kontainer</a> --}}
                     <div class="table-responsive">
                         <table class="table table-centered table-bordered table-wrap">
                             <tr>
@@ -336,7 +334,7 @@
                     </div>
                 </form>
                 @if ($done == true)
-                    <form action="{{ route('scoring.ca-scoring') }}" method="post" class="mt-3">
+                    <form action="{{ route('scoring.ica') }}" method="post" class="mt-3">
                         <div class="row">
                             <label class="combobox-title">Completion Time: {{ $totalTime }} menit</label>
                         </div>
