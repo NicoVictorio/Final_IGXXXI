@@ -17,7 +17,6 @@ class AdminController extends Controller
 
     public function changeStateExport(Request $request){
         $status = $request->get('radioExport');
-        $agent = $request->userAgent();
 
         $periodExport = Period::where('name', 'export')->first();
         $periodExport->status = $status;
