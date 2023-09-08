@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PeriodController;
 use App\Http\Controllers\ContainerAgentController;
 use App\Http\Controllers\DepoAgentController;
@@ -41,7 +42,7 @@ Route::get('/', function () {
     }
 });
 
-Auth::routes();
+Auth::routes(['register'=>false, 'reset'=>false, 'verify'=>false]);
 
 Route::middleware(['auth', 'admin'])->group(function () {
 });
@@ -91,4 +92,8 @@ Route::middleware(['auth', 'penpos'])->group(function () {
     Route::get('/export/penpos-qc/{team}', [DepoAgentController::class, 'qcPenpos'])->name('export.qcpenpos');
     Route::post('/export/penpos-qc/proses', [DepoAgentController::class, 'qcPenposProses'])->name('export.qcpenposproses');
     Route::post('/export/penpos-qc/modaldetail', [DepoAgentController::class, 'qcPenposModalDetail'])->name('export.qcpenposmodaldetail');
+});
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('admin', [AdminController::class, 'indexAdmin'])->name('admin.index');
 });

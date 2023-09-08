@@ -100,8 +100,9 @@
                 </div>
 
                 {{-- LOGOUT --}}
-                <a type="button" class="btn btn-block btn-outline-primary shadow m-2 button-logout"
-                    href="{{ route('export.depo-agent') }}"><i class="btn-logout"></i> Log Out</a>
+                <form action="{{ route('logout') }}" method="post">
+                    <button type="submit" class="btn btn-block btn-outline-primary shadow m-2 button-logout"><i class="btn-logout"></i> Log Out</button>
+                </form>
             </div>
         </div>
     </nav>
