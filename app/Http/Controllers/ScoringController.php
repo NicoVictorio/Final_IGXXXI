@@ -40,7 +40,7 @@ class ScoringController extends Controller
         $cekKosong = ShippingContainer::select('ica_sequence')->whereNull('ica_sequence')->where('Team_id', $teamId)->where('Period_id', 2)->count();
         if ($cekKosong == 0) {
             DB::update("update scorings set lateness='" . $lateness . "' where Period_id=2 and Team_id='" . $teamId . "';");
-            return redirect()->route('import.shipping-agent')->with('status', 'Lateness pada Shipping Agent telah diterima! Sesi Shipping Agent anda telah selesai!');
+            return redirect()->route('import.index')->with('status', 'Lateness pada Shipping Agent telah diterima! Sesi Shipping Agent anda telah selesai!');
         } else {
             return redirect()->route('import.shipping-agent')->with('error', 'Belum Semua Kontainer Memiliki Urutan!');
         }
