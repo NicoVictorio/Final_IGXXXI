@@ -29,12 +29,18 @@ Route::get('/', function () {
             return redirect('/admin');
         } else if ($role == 'player') {
             $activePeriod = Period::where('status', '!=', 'standby')->first();
-            if ($activePeriod->name == 'export') {
-                return redirect('/export');
-            } else if ($activePeriod->name == 'import') {
-                return redirect('/import');
-            } else if ($activePeriod->name == 'exportimport') {
-                return redirect('/exportimport');
+            if ($activePeriod != null) {
+                if ($activePeriod->name == 'export') {
+                    return redirect('/export');
+                } else if ($activePeriod->name == 'import') {
+                    return redirect('/import');
+                } else if ($activePeriod->name == 'exportimport') {
+                    return redirect('/exportimport');
+                }
+            } else {
+                Auth::logout();
+                session()->flash('error', 'Tidak ada sesi yang berlangsung!');
+                return redirect('/login');
             }
         } else if ($role == 'penpos') {
             return redirect('/penpos');
@@ -42,7 +48,7 @@ Route::get('/', function () {
     }
 });
 
-Auth::routes(['register'=>false, 'reset'=>false, 'verify'=>false]);
+Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
 
 Route::middleware(['auth', 'admin'])->group(function () {
 });

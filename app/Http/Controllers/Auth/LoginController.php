@@ -31,22 +31,26 @@ class LoginController extends Controller
     public function redirectTo()
     {
         $role = Auth::user()->role;
-            if ($role == 'admin') {
-                return '/admin';
-            } else if ($role == 'player') {
-                $activePeriod = Period::where('status', '!=', 'standby')->first();
+        if ($role == 'admin') {
+            return '/admin';
+        } else if ($role == 'player') {
+            $activePeriod = Period::where('status', '!=', 'standby')->first();
+            if ($activePeriod != null) {
                 if ($activePeriod->name == 'export') {
                     return '/export';
-                }
-                else if($activePeriod->name == 'import'){
+                } else if ($activePeriod->name == 'import') {
                     return '/import';
-                }
-                else if($activePeriod->name == 'exportimport'){
+                } else if ($activePeriod->name == 'exportimport') {
                     return '/exportimport';
                 }
-            } else if ($role == 'penpos') {
-                return '/penpos';
+            } else {
+                Auth::logout();
+                session()->flash('error', 'Tidak ada sesi yang berlangsung!');
+                return '/login';
             }
+        } else if ($role == 'penpos') {
+            return '/penpos';
+        }
     }
 
     /**
