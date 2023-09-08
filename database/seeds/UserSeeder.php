@@ -78,12 +78,18 @@ class UserSeeder extends Seeder
                 'username' => 'timNico',
                 'password' => Hash::make('timNico'),
                 'role'=>'player',
-                'team_id'=>10,
+                'team_id'=>11,
             ],
             [
                 'username' => 'penpos',
-                'password' => Hash::make('12345678'),
+                'password' => Hash::make('penpos'),
                 'role'=>'penpos',
+                'team_id'=>null,
+            ],
+            [
+                'username' => 'admin',
+                'password' => Hash::make('admin'),
+                'role'=>'admin',
                 'team_id'=>null,
             ],
         ];

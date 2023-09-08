@@ -21,10 +21,6 @@ class PeriodSeeder extends Seeder
                 'name' => 'import',
                 'status' => 'standby',
             ],
-            [
-                'name' => 'exportimport',
-                'status' => 'standby',
-            ],
         ];
         DB::table('periods')->insert($period);
     }
