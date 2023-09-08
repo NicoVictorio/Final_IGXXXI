@@ -41,7 +41,7 @@ class ContainerAgentController extends Controller
 
             return view('export.container-agent', compact('containerShips', 'arrPlot', 'listContainer'));
         } else {
-            return redirect()->route('import.index')->with('error', 'Saat ini, sesi container agent sedang tidak aktif!');
+            return redirect()->route('export.index')->with('error', 'Saat ini, sesi container agent sedang tidak aktif!');
         }
     }
 

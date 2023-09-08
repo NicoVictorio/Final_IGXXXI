@@ -128,7 +128,7 @@ class DepoAgentController extends Controller
 
             return view('export.depo-agent', compact('listContainers'));
         } else {
-            return redirect()->route('import.index')->with('error', 'Saat ini, sesi depo agent sedang tidak aktif!');
+            return redirect()->route('export.index')->with('error', 'Saat ini, sesi depo agent sedang tidak aktif!');
         }
     }
 

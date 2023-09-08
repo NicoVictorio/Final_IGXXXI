@@ -97,7 +97,7 @@ class ShippingAgentController extends Controller
 
             return view('export.shipping-agent', compact('containerShips', 'arrPlot', 'totalWeightPort', 'totalWeightStarboard', 'diffPortStarboard', 'totalWeightBow', 'totalWeightStern', 'diffBowStern', 'totalWeightShip', 'decision1', 'decision2', 'finalDecision'));
         } else {
-            return redirect()->route('import.index')->with('error', 'Saat ini, sesi shipping agent sedang tidak aktif!');
+            return redirect()->route('export.index')->with('error', 'Saat ini, sesi shipping agent sedang tidak aktif!');
         }
     }
 
