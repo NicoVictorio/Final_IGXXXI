@@ -347,7 +347,7 @@ class DepoAgentController extends Controller
         $statusPeriodAktif = Period::select('name', 'status')->where('status', '!=', 'standby')->first();
         if ($statusPeriodAktif->name == 'import' && $statusPeriodAktif->status == 'depo-agent') {
             $teamId = Auth::user()->team->id;
-            $listContainers = ShippingContainer::select('id', 'team_id', 'container_id', 'code', 'volume_status', 'weight_status', 'city', 'period_id')->where('team_id', $teamId)->where('period_id', '2')->get();
+            $listContainers = ShippingContainer::select('id', 'Team_id', 'Container_id', 'code', 'Period_id')->where('Team_id', $teamId)->where('Period_id', '2')->get();
             $idConts = "";
             foreach ($listContainers as $lCont) {
                 $idConts = $idConts . $lCont->id . ',';

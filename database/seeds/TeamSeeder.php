@@ -43,6 +43,9 @@ class TeamSeeder extends Seeder
             [
                 'name' => 'Tim 10',
             ],
+            [
+                'name' => 'Tim Nico',
+            ],
         ];
         DB::table('teams')->insert($teams);
     }
