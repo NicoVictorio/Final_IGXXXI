@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ContainerProduct;
 use App\Period;
+use App\Scoring;
 use App\ShippingContainer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -205,6 +206,10 @@ class ShippingAgentController extends Controller
         $statusPeriodAktif = Period::select('name', 'status')->where('status', '!=', 'standby')->first();
         if ($statusPeriodAktif->name == 'import' && $statusPeriodAktif->status == 'shipping-agent') {
             $idTeam = Auth::user()->team->id;
+            $scoring = Scoring::select('lateness')->where('Team_id', $idTeam)->where('Period_id', 2)->first();
+            if ($scoring->lateness != null) {
+                return redirect()->route('import.index')->with('error', 'Anda telah menyimpan permanen hasil shipping agent anda! Anda tidak dapat mengakses shipping agent kembali.');
+            }
             $containers = ShippingContainer::where('Team_id', $idTeam)->where('Period_id', 2)->orderBy('ica_sequence')->get();
             $countContainers = count($containers);
 
