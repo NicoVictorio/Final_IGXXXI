@@ -107,11 +107,7 @@
                 </table>
             </div>
         </div>
-        <form action="{{ route('logout') }}" method="post" class="mb-3">
-            @csrf
-            <a href="{{ route('admin.index') }}" class="btn btn-outline-secondary">Back to Admin Page</a>
-            <button type="submit" class="btn btn-danger">Logout</button>
-        </form>
+        <a href="{{ route('admin.index') }}" class="btn btn-outline-secondary">Back to Admin Page</a>
     </div>
 </body>
 
