@@ -187,14 +187,14 @@
             <h1 class="title text-center fw-bolder">SHIPPING AGENT</h1>
         </div>
         @if (session('status'))
-            <div class="alert alert-success" role="alert">
-                {{ session('status') }}
-            </div>
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
         @endif
         @if (session('error'))
-            <div class="alert alert-danger" role="alert">
-                {{ session('error') }}
-            </div>
+        <div class="alert alert-danger" role="alert">
+            {{ session('error') }}
+        </div>
         @endif
         <div class="spacer"></div>
         <div class="body mb-9">
@@ -215,97 +215,97 @@
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier6#bay1/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier6#bay1/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier6#bay1/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier6#bay1/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier6#bay1/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier6#bay1/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                                 <div class="nomor">6</div>
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier5#bay1/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier5#bay1/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier5#bay1/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier5#bay1/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier5#bay1/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier5#bay1/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                                 <div class="nomor">5</div>
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier4#bay1/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier4#bay1/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier4#bay1/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier4#bay1/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier4#bay1/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier4#bay1/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                                 <div class="nomor">4</div>
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier3#bay1/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier3#bay1/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier3#bay1/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier3#bay1/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier3#bay1/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier3#bay1/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                                 <div class="nomor">3</div>
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier2#bay1/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier2#bay1/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier2#bay1/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier2#bay1/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier2#bay1/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier2#bay1/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                                 <div class="nomor">2</div>
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier1#bay1/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier1#bay1/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier1#bay1/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier1#bay1/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier1#bay1/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier1#bay1/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                                 <div class="nomor">1</div>
                             </div>
@@ -322,97 +322,97 @@
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier6#bay3/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier6#bay3/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier6#bay3/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier6#bay3/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier6#bay3/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier6#bay3/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                                 <div class="nomor">6</div>
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier5#bay3/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier5#bay3/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier5#bay3/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier5#bay3/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier5#bay3/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier5#bay3/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                                 <div class="nomor">5</div>
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier4#bay3/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier4#bay3/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier4#bay3/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier4#bay3/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier4#bay3/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier4#bay3/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                                 <div class="nomor">4</div>
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier3#bay3/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier3#bay3/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier3#bay3/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier3#bay3/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier3#bay3/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier3#bay3/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                                 <div class="nomor">3</div>
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier2#bay3/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier2#bay3/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier2#bay3/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier2#bay3/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier2#bay3/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier2#bay3/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                                 <div class="nomor">2</div>
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier1#bay3/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier1#bay3/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier1#bay3/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier1#bay3/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier1#bay3/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier1#bay3/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                                 <div class="nomor">1</div>
                             </div>
@@ -431,92 +431,92 @@
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier6#bay2/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier6#bay2/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier6#bay2/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier6#bay2/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier6#bay2/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier6#bay2/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier5#bay2/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier5#bay2/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier5#bay2/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier5#bay2/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier5#bay2/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier5#bay2/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier4#bay2/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier4#bay2/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier4#bay2/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier4#bay2/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier4#bay2/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier4#bay2/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier3#bay2/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier3#bay2/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier3#bay2/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier3#bay2/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier3#bay2/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier3#bay2/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier2#bay2/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier2#bay2/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier2#bay2/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier2#bay2/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier2#bay2/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier2#bay2/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier1#bay2/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier1#bay2/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier1#bay2/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier1#bay2/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier1#bay2/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier1#bay2/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                             </div>
                         </div>
@@ -532,92 +532,92 @@
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier6#bay4/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier6#bay4/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier6#bay4/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier6#bay4/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier6#bay4/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier6#bay4/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier5#bay4/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier5#bay4/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier5#bay4/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier5#bay4/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier5#bay4/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier5#bay4/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier4#bay4/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier4#bay4/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier4#bay4/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier4#bay4/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier4#bay4/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier4#bay4/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier3#bay4/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier3#bay4/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier3#bay4/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier3#bay4/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier3#bay4/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier3#bay4/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier2#bay4/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier2#bay4/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier2#bay4/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier2#bay4/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier2#bay4/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier2#bay4/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                             </div>
                             <div class="row">
                                 @foreach ([1, 2, 3, 4] as $i)
-                                    <div class="space {{ preg_grep('/row' . $i . '#tier1#bay4/', $arrPlot) ? 'bg-primary' : '' }}"
-                                        style="display: flex; align-items: center; justify-content:center;">
-                                        @php
-                                            if (preg_grep('/row' . $i . '#tier1#bay4/', $arrPlot)) {
-                                                $arrVal = preg_grep('/row' . $i . '#tier1#bay4/', $arrPlot);
-                                                $value = array_shift($arrVal);
-                                            } else {
-                                                $value = '';
-                                            }
-                                        @endphp
-                                        {{ substr($value, 0, 4) }}</div>
+                                <div class="space {{ preg_grep('/row' . $i . '#tier1#bay4/', $arrPlot) ? 'bg-primary' : '' }}"
+                                    style="display: flex; align-items: center; justify-content:center;">
+                                    @php
+                                    if (preg_grep('/row' . $i . '#tier1#bay4/', $arrPlot)) {
+                                    $arrVal = preg_grep('/row' . $i . '#tier1#bay4/', $arrPlot);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}</div>
                                 @endforeach
                             </div>
                         </div>
@@ -634,21 +634,21 @@
                                 <select name="kontainer" id="cbKontainer" class="form-select combobox" required>
                                     <option value="" selected disabled>Pilih Kontainer</option>
                                     @php
-                                        $counter = 0;
+                                    $counter = 0;
                                     @endphp
                                     @foreach ($containerShips as $key => $contShip)
-                                        @if ($counter == 0)
-                                            <option value="{{ $contShip->id }}">{{ $contShip->code }}
-                                                ({{ number_format($contShip->stuff_weight, 2, ',', '.') }}kg)
-                                            </option>
-                                        @else
-                                            <option value="{{ $contShip->id }}" disabled>{{ $contShip->code }}
-                                                ({{ number_format($contShip->stuff_weight, 2, ',', '.') }}kg)
-                                            </option>
-                                        @endif
-                                        @php
-                                            $counter++;
-                                        @endphp
+                                    @if ($counter == 0)
+                                    <option value="{{ $contShip->id }}">{{ $contShip->code }}
+                                        ({{ number_format($contShip->stuff_weight, 2, ',', '.') }}kg)
+                                    </option>
+                                    @else
+                                    <option value="{{ $contShip->id }}" disabled>{{ $contShip->code }}
+                                        ({{ number_format($contShip->stuff_weight, 2, ',', '.') }}kg)
+                                    </option>
+                                    @endif
+                                    @php
+                                    $counter++;
+                                    @endphp
                                     @endforeach
                                 </select>
                             </div>
@@ -715,31 +715,109 @@
                                 <div class="nomor">05</div>
                             </div>
                             <div class="row row-bay">
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                @foreach([6,4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier6#bay1/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier6#bay1/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier6#bay1/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">06</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+
+                                @foreach([1,3,5] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier6#bay1/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier6#bay1/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier6#bay1/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
                             </div>
                             <div class="row row-bay">
-                                <div class="blank"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                <div class="blank"></div>
+                                @foreach([4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier4#bay1/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier4#bay1/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier4#bay1/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">04</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="blank"> </div>
+
+                                @foreach([1,3] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier4#bay1/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier4#bay1/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier4#bay1/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
+                                <div class="blank"></div>
                             </div>
                             <div class="row row-bay">
-                                <div class="blank"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                <div class="blank"></div>
+                                @foreach([4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier2#bay1/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier2#bay1/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier2#bay1/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">02</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="blank"> </div>
+
+                                @foreach([1,3] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier2#bay1/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier2#bay1/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier2#bay1/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
+                                <div class="blank"></div>
                             </div>
                         </div>
                         <div>
@@ -756,31 +834,109 @@
                                 <div class="nomor">05</div>
                             </div>
                             <div class="row row-bay">
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                @foreach([6,4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier6#bay3/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier6#bay3/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier6#bay3/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">06</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+
+                                @foreach([1,3,5] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier6#bay3/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier6#bay3/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier6#bay3/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
                             </div>
                             <div class="row row-bay">
-                                <div class="blank"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                <div class="blank"></div>
+                                @foreach([4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier4#bay3/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier4#bay3/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier4#bay3/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">04</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="blank"> </div>
+
+                                @foreach([1,3] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier4#bay3/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier4#bay3/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier4#bay3/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
+                                <div class="blank"></div>
                             </div>
                             <div class="row row-bay">
-                                <div class="blank"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                <div class="blank"></div>
+                                @foreach([4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier2#bay3/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier2#bay3/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier2#bay3/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">02</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="blank"> </div>
+
+                                @foreach([1,3] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier2#bay3/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier2#bay3/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier2#bay3/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
+                                <div class="blank"></div>
                             </div>
                         </div>
                         <br>
@@ -798,31 +954,109 @@
                                 <div class="nomor">05</div>
                             </div>
                             <div class="row row-bay">
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                @foreach([6,4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier6#bay5/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier6#bay5/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier6#bay5/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">06</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+
+                                @foreach([1,3,5] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier6#bay5/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier6#bay5/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier6#bay5/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
                             </div>
                             <div class="row row-bay">
-                                <div class="blank"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                <div class="blank"></div>
+                                @foreach([4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier4#bay5/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier4#bay5/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier4#bay5/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">04</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="blank"> </div>
+
+                                @foreach([1,3] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier4#bay5/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier4#bay5/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier4#bay5/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
+                                <div class="blank"></div>
                             </div>
                             <div class="row row-bay">
-                                <div class="blank"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                <div class="blank"></div>
+                                @foreach([4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier2#bay5/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier2#bay5/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier2#bay5/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">02</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="blank"> </div>
+
+                                @foreach([1,3] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier2#bay5/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier2#bay5/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier2#bay5/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
+                                <div class="blank"></div>
                             </div>
                         </div>
                         <div>
@@ -839,31 +1073,109 @@
                                 <div class="nomor">05</div>
                             </div>
                             <div class="row row-bay">
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                @foreach([6,4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier6#bay7/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier6#bay7/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier6#bay7/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">06</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+
+                                @foreach([1,3,5] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier6#bay7/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier6#bay7/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier6#bay7/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
                             </div>
                             <div class="row row-bay">
-                                <div class="blank"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                <div class="blank"></div>
+                                @foreach([4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier4#bay7/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier4#bay7/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier4#bay7/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">04</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="blank"> </div>
+
+                                @foreach([1,3] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier4#bay7/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier4#bay7/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier4#bay7/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
+                                <div class="blank"></div>
                             </div>
                             <div class="row row-bay">
-                                <div class="blank"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                <div class="blank"></div>
+                                @foreach([4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier2#bay7/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier2#bay7/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier2#bay7/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">02</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="blank"> </div>
+
+                                @foreach([1,3] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier2#bay7/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier2#bay7/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier2#bay7/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
+                                <div class="blank"></div>
                             </div>
                         </div>
                         <br>
@@ -881,31 +1193,109 @@
                                 <div class="nomor">05</div>
                             </div>
                             <div class="row row-bay">
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                @foreach([6,4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier6#bay9/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier6#bay9/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier6#bay9/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">06</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+
+                                @foreach([1,3,5] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier6#bay9/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier6#bay9/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier6#bay9/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
                             </div>
                             <div class="row row-bay">
-                                <div class="blank"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                <div class="blank"></div>
+                                @foreach([4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier4#bay9/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier4#bay9/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier4#bay9/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">04</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="blank"> </div>
+
+                                @foreach([1,3] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier4#bay9/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier4#bay9/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier4#bay9/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
+                                <div class="blank"></div>
                             </div>
                             <div class="row row-bay">
-                                <div class="blank"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                <div class="blank"></div>
+                                @foreach([4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier2#bay9/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier2#bay9/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier2#bay9/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">02</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="blank"> </div>
+
+                                @foreach([1,3] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier2#bay9/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier2#bay9/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier2#bay9/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
+                                <div class="blank"></div>
                             </div>
                         </div>
                         <div>
@@ -922,31 +1312,109 @@
                                 <div class="nomor">05</div>
                             </div>
                             <div class="row row-bay">
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                @foreach([6,4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier6#bay11/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier6#bay11/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier6#bay11/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">06</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+
+                                @foreach([1,3,5] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier6#bay11/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier6#bay11/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier6#bay11/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
                             </div>
                             <div class="row row-bay">
-                                <div class="blank"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                <div class="blank"></div>
+                                @foreach([4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier4#bay11/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier4#bay11/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier4#bay11/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">04</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="blank"> </div>
+
+                                @foreach([1,3] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier4#bay11/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier4#bay11/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier4#bay11/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
+                                <div class="blank"></div>
                             </div>
                             <div class="row row-bay">
-                                <div class="blank"> </div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
+                                <div class="blank"></div>
+                                @foreach([4,2] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier2#bay11/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier2#bay11/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier2#bay11/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
                                 <div class="nomor">02</div>
-                                <div class="space"> </div>
-                                <div class="space"> </div>
-                                <div class="blank"> </div>
+
+                                @foreach([1,3] as $i)
+                                <div class="space {{ preg_grep('/row' . $i . '#tier2#bay11/', $arrPlotBay) ?  'bg-primary' : '' }}"
+                                    style="display:flex; align-items:center; justify-content:center;">
+                                    @php
+                                    if(preg_grep('/row' . $i .'#tier2#bay11/', $arrPlotBay)){
+                                    $arrVal = preg_grep('/row' . $i . '#tier2#bay11/', $arrPlotBay);
+                                    $value = array_shift($arrVal);
+                                    } else {
+                                    $value = '';
+                                    }
+                                    @endphp
+                                    {{ substr($value, 0, 4) }}
+                                </div>
+                                @endforeach
+
+                                <div class="blank"></div>
                             </div>
                         </div>
                     </div>
@@ -1055,13 +1523,14 @@
                         </tbody>
                     </table>
                     @if ($finalDecision == 'send' && $countBelum==0)
-                        <div class="row">
-                            <form action="{{ route('scoring.esa') }}" method="post">
-                                @csrf
-                                <input type="hidden" name="stowage_plan" value="{{ ($diffPortStarboard + $diffBowStern) }}">
-                                <button type="submit" name="submit" class="btn btn-primary button-layout w-100 mb-3" onclick="return confirm('Apakah anda ingin menyimpan permanen hasil shipping agent anda?');">Kirim</button>
-                            </form>
-                        </div>
+                    <div class="row">
+                        <form action="{{ route('scoring.esa') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="stowage_plan" value="{{ ($diffPortStarboard + $diffBowStern) }}">
+                            <button type="submit" name="submit" class="btn btn-primary button-layout w-100 mb-3"
+                                onclick="return confirm('Apakah anda ingin menyimpan permanen hasil shipping agent anda?');">Kirim</button>
+                        </form>
+                    </div>
                     @endif
                 </div>
             </div>
