@@ -173,8 +173,8 @@
                             <h2 class="mb-0">Acceptance</h2>
                             <div class="d-flex">
                                 <h2 class="mb-2 mt-1" id="sigma-level">
-                                    @if ($scoring->acceptence != null)
-                                        {{ $scoring->acceptence }}
+                                    @if ($scoring->acceptance != null)
+                                        {{ $scoring->acceptance }}
                                     @else
                                         0
                                     @endif

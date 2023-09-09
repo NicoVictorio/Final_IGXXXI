@@ -351,6 +351,12 @@ class DepoAgentController extends Controller
     public function indexImport()
     {
         $teamId = Auth::user()->team->id;
+        $statusPeriod = Period::select('status')->where('name', 'import')->first();
+        if($statusPeriod->status == 'standby'){
+            Auth::logout();
+            return redirect('/login');
+        }
+
         $scoring = Scoring::where('Period_id', 2)->where('Team_id', $teamId)->first();
         return view('import.index', compact('scoring'));
     }
@@ -359,6 +365,10 @@ class DepoAgentController extends Controller
         $statusPeriodAktif = Period::select('name', 'status')->where('status', '!=', 'standby')->first();
         if ($statusPeriodAktif->name == 'import' && $statusPeriodAktif->status == 'depo-agent') {
             $teamId = Auth::user()->team->id;
+            $scoring = Scoring::select('acceptance')->where('Team_id', $teamId)->where('Period_id', 2)->first();
+            if ($scoring->acceptance != null) {
+                return redirect()->route('import.index')->with('error', 'Anda telah menyimpan permanen hasil depo agent anda! Anda tidak dapat mengakses depo agent kembali.');
+            }
             $listContainers = ShippingContainer::select('id', 'Team_id', 'Container_id', 'code', 'Period_id')->where('Team_id', $teamId)->where('Period_id', '2')->get();
             $idConts = "";
             foreach ($listContainers as $lCont) {
@@ -366,8 +376,11 @@ class DepoAgentController extends Controller
             }
             $idConts = rtrim($idConts, ',');
             $checkBlmJawab = DB::select(DB::raw("select count(demand_id) as 'jmlh' from container_product where final_decision is null and shipping_id in (" . $idConts . ");"))[0]->jmlh;
+            if($checkBlmJawab == 0){
+                $acceptance = DB::select(DB::raw("select count(cp.Shipping_id) as 'count' from container_product cp inner join shipping_container sc on cp.Shipping_id=sc.id where sc.Team_id='".$teamId."' and Period_id=2 and cp.final_decision=cp.answer_key and cp.Shipping_id in (" . $idConts . ");"))[0]->count;
+            }
 
-            return view('import.depo-agent', compact('listContainers', 'checkBlmJawab'));
+            return view('import.depo-agent', compact('listContainers', 'checkBlmJawab', 'acceptance'));
         } else {
             return redirect()->route('import.index')->with('error', 'Saat ini, sesi depo agent sedang tidak aktif!');
         }

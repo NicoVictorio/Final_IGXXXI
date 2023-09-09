@@ -983,6 +983,8 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="col-6">
                     <div class="table-responsive">
                         <table class="table table-centered table-bordered table-wrap">
                             <thead>
@@ -1052,11 +1054,12 @@
                             </tr>
                         </tbody>
                     </table>
-                    @if ($finalDecision == 'send')
+                    @if ($finalDecision == 'send' && $countBelum==0)
                         <div class="row">
-                            <form action="#" method="post">
+                            <form action="{{ route('scoring.esa') }}" method="post">
                                 @csrf
-                                <button type="submit" name="submit" class="btn btn-primary">Kirim</button>
+                                <input type="hidden" name="stowage_plan" value="{{ ($diffPortStarboard + $diffBowStern) }}">
+                                <button type="submit" name="submit" class="btn btn-primary button-layout w-100 mb-3" onclick="return confirm('Apakah anda ingin menyimpan permanen hasil shipping agent anda?');">Kirim</button>
                             </form>
                         </div>
                     @endif

@@ -114,6 +114,16 @@
             <div class="rounded-pill p-2 w-50 shadow align-items-center" style="background-color:rgb(44,86,167);">
                 <div class="fw-bolder fs-1 text-center title">SESI EXPORT</div>
             </div>
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+            @if (session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
         </div>
 
         <div class="d-flex justify-content-around py-5">

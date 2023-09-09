@@ -17,6 +17,10 @@ class ShippingAgentController extends Controller
         $statusPeriodAktif = Period::select('name', 'status')->where('status', '!=', 'standby')->first();
         if ($statusPeriodAktif->name == 'export' && $statusPeriodAktif->status == 'shipping-agent') {
             $idTeam = Auth::user()->team->id;
+            $scoring = Scoring::select('stowage_plan')->where('Team_id', $idTeam)->where('Period_id', 1)->first();
+            if ($scoring->stowage_plan != null) {
+                return redirect()->route('export.index')->with('error', 'Anda telah menyimpan permanen hasil shipping agent anda! Anda tidak dapat mengakses shipping agent kembali.');
+            }
             $containerShipsUS = ShippingContainer::whereRaw("(volume_status='safe' or volume_status='less') and weight_status='safe'")->where('row', '!=', null)->where('tier', '!=', null)->where('bay', '!=', null)->where('ica_target_row', null)->where('ica_sequence', null)->where('ica_target_bay', null)->where('team_id', $idTeam)->where('Period_id', 1)->get();
 
             $plots = ShippingContainer::select('code', 'row', 'tier', 'bay')->where('row', '!=', null)->where('tier', '!=', null)->where('bay', '!=', null)->where('team_id', $idTeam)->where('Period_id', 1)->get();
@@ -38,33 +42,33 @@ class ShippingAgentController extends Controller
                 $cs->stuff_weight = $stuff_weight;
             }
 
-            $totalWeightPort = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.ica_target_row in (2,4,6) and sc.team_id='.$idTeam.' and sc.Period_id=1;"));
+            $totalWeightPort = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.ica_target_row in (2,4,6) and sc.ica_sequence is not null and sc.team_id='".$idTeam."' and sc.Period_id=1;"));
             if ($totalWeightPort[0]->weight != null) {
                 $totalWeightPort = $totalWeightPort[0]->weight;
             } else {
                 $totalWeightPort = 0;
             }
-            $totalWeightStarboard = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.ica_target_row in (1,3,5) and sc.team_id='.$idTeam.' and sc.Period_id=1;"));
+            $totalWeightStarboard = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.ica_target_row in (1,3,5) and sc.ica_sequence is not null and sc.team_id='".$idTeam."' and sc.Period_id=1;"));
             if ($totalWeightStarboard[0]->weight != null) {
                 $totalWeightStarboard = $totalWeightStarboard[0]->weight;
             } else {
                 $totalWeightStarboard = 0;
             }
             $diffPortStarboard = abs($totalWeightPort - $totalWeightStarboard);
-            $totalWeightBow = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.team_id='.$idTeam.' and sc.Period_id=1 and (sc.ica_target_bay=1 or sc.ica_target_bay=3 or sc.ica_target_bay=5)"));
+            $totalWeightBow = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.team_id='".$idTeam."' and sc.Period_id=1 and sc.ica_target_bay in (1,3,5) and sc.ica_sequence is not null"));
             if ($totalWeightBow[0]->weight != null) {
                 $totalWeightBow = $totalWeightBow[0]->weight;
             } else {
                 $totalWeightBow = 0;
             }
-            $totalWeightStern = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.ica_target_bay in (7,9,11) and sc.team_id='.$idTeam.' and sc.Period_id=1;"));
+            $totalWeightStern = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.ica_target_bay in (7,9,11) and sc.ica_sequence is not null and sc.team_id='".$idTeam."' and sc.Period_id=1;"));
             if ($totalWeightStern[0]->weight != null) {
                 $totalWeightStern = $totalWeightStern[0]->weight;
             } else {
                 $totalWeightStern = 0;
             }
             $diffBowStern = abs($totalWeightBow - $totalWeightStern);
-            $totalWeightShip = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.ica_target_row is not null and sc.ica_target_bay is not null and sc.ica_sequence is not null and sc.team_id='.$idTeam.' and sc.Period_id=1;"));
+            $totalWeightShip = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.ica_target_row is not null and sc.ica_target_bay is not null and sc.ica_sequence is not null and sc.team_id='".$idTeam."' and sc.Period_id=1;"));
             if ($totalWeightShip[0]->weight != null) {
                 $totalWeightShip = $totalWeightShip[0]->weight;
             } else {
@@ -88,14 +92,15 @@ class ShippingAgentController extends Controller
             }
 
             if ($decision1 == 'send' && $decision2 == 'send') {
-                $finalDecision = 'kirim';
+                $finalDecision = 'send';
             } else {
                 $finalDecision = 'reject';
             }
 
             $containerShips = $containerShipsUS->sortByDesc('stuff_weight');
+            $countBelum = ShippingContainer::whereNull('ica_sequence')->whereNull('ica_target_row')->whereNull('ica_target_bay')->where('Team_id', $idTeam)->where('Period_id', 1)->count();
 
-            return view('export.shipping-agent', compact('containerShips', 'arrPlot', 'totalWeightPort', 'totalWeightStarboard', 'diffPortStarboard', 'totalWeightBow', 'totalWeightStern', 'diffBowStern', 'totalWeightShip', 'decision1', 'decision2', 'finalDecision'));
+            return view('export.shipping-agent', compact('containerShips', 'arrPlot', 'totalWeightPort', 'totalWeightStarboard', 'diffPortStarboard', 'totalWeightBow', 'totalWeightStern', 'diffBowStern', 'totalWeightShip', 'decision1', 'decision2', 'finalDecision', 'countBelum'));
         } else {
             return redirect()->route('export.index')->with('error', 'Saat ini, sesi shipping agent sedang tidak aktif!');
         }

@@ -73,6 +73,7 @@ Route::middleware(['auth', 'player'])->group(function () {
     Route::post('/export/shipping-agent/push', [ShippingAgentController::class, 'pushSAExportDeck'])->name('export.sa-push');
     Route::post('/export/shipping-agent/getTier', [ShippingAgentController::class, 'getTierSAExport'])->name('export.sa-gettier');
     Route::post('/export/shipping-agent/reset', [ShippingAgentController::class, 'resetPositionSAExport'])->name('export.sa-reset');
+    Route::post('/export/shipping-agent/scoring', [ScoringController::class, 'CalculateStowagePlan'])->name('scoring.esa');
 
 
     // Import
@@ -91,6 +92,7 @@ Route::middleware(['auth', 'player'])->group(function () {
 
     Route::get('/import/depo-agent', [DepoAgentController::class, 'showDAImportPage'])->name('import.depo-agent');
     Route::post('/import/depo-agent/save', [DepoAgentController::class, 'saveDAImport'])->name('import.da-save');
+    Route::post('/import/depo-agent/scoring', [ScoringController::class, 'CalculateAcceptance'])->name('scoring.ida');
 });
 
 Route::middleware(['auth', 'penpos'])->group(function () {
