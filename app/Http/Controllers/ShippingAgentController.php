@@ -196,6 +196,11 @@ class ShippingAgentController extends Controller
             $cekNomor += 2;
         }
 
+        $cekBayangan = ShippingContainer::select('isa_due_date')->where('ica_target_bay', $bay)->where('ica_target_row', $row)->where('ica_target_tier', $cekNomor)->where('Team_id', $idTeam)->where('Period_id', 1)->count();
+        if($cekBayangan == 1){
+            $cekNomor += 2;
+        }
+
         return response()->json(array('tier' => $cekNomor), 200);
     }
 

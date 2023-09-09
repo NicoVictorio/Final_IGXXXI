@@ -14,7 +14,7 @@ class ScoringController extends Controller
         $teamId = Auth::user()->team->id;
         $teus = 0;
 
-        $shippingsAccepted = ShippingContainer::where('volume_status', 'safe')->where('weight_status', 'safe')->where('Team_id', $teamId)->where('Period_id', 1)->get();
+        $shippingsAccepted = ShippingContainer::whereRaw("(volume_status='safe' or volume_status='less') and weight_status='safe'")->where('Team_id', $teamId)->where('Period_id', 1)->get();
         if (count($shippingsAccepted) > 0) {
             foreach ($shippingsAccepted as $sa) {
                 if ($sa->container->size == '40ft') {
