@@ -100,7 +100,7 @@ class ShippingAgentController extends Controller
             $containerShips = $containerShipsUS->sortByDesc('stuff_weight');
             $countBelum = ShippingContainer::whereNull('ica_sequence')->whereNull('ica_target_row')->whereNull('ica_target_bay')->where('Team_id', $idTeam)->where('Period_id', 1)->count();
 
-            return view('export.shipping-agent', compact('containerShips', 'arrPlot', 'totalWeightPort', 'totalWeightStarboard', 'diffPortStarboard', 'totalWeightBow', 'totalWeightStern', 'diffBowStern', 'totalWeightShip', 'decision1', 'decision2', 'finalDecision', 'countBelum'));
+            return view('export.shipping-agent', compact('containerShips', 'arrPlot', 'arrPlotBay', 'totalWeightPort', 'totalWeightStarboard', 'diffPortStarboard', 'totalWeightBow', 'totalWeightStern', 'diffBowStern', 'totalWeightShip', 'decision1', 'decision2', 'finalDecision', 'countBelum'));
         } else {
             return redirect()->route('export.index')->with('error', 'Saat ini, sesi shipping agent sedang tidak aktif!');
         }
