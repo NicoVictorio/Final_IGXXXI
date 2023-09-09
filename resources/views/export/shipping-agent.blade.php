@@ -1001,7 +1001,7 @@
                         <table class="table table-centered table-bordered table-wrap">
                             <thead>
                                 <tr class="table-title">
-                                    <th class="border-0 text-center" colspan="2">Difference: Port and Stern
+                                    <th class="border-0 text-center" colspan="2">Difference: Bow and Stern
                                     </th>
                                 </tr>
                             </thead>

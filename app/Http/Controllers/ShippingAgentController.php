@@ -39,34 +39,33 @@ class ShippingAgentController extends Controller
             }
 
             $totalWeightPort = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.ica_target_row in (2,4,6) and sc.team_id='.$idTeam.' and sc.Period_id=1;"));
-            if ($totalWeightPort != null) {
+            if ($totalWeightPort[0]->weight != null) {
                 $totalWeightPort = $totalWeightPort[0]->weight;
             } else {
                 $totalWeightPort = 0;
             }
             $totalWeightStarboard = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.ica_target_row in (1,3,5) and sc.team_id='.$idTeam.' and sc.Period_id=1;"));
-            if ($totalWeightStarboard != null) {
+            if ($totalWeightStarboard[0]->weight != null) {
                 $totalWeightStarboard = $totalWeightStarboard[0]->weight;
             } else {
                 $totalWeightStarboard = 0;
             }
             $diffPortStarboard = abs($totalWeightPort - $totalWeightStarboard);
             $totalWeightBow = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.team_id='.$idTeam.' and sc.Period_id=1 and (sc.ica_target_bay=1 or sc.ica_target_bay=3 or sc.ica_target_bay=5)"));
-            if ($totalWeightBow != null) {
+            if ($totalWeightBow[0]->weight != null) {
                 $totalWeightBow = $totalWeightBow[0]->weight;
             } else {
                 $totalWeightBow = 0;
             }
             $totalWeightStern = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.ica_target_bay in (7,9,11) and sc.team_id='.$idTeam.' and sc.Period_id=1;"));
-            if ($totalWeightStern != null) {
+            if ($totalWeightStern[0]->weight != null) {
                 $totalWeightStern = $totalWeightStern[0]->weight;
             } else {
                 $totalWeightStern = 0;
             }
             $diffBowStern = abs($totalWeightBow - $totalWeightStern);
             $totalWeightShip = DB::select(DB::raw("select sum(cp.quantity*d.weight) as 'weight' from shipping_container sc inner join container_product cp on sc.id=cp.shipping_id inner join demands d on cp.demand_id=d.id where sc.ica_target_row is not null and sc.ica_target_bay is not null and sc.ica_sequence is not null and sc.team_id='.$idTeam.' and sc.Period_id=1;"));
-
-            if ($totalWeightShip != null) {
+            if ($totalWeightShip[0]->weight != null) {
                 $totalWeightShip = $totalWeightShip[0]->weight;
             } else {
                 $totalWeightShip = 0;
