@@ -115,12 +115,6 @@
                                 <tr class="table-title">
                                     <th class="border-0 text-center">Paket Produk</th>
                                     <th class="border-0 text-center">Jumlah Produk</th>
-                                    <th class="border-0 text-center">General Inspection Level</th>
-                                    <th class="border-0 text-center">Inspection level</th>
-                                    <th class="border-0 text-center">Acc</th>
-                                    <th class="border-0 text-center">Reject</th>
-                                    <th class="border-0 text-center">Persentase Kecacatan</th>
-                                    <th class="border-0 text-center">Produk Cacat</th>
                                     <th class="border-0 text-center" style="width:175px">Keputusan Akhir</th>
                                 </tr>
                             </thead>
@@ -132,12 +126,6 @@
                                         <tr>
                                             <td>{{ $pro->demand->name }}</td>
                                             <td>{{ $pro->quantity }}</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>0</td>
-                                            <td>0</td>
                                             @if ($pro->final_decision === null)
                                                 <td>
                                                     <select name="keputusan[]" id="cbtier"
