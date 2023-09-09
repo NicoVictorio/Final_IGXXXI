@@ -68,6 +68,7 @@ Route::middleware(['auth', 'player'])->group(function () {
     Route::post('/export/container-agent/getTier', [ContainerAgentController::class, 'getTierCAExport'])->name('export.ca-gettier');
     Route::post('/export/container-agent/reset', [ContainerAgentController::class, 'resetPositionCAExport'])->name('export.ca-reset');
     Route::post('/export/container-agent/push', [ContainerAgentController::class, 'pushCAExportBay'])->name('export.ca-push');
+    Route::post('/export/container-agent/scoring', [ScoringController::class, 'CalculateDocking1'])->name('scoring.eca');
 
     Route::get('/export/shipping-agent', [ShippingAgentController::class, 'showSAExportPage'])->name('export.shipping-agent');
     Route::post('/export/shipping-agent/push', [ShippingAgentController::class, 'pushSAExportDeck'])->name('export.sa-push');
@@ -93,6 +94,8 @@ Route::middleware(['auth', 'player'])->group(function () {
     Route::get('/import/depo-agent', [DepoAgentController::class, 'showDAImportPage'])->name('import.depo-agent');
     Route::post('/import/depo-agent/save', [DepoAgentController::class, 'saveDAImport'])->name('import.da-save');
     Route::post('/import/depo-agent/scoring', [ScoringController::class, 'CalculateAcceptance'])->name('scoring.ida');
+
+    Route::post('/scoring/authorize', [ScoringController::class, 'LOAuthorize'])->name('scoring.lo-authorize');
 });
 
 Route::middleware(['auth', 'penpos'])->group(function () {

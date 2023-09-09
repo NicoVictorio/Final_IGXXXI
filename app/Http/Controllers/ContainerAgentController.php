@@ -156,6 +156,8 @@ class ContainerAgentController extends Controller
 
                     $totalTime += ($selisihRow + $selisihBay + $selisihTier);
                 }
+            } else {
+                $done = false;
             }
 
             return view('import.container-agent', compact('containerShips', 'containerShipsAll', 'totalTime', 'done'));

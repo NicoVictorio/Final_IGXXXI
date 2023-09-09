@@ -174,8 +174,8 @@
         @endif
         <div class="spacer"></div>
         <div class="body px-5 py-2 mb-4">
-            <div class="col-12">
-                <div class="col-9 px-5">
+            <div class="row">
+                <div class="col-7 px-5">
                     <h1 class="layout-title">Layout Kontainer</h1>
                     <div class="cell">
                         <div>
@@ -598,7 +598,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-9 px-5">
+                <div class="col-5 px-5">
                     <form action="{{ route('export.ca-push') }}" method="post">
                         @csrf
                         <div class="row">
@@ -669,6 +669,12 @@
                     <div class="row py-3">
                         <a href="{{ route('export.index') }}" class="btn btn-primary button-layout">Back</a>
                     </div>
+                    @if (count($containerShips) == 0)
+                        <div class="row py-3">
+                            <button type="button" class="btn btn-info button-layout mt-5" data-bs-toggle="modal"
+                                data-bs-target="#scoringModal">Submit</button>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -713,22 +719,74 @@
             </div>
         </div>
     </div>
+    {{-- Scoring Modal --}}
+    <div class="modal fade" id="scoringModal" tabindex="-1" aria-labelledby="scoringModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-3" id="exampleModalLabel">Docking Time Submission (Container Agent)</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="scoringModalBody">
+                    <h4>LO Authorization</h4>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Username</label>
+                        <input type="text" name="usernameLO" id="txtUsername" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Password</label>
+                        <input type="password" name="passwordLO" id="txtPassword" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-primary button-layout" id="btnAuthorizeCA">Authorize</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
     <script type="text/javascript">
+        $('#btnAuthorizeCA').on('click', function() {
+            var username = $('#txtUsername').val();
+            var password = $('#txtPassword').val();
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('scoring.lo-authorize') }}',
+                data: {
+                    '_token': '<?php echo csrf_token(); ?>',
+                    'username':username,
+                    'password':password,
+                },
+                success: function(data) {
+                    if(data.authorize=='ok'){
+                        var htmlText = "<form action='{{ route('scoring.eca') }}' method='post'><input type='hidden' name='_token' value='{{ csrf_token() }}'><div class='mb-3 text-center'><label for='' class='form-label'>Minute</label><input type='text' name='minute' style='width: 150px' class='form-control mx-auto' required></div><div class='mb-3 text-center'><label for='' class='form-label'>Second</label><input type='text' name='second' style='width: 150px' class='form-control mx-auto' required></div><div class='mb-3'><button type='submit' class='btn button-layout'>Submit</button></div></form>";
+                        $('#scoringModalBody').html(htmlText);
+                    }
+                    else{
+                        alert('LO Wrong Authorization');
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert('Terjadi Kesalahan, Hubungi Tim Panitia.\nError Message [LO Authorize ECA]: ' +
+                        errorThrown);
+                }
+            });
+        });
         $('#cbKontainer').on('change', function() {
             $('#cbBay').html(
                 "<option value='' selected disabled>Pilih Block</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option>"
-                );
+            );
         });
         $('#cbBay').on('change', function() {
             $('#cbRow').html(
                 "<option value='-' selected disabled>Pilih Row</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option>"
-                );
+            );
             $('#divTier').html(
                 "<input type='hidden' name='tier' value=''><label class='combobox-title'>Tier: Belum Pilih Row</label>"
-                );
+            );
         });
         $('#reset').on('click', function() {
             $.ajax({
@@ -756,25 +814,25 @@
                     alert('Belum memilih container');
                     $('#cbBay').html(
                         "<option value='' selected disabled>Pilih Block</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option>"
-                        );
+                    );
                     $('#cbRow').html(
                         "<option value='-' selected disabled>Pilih Row</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option>"
-                        );
+                    );
                     $('#divTier').html(
                         "<input type='hidden' name='tier' value=''><label class='combobox-title'>Tier: Belum Pilih Row</label>"
-                        );
+                    );
                 }
                 if (bay == null) {
                     alert('Belum memilih block!');
                     $('#cbBay').html(
                         "<option value='' selected disabled>Pilih Block</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option>"
-                        );
+                    );
                     $('#cbRow').html(
                         "<option value='-' selected disabled>Pilih Row</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option>"
-                        );
+                    );
                     $('#divTier').html(
                         "<input type='hidden' name='tier' value=''><label class='combobox-title'>Tier: Belum Pilih Row</label>"
-                        );
+                    );
                 }
             } else {
                 $.ajax({
