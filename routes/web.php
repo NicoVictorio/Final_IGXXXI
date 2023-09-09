@@ -62,6 +62,7 @@ Route::middleware(['auth', 'player'])->group(function () {
     Route::post('/export/depo-agent/reset', [DepoAgentController::class, 'resetExportContainer'])->name('export.resetexportcontainer');
     Route::get('/export/depo-agent/{ShippingContainer}/edit', [DepoAgentController::class, 'showDAExportEditContainer'])->name('export.da-editcontainer');
     Route::post('/export/depo-agent/update', [DepoAgentController::class, 'updateExportContainer'])->name('export.updateexportcontainer');
+    Route::post('/export/depo-agent/scoring', [ScoringController::class, 'CalculateTEUsFEUs'])->name('scoring.eda');
 
     Route::get('/export/container-agent', [ContainerAgentController::class, 'showCAExportPage'])->name('export.container-agent');
     Route::post('/export/container-agent/getTier', [ContainerAgentController::class, 'getTierCAExport'])->name('export.ca-gettier');

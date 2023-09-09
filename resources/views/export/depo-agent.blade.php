@@ -154,6 +154,10 @@
                             </tbody>
                         </table>
                     </div>
+                    <form action="{{ route('scoring.eda') }}" method="post">
+                        @csrf
+                        <button type="submit" value="submit" class="btn btn-primary button-kirim-kontainer" onclick="return confirm('Apakah anda ingin menyimpan permanen hasil kontainer anda?');">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
