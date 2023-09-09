@@ -255,6 +255,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td class="modal-table-title">2</td>
@@ -262,9 +263,11 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td class="modal-table-title">1</td>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
