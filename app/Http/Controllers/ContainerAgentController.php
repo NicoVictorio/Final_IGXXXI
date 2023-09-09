@@ -166,6 +166,21 @@ class ContainerAgentController extends Controller
         }
     }
 
+    public function getTableCAImport(Request $request)
+    {
+        $idTeam = Auth::user()->team->id;
+        $yard = $request->get('yard');
+        $tier = $request->get('tier');
+
+        $plots = ShippingContainer::select('code', 'ica_target_row', 'ica_target_bay')->whereNotNull('ica_target_row')->whereNotNull('ica_target_bay')->whereNotNull('ica_target_tier')->where('Period_id', 2)->where('Team_id', $idTeam)->where('ica_target_yard', $yard)->where('ica_target_tier', $tier)->get();
+        $arrPlot = [];
+        foreach ($plots as $plot) {
+            $arrPlot[] = $plot->code . '#row' . $plot->ica_target_row . '#bay' . $plot->ica_target_bay;
+        }
+
+        return response()->json(array('data' => view('import.rowbaytableyard', compact('arrPlot'))->render()), 200);
+    }
+
     public function resetCAImport()
     {
         $idTeam = Auth::user()->team->id;

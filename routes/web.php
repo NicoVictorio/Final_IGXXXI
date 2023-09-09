@@ -88,6 +88,7 @@ Route::middleware(['auth', 'player'])->group(function () {
     Route::get('/import/container-agent', [ContainerAgentController::class, 'showCAImportPage'])->name('import.container-agent');
     Route::post('/import/container-agent/push', [ContainerAgentController::class, 'pushCAImportYard'])->name('import.ca-push');
     Route::post('/import/container-agent/getTier', [ContainerAgentController::class, 'getTierCAImport'])->name('import.ca-gettier');
+    Route::post('/import/shipping-agent/getTable', [ContainerAgentController::class, 'getTableCAImport'])->name('import.ca-getTable');
     Route::post('/import/container-agent/reset', [ContainerAgentController::class, 'resetCAImport'])->name('import.ca-reset');
     Route::post('/import/container-agent/scoring', [ScoringController::class, 'CalculateCompletionTime'])->name('scoring.ica');
 

@@ -219,6 +219,7 @@
                             <tr>
                                 <th colspan="6">
                                     <select name="yard" id="cbYardTable" class="form-select combobox" required>
+                                        <option value="" selected disabled>Pilih Yard</option>
                                         <option value="import">Import Yard</option>
                                         <option value="rf">RF Yard</option>
                                     </select>
@@ -227,6 +228,7 @@
                             <tr>
                                 <th colspan="6">
                                     <select name="tier" id="cbTier" class="form-select combobox" required>
+                                        <option value="" selected disabled>Pilih Tier</option>
                                         <option value="1">Tier 1</option>
                                         <option value="2">Tier 2</option>
                                         <option value="3">Tier 3</option>
@@ -246,18 +248,31 @@
                                 <th>5</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tableYardTier">
                             <tr>
                                 <td class="modal-table-title">3</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td class="modal-table-title">2</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td class="modal-table-title">1</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td class="modal-table-title">0</td>
+                                <td class="bg-warning text-white" style="width: 15%;">Crane</td>
                             </tr>
                         </tbody>
                     </table>
@@ -397,6 +412,36 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
     <script type="text/javascript">
+        $('#cbYardTable').on('change', function(){
+            $('#cbTier').html("<option value='' selected disabled>Pilih Tier</option><option value='1'>Tier 1</option><option value='2'>Tier 2</option><option value='3'>Tier 3</option>");
+        });
+        $('#cbTier').on('change', function(){
+            var yard = $('#cbYardTable').val();
+            var tier = $('#cbTier').val();
+            if(yard == null){
+                alert('Belum memilih yard!');
+                $('#cbTier').html("<option value='' selected disabled>Pilih Yard</option><option value='import'>Import Yard</option><option value='rf'>RF Yard</option>");
+                $('#cbTier').html("<option value='' selected disabled>Pilih Tier</option><option value='1'>Tier 1</option><option value='2'>Tier 2</option><option value='3'>Tier 3</option>");
+            }
+            else{
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route('import.ca-getTable') }}',
+                    data: {
+                        '_token': '<?php echo csrf_token(); ?>',
+                        'yard': yard,
+                        'tier': tier,
+                    },
+                    success: function(data) {
+                        $('#tableYardTier').html(data.data);
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert('Terjadi Kesalahan, Hubungi Tim Panitia.\nError Message [View Table ICA]: ' +
+                            errorThrown);
+                    }
+                });
+            }
+        });
         $('#cbKontainer').on('change', function() {
             $('#cbBay').html(
                 "<option value='' selected disabled>Pilih Bay</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option>"
