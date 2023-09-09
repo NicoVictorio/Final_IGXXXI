@@ -333,7 +333,7 @@
                             data-bs-target="#listContainerModal">List Kontainer</button>
                     </div>
                 </form>
-                @if ($done == true)
+                @if ($done == true && $totalTime > 0)
                     <form action="{{ route('scoring.ica') }}" method="post" class="mt-3">
                         <div class="row">
                             <label class="combobox-title">Completion Time: {{ $totalTime }} menit</label>
