@@ -34,9 +34,11 @@ class ScoringController extends Controller
     public function CalculateStowagePlan(Request $request)
     {
         $teamId = Auth::user()->team->id;
-        $stowage_plan = 0;
+        $stowage_plan = $request->get('stowage_plan');
+
         DB::update("update scorings set stowage_plan='" . $stowage_plan . "' where Period_id=1 and Team_id='" . $teamId . "';");
-        return response()->json(array('message' => "ok"), 200);
+
+        return redirect()->route('export.index')->with('status', 'Stowage Plan pada Shipping Agent telah diterima! Sesi Shipping Agent anda telah selesai!');
     }
 
     public function CalculateDocking(Request $request)
@@ -72,8 +74,10 @@ class ScoringController extends Controller
     public function CalculateAcceptance(Request $request)
     {
         $teamId = Auth::user()->team->id;
-        $acceptance = 0;
-        DB::update("update scorings set acceptance='" . $acceptance . "' where Period_id=2 and Team_id='" . $teamId . "';");
-        return response()->json(array('message' => "ok"), 200);
+        $acceptance = $request->get('acceptance');
+
+        DB::update("update scorings set acceptance=" . $acceptance . " where Period_id=2 and Team_id='" . $teamId . "';");
+        
+        return redirect()->route('import.index')->with('status', 'Acceptance Rate pada Depo Agent telah diterima! Sesi Depo Agent anda telah selesai!');
     }
 }

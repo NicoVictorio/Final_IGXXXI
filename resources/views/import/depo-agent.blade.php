@@ -96,7 +96,7 @@
             <h1 class="title text-center fw-bolder">DEPO AGENT</h1>
         </div>
         <div class="spacer"></div>
-        <div class="body px-5 py-4">
+        <div class="body py-4">
             @if ($checkBlmJawab != 0)
                 <form action="{{ route('import.da-save') }}" method="post">
             @endif
@@ -121,8 +121,7 @@
                                     <th class="border-0 text-center">Reject</th>
                                     <th class="border-0 text-center">Persentase Kecacatan</th>
                                     <th class="border-0 text-center">Produk Cacat</th>
-                                    <th class="border-0 text-center">Keputusan Akhir</th>
-                                    <th class="border-0 text-center">Hasil</th>
+                                    <th class="border-0 text-center" style="width:175px">Keputusan Akhir</th>
                                 </tr>
                             </thead>
                             <tbody class="table-text">
@@ -145,7 +144,7 @@
                                                         class="form-select combobox" required>
                                                         <option value="" selected disabled>-</option>
                                                         <option value="accepted">Accepted</option>
-                                                        <option value="rejected">Rejeced</option>
+                                                        <option value="rejected">Rejected</option>
                                                     </select>
                                                 </td>
                                             @else
@@ -153,15 +152,6 @@
                                                     <td>Accepted</td>
                                                 @else
                                                     <td>Rejected</td>
-                                                @endif
-                                            @endif
-                                            @if ($pro->final_decision === null)
-                                                <td>-</td>
-                                            @else
-                                                @if ($pro->final_decision == $pro->answer_key)
-                                                    <td><span class="badge bg-success">CORRECT</span></td>
-                                                @else
-                                                    <td><span class="badge bg-danger">WRONG</span></td>
                                                 @endif
                                             @endif
                                         </tr>
@@ -172,9 +162,13 @@
                     </div>
                 </div>
             </div>
-            @if ($checkBlmJawab != 0)
-                <div class="col-6">
-                    <button type="submit" class="btn btn-primary button-kontainer">Simpan</button>
+            @if ($checkBlmJawab == 0)
+                <div class="row">
+                    <form action="{{ route('scoring.ida') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="acceptance" value="{{ $acceptance }}">
+                        <button type="submit" class="btn btn-primary button-kontainer" onclick="return confirm('Apakah anda ingin menyimpan permanen hasil Depo Agent anda?');">Simpan</button>
+                    </form>
                 </div>
                 </form>
             @endif
