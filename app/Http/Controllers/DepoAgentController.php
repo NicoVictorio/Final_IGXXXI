@@ -66,11 +66,11 @@ class DepoAgentController extends Controller
             }
 
             // QC Volume
-            if ($totalVolume <= $data->container->max_volume && $totalVolume >= (2 / 3.0 * $data->container->max_volume)) {
+            if ($totalVolume <= $data->container->volume && $totalVolume >= (2 / 3.0 * $data->container->volume)) {
                 $qcVolume = 'safe';
-            } else if ($totalVolume < (2 / 3.0 * $data->container->max_volume) && $totalVolume >= (1 / 3.0 * $data->container->max_volume)) {
+            } else if ($totalVolume < (2 / 3.0 * $data->container->volume) && $totalVolume >= (1 / 3.0 * $data->container->volume)) {
                 $qcVolume = 'less';
-            } else if ($totalVolume < (1 / 3.0 * $data->container->max_volume)) {
+            } else if ($totalVolume < (1 / 3.0 * $data->container->volume)) {
                 $qcVolume = 'reject';
             } else {
                 $qcVolume = 'overload';
@@ -94,7 +94,7 @@ class DepoAgentController extends Controller
             }
 
             // QC Volume
-            if ($totalVolume <= ($data->container->max_volume) && $totalVolume >= ($data->container->max_volume)) {
+            if ($totalVolume <= ($data->container->min_volume) && $totalVolume >= ($data->container->max_volume)) {
                 $qcVolume = 'safe';
             } else {
                 $qcVolume = 'reject';
