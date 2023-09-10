@@ -56,12 +56,6 @@ class ContainerProductSeeder extends Seeder
                 'answer_key' => 'reject',
             ],
             [
-                'demand_id' => '15',
-                'shipping_id' => '1',
-                'quantity' => '371',
-                'answer_key' => 'accepted',
-            ],
-            [
                 'demand_id' => '24',
                 'shipping_id' => '1',
                 'quantity' => '3103',
@@ -83,12 +77,6 @@ class ContainerProductSeeder extends Seeder
                 'demand_id' => '1',
                 'shipping_id' => '1',
                 'quantity' => '2384',
-                'answer_key' => 'accepted',
-            ],
-            [
-                'demand_id' => '16',
-                'shipping_id' => '1',
-                'quantity' => '724',
                 'answer_key' => 'accepted',
             ],
             [
@@ -206,12 +194,6 @@ class ContainerProductSeeder extends Seeder
                 'answer_key' => 'reject',
             ],
             [
-                'demand_id' => '15',
-                'shipping_id' => '38',
-                'quantity' => '371',
-                'answer_key' => 'accepted',
-            ],
-            [
                 'demand_id' => '24',
                 'shipping_id' => '38',
                 'quantity' => '3103',
@@ -233,12 +215,6 @@ class ContainerProductSeeder extends Seeder
                 'demand_id' => '1',
                 'shipping_id' => '38',
                 'quantity' => '2384',
-                'answer_key' => 'accepted',
-            ],
-            [
-                'demand_id' => '16',
-                'shipping_id' => '38',
-                'quantity' => '724',
                 'answer_key' => 'accepted',
             ],
             [
@@ -356,12 +332,6 @@ class ContainerProductSeeder extends Seeder
                 'answer_key' => 'reject',
             ],
             [
-                'demand_id' => '15',
-                'shipping_id' => '75',
-                'quantity' => '371',
-                'answer_key' => 'accepted',
-            ],
-            [
                 'demand_id' => '24',
                 'shipping_id' => '75',
                 'quantity' => '3103',
@@ -383,12 +353,6 @@ class ContainerProductSeeder extends Seeder
                 'demand_id' => '1',
                 'shipping_id' => '75',
                 'quantity' => '2384',
-                'answer_key' => 'accepted',
-            ],
-            [
-                'demand_id' => '16',
-                'shipping_id' => '75',
-                'quantity' => '724',
                 'answer_key' => 'accepted',
             ],
             [
@@ -506,12 +470,6 @@ class ContainerProductSeeder extends Seeder
                 'answer_key' => 'reject',
             ],
             [
-                'demand_id' => '15',
-                'shipping_id' => '112',
-                'quantity' => '371',
-                'answer_key' => 'accepted',
-            ],
-            [
                 'demand_id' => '24',
                 'shipping_id' => '112',
                 'quantity' => '3103',
@@ -533,12 +491,6 @@ class ContainerProductSeeder extends Seeder
                 'demand_id' => '1',
                 'shipping_id' => '112',
                 'quantity' => '2384',
-                'answer_key' => 'accepted',
-            ],
-            [
-                'demand_id' => '16',
-                'shipping_id' => '112',
-                'quantity' => '724',
                 'answer_key' => 'accepted',
             ],
             [
@@ -656,12 +608,6 @@ class ContainerProductSeeder extends Seeder
                 'answer_key' => 'reject',
             ],
             [
-                'demand_id' => '15',
-                'shipping_id' => '149',
-                'quantity' => '371',
-                'answer_key' => 'accepted',
-            ],
-            [
                 'demand_id' => '24',
                 'shipping_id' => '149',
                 'quantity' => '3103',
@@ -683,12 +629,6 @@ class ContainerProductSeeder extends Seeder
                 'demand_id' => '1',
                 'shipping_id' => '149',
                 'quantity' => '2384',
-                'answer_key' => 'accepted',
-            ],
-            [
-                'demand_id' => '16',
-                'shipping_id' => '149',
-                'quantity' => '724',
                 'answer_key' => 'accepted',
             ],
             [
@@ -806,12 +746,6 @@ class ContainerProductSeeder extends Seeder
                 'answer_key' => 'reject',
             ],
             [
-                'demand_id' => '15',
-                'shipping_id' => '186',
-                'quantity' => '371',
-                'answer_key' => 'accepted',
-            ],
-            [
                 'demand_id' => '24',
                 'shipping_id' => '186',
                 'quantity' => '3103',
@@ -833,12 +767,6 @@ class ContainerProductSeeder extends Seeder
                 'demand_id' => '1',
                 'shipping_id' => '186',
                 'quantity' => '2384',
-                'answer_key' => 'accepted',
-            ],
-            [
-                'demand_id' => '16',
-                'shipping_id' => '186',
-                'quantity' => '724',
                 'answer_key' => 'accepted',
             ],
             [
@@ -956,12 +884,6 @@ class ContainerProductSeeder extends Seeder
                 'answer_key' => 'reject',
             ],
             [
-                'demand_id' => '15',
-                'shipping_id' => '223',
-                'quantity' => '371',
-                'answer_key' => 'accepted',
-            ],
-            [
                 'demand_id' => '24',
                 'shipping_id' => '223',
                 'quantity' => '3103',
@@ -983,12 +905,6 @@ class ContainerProductSeeder extends Seeder
                 'demand_id' => '1',
                 'shipping_id' => '223',
                 'quantity' => '2384',
-                'answer_key' => 'accepted',
-            ],
-            [
-                'demand_id' => '16',
-                'shipping_id' => '223',
-                'quantity' => '724',
                 'answer_key' => 'accepted',
             ],
             [
@@ -1106,12 +1022,6 @@ class ContainerProductSeeder extends Seeder
                 'answer_key' => 'reject',
             ],
             [
-                'demand_id' => '15',
-                'shipping_id' => '260',
-                'quantity' => '371',
-                'answer_key' => 'accepted',
-            ],
-            [
                 'demand_id' => '24',
                 'shipping_id' => '260',
                 'quantity' => '3103',
@@ -1133,12 +1043,6 @@ class ContainerProductSeeder extends Seeder
                 'demand_id' => '1',
                 'shipping_id' => '260',
                 'quantity' => '2384',
-                'answer_key' => 'accepted',
-            ],
-            [
-                'demand_id' => '16',
-                'shipping_id' => '260',
-                'quantity' => '724',
                 'answer_key' => 'accepted',
             ],
             [
@@ -1256,12 +1160,6 @@ class ContainerProductSeeder extends Seeder
                 'answer_key' => 'reject',
             ],
             [
-                'demand_id' => '15',
-                'shipping_id' => '297',
-                'quantity' => '371',
-                'answer_key' => 'accepted',
-            ],
-            [
                 'demand_id' => '24',
                 'shipping_id' => '297',
                 'quantity' => '3103',
@@ -1283,12 +1181,6 @@ class ContainerProductSeeder extends Seeder
                 'demand_id' => '1',
                 'shipping_id' => '297',
                 'quantity' => '2384',
-                'answer_key' => 'accepted',
-            ],
-            [
-                'demand_id' => '16',
-                'shipping_id' => '297',
-                'quantity' => '724',
                 'answer_key' => 'accepted',
             ],
             [
@@ -1406,12 +1298,6 @@ class ContainerProductSeeder extends Seeder
                 'answer_key' => 'reject',
             ],
             [
-                'demand_id' => '15',
-                'shipping_id' => '334',
-                'quantity' => '371',
-                'answer_key' => 'accepted',
-            ],
-            [
                 'demand_id' => '24',
                 'shipping_id' => '334',
                 'quantity' => '3103',
@@ -1433,12 +1319,6 @@ class ContainerProductSeeder extends Seeder
                 'demand_id' => '1',
                 'shipping_id' => '334',
                 'quantity' => '2384',
-                'answer_key' => 'accepted',
-            ],
-            [
-                'demand_id' => '16',
-                'shipping_id' => '334',
-                'quantity' => '724',
                 'answer_key' => 'accepted',
             ],
             [
