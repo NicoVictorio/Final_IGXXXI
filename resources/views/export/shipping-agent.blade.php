@@ -1523,7 +1523,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    @if ($finalDecision == 'send' && $countBelum == 0)
+                    @if ($finalDecision == 'send')
                         <div class="row">
                             <button type="button" class="btn btn-info button-layout mt-5" data-bs-toggle="modal"
                                 data-bs-target="#scoringModal">Submit</button>
