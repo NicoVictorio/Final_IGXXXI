@@ -108,7 +108,15 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <label for="tabelDepo" class="tabel-title">Keinginan Perusahaan</label>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="tabelDepo" class="tabel-title">Keinginan Perusahaan</label>
+                        </div>
+                        <div class="col-6 text-end">
+                            <button type="button" class="btn btn-primary button-kontainer" data-bs-toggle="modal"
+                            data-bs-target="#listProductModal">List Produk</button>
+                        </div>
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-centered table-bordered table-wrap" id="tabelDepo">
                             <thead>
@@ -155,11 +163,26 @@
                     <form action="{{ route('scoring.ida') }}" method="post">
                         @csrf
                         <input type="hidden" name="acceptance" value="{{ $acceptance }}">
-                        <button type="submit" class="btn btn-primary button-kontainer" onclick="return confirm('Apakah anda ingin menyimpan permanen hasil Depo Agent anda?');">Simpan</button>
+                        <button type="submit" class="btn btn-primary button-kontainer"
+                            onclick="return confirm('Apakah anda ingin menyimpan permanen hasil Depo Agent anda?');">Simpan</button>
                     </form>
                 </div>
                 </form>
             @endif
+        </div>
+    </div>
+    <div class="modal modal-lg fade" id="listProductModal" tabindex="-1"
+        aria-labelledby="listProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-2" id="exampleModalLabel">List Produk</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{  asset('assets/list-produk.png') }}" alt="" class="img-responsive w-100">
+                </div>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
