@@ -15,7 +15,7 @@ class PeriodSeeder extends Seeder
         $period = [
             [
                 'name' => 'export',
-                'status' => 'depo-agent',
+                'status' => 'standby',
             ],
             [
                 'name' => 'import',

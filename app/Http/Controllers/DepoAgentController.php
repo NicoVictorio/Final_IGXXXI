@@ -362,6 +362,7 @@ class DepoAgentController extends Controller
     }
     public function showDAImportPage()
     {
+        $acceptance = "";
         $statusPeriodAktif = Period::select('name', 'status')->where('status', '!=', 'standby')->first();
         if ($statusPeriodAktif->name == 'import' && $statusPeriodAktif->status == 'depo-agent') {
             $teamId = Auth::user()->team->id;

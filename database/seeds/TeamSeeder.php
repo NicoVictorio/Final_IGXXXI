@@ -14,34 +14,34 @@ class TeamSeeder extends Seeder
     {
         $teams = [
             [
-                'name' => 'Tim 1',
+                'name' => 'Tim Edu',
             ],
             [
-                'name' => 'Tim 2',
+                'name' => 'Smala',
             ],
             [
-                'name' => 'Tim 3',
+                'name' => 'Paseo',
             ],
             [
-                'name' => 'Tim 4',
+                'name' => 'Klein and Friends',
             ],
             [
-                'name' => 'Tim 5',
+                'name' => 'Clavenfore',
             ],
             [
-                'name' => 'Tim 6',
+                'name' => 'Durian Musangking',
             ],
             [
-                'name' => 'Tim 7',
+                'name' => 'Hokay',
             ],
             [
-                'name' => 'Tim 8',
+                'name' => 'Free Willy',
             ],
             [
-                'name' => 'Tim 9',
+                'name' => 'Tim Pehh',
             ],
             [
-                'name' => 'Tim 10',
+                'name' => 'Sinlucky',
             ],
             [
                 'name' => 'Tim Nico',
