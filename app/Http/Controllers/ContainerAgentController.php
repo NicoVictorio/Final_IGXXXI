@@ -122,42 +122,38 @@ class ContainerAgentController extends Controller
             $countDone = DB::select(DB::raw("select count(id) as 'count' from shipping_container where ica_target_row is not null and ica_target_bay is not null and ica_target_tier is not null and ica_yard is not null and Team_id='" . $idTeam . "' and Period_id=2"))[0]->count;
             $totalTime = 0;
             $done = false;
-            if ($countDone == $countContainers) {
-                $done = true;
-                //Penilaian
-                $containersDone = ShippingContainer::whereNotNull('ica_sequence')->whereNotNull('ica_target_row')->whereNotNull('ica_target_bay')->whereNotNull('ica_target_tier')->whereNotNull('ica_yard')->where('Team_id', $idTeam)->where('Period_id', 2)->get();
-                $posCraneRow = 0;
-                $posCraneTier = 5;
-                $posCraneBay = 1;
+            $done = true;
+            //Penilaian
+            $containersDone = ShippingContainer::whereNotNull('ica_sequence')->whereNotNull('ica_target_row')->whereNotNull('ica_target_bay')->whereNotNull('ica_target_tier')->whereNotNull('ica_yard')->where('Team_id', $idTeam)->where('Period_id', 2)->get();
+            $posCraneRow = 0;
+            $posCraneTier = 5;
+            $posCraneBay = 1;
 
-                $containersDone = $containersDone->sortByDesc('city');
+            $containersDone = $containersDone->sortByDesc('city');
 
-                foreach ($containersDone as $cD) {
-                    // Ambil
-                    $selisihRow = abs($cD->ica_target_row - $posCraneRow);
-                    $posCraneRow = $cD->ica_target_row;
-                    $selisihTier = abs($cD->ica_target_tier - $posCraneTier) * 0.5;
-                    $posCraneTier = $cD->ica_target_tier;
-                    $selisihBay = abs($cD->ica_target_bay - $posCraneBay);
-                    $posCraneBay = $cD->ica_target_bay;
+            foreach ($containersDone as $cD) {
+                // Ambil
+                $selisihRow = abs($cD->ica_target_row - $posCraneRow);
+                $posCraneRow = $cD->ica_target_row;
+                $selisihTier = abs($cD->ica_target_tier - $posCraneTier) * 0.5;
+                $posCraneTier = $cD->ica_target_tier;
+                $selisihBay = abs($cD->ica_target_bay - $posCraneBay);
+                $posCraneBay = $cD->ica_target_bay;
 
-                    // Buang
-                    if ($cD->city == 'pick_up') {
-                        $selisihRow += abs($posCraneRow);
-                        $posCraneRow = 0;
-                        $selisihTier += abs($posCraneTier - 1) * 0.5;
-                        $posCraneTier = 1;
-                    } else {
-                        $selisihRow += abs($posCraneRow - 5);
-                        $posCraneRow = 5;
-                        $selisihTier += ($posCraneTier - 1) * 0.5;
-                        $posCraneTier = 1;
-                    }
-
-                    $totalTime += ($selisihRow + $selisihBay + $selisihTier);
+                // Buang
+                if ($cD->city == 'pick_up') {
+                    $selisihRow += abs($posCraneRow);
+                    $posCraneRow = 0;
+                    $selisihTier += abs($posCraneTier - 1) * 0.5;
+                    $posCraneTier = 1;
+                } else {
+                    $selisihRow += abs($posCraneRow - 5);
+                    $posCraneRow = 5;
+                    $selisihTier += ($posCraneTier - 1) * 0.5;
+                    $posCraneTier = 1;
                 }
-            } else {
-                $done = false;
+
+                $totalTime += ($selisihRow + $selisihBay + $selisihTier);
             }
 
             return view('import.container-agent', compact('containerShips', 'containerShipsAll', 'totalTime', 'done'));
