@@ -94,7 +94,7 @@ class DepoAgentController extends Controller
             }
 
             // QC Volume
-            if ($totalVolume <= ($data->container->min_volume) && $totalVolume >= ($data->container->max_volume)) {
+            if ($totalVolume >= ($data->container->min_volume) && $totalVolume <= ($data->container->max_volume)) {
                 $qcVolume = 'safe';
             } else {
                 $qcVolume = 'reject';
