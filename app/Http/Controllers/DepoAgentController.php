@@ -388,7 +388,6 @@ class DepoAgentController extends Controller
     }
     public function saveDAImport(Request $request)
     {
-        // KURANG SCORING
         $shipConts = $request->get('shipCont');
         $proIds = $request->get('proId');
         $keputusans = $request->get('keputusan');

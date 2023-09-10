@@ -114,7 +114,7 @@
                         </div>
                         <div class="col-6 text-end">
                             <button type="button" class="btn btn-primary button-kontainer" data-bs-toggle="modal"
-                            data-bs-target="#listProductModal">List Produk</button>
+                                data-bs-target="#listProductModal">List Produk</button>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -158,6 +158,10 @@
                     </div>
                 </div>
             </div>
+            @if ($checkBlmJawab != 0)
+                <button type="submit" class="btn btn-primary button-kontainer">Cek Jawaban</button>
+            @endif
+            </form>
             @if ($checkBlmJawab == 0)
                 <div class="row">
                     <form action="{{ route('scoring.ida') }}" method="post">
@@ -171,8 +175,8 @@
             @endif
         </div>
     </div>
-    <div class="modal modal-lg fade" id="listProductModal" tabindex="-1"
-        aria-labelledby="listProductModalLabel" aria-hidden="true">
+    <div class="modal modal-lg fade" id="listProductModal" tabindex="-1" aria-labelledby="listProductModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -180,7 +184,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="{{  asset('assets/list-produk.png') }}" alt="" class="img-responsive w-100">
+                    <img src="{{ asset('assets/list-produk.png') }}" alt="" class="img-responsive w-100">
                 </div>
             </div>
         </div>
