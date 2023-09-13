@@ -18,9 +18,9 @@ class ShippingAgentController extends Controller
         if ($statusPeriodAktif->name == 'export' && $statusPeriodAktif->status == 'shipping-agent') {
             $idTeam = Auth::user()->team->id;
             $scoring = Scoring::select('stowage_plan')->where('Team_id', $idTeam)->where('Period_id', 1)->first();
-            if ($scoring->stowage_plan != null) {
-                return redirect()->route('export.index')->with('error', 'Anda telah menyimpan permanen hasil shipping agent anda! Anda tidak dapat mengakses shipping agent kembali.');
-            }
+            // if ($scoring->stowage_plan != null) {
+            //     return redirect()->route('export.index')->with('error', 'Anda telah menyimpan permanen hasil shipping agent anda! Anda tidak dapat mengakses shipping agent kembali.');
+            // }
             $containerShipsUS = ShippingContainer::whereRaw("(volume_status='safe' or volume_status='less') and weight_status='safe'")->where('row', '!=', null)->where('tier', '!=', null)->where('bay', '!=', null)->where('ica_target_row', null)->where('ica_sequence', null)->where('ica_target_bay', null)->where('team_id', $idTeam)->where('Period_id', 1)->get();
 
             $plots = ShippingContainer::select('code', 'row', 'tier', 'bay')->where('row', '!=', null)->where('tier', '!=', null)->where('bay', '!=', null)->where('team_id', $idTeam)->where('Period_id', 1)->get();
@@ -220,9 +220,9 @@ class ShippingAgentController extends Controller
         if ($statusPeriodAktif->name == 'import' && $statusPeriodAktif->status == 'shipping-agent') {
             $idTeam = Auth::user()->team->id;
             $scoring = Scoring::select('lateness')->where('Team_id', $idTeam)->where('Period_id', 2)->first();
-            if ($scoring->lateness != null) {
-                return redirect()->route('import.index')->with('error', 'Anda telah menyimpan permanen hasil shipping agent anda! Anda tidak dapat mengakses shipping agent kembali.');
-            }
+            // if ($scoring->lateness != null) {
+            //     return redirect()->route('import.index')->with('error', 'Anda telah menyimpan permanen hasil shipping agent anda! Anda tidak dapat mengakses shipping agent kembali.');
+            // }
             $containers = ShippingContainer::where('Team_id', $idTeam)->where('Period_id', 2)->orderBy('ica_sequence')->get();
             $countContainers = count($containers);
 

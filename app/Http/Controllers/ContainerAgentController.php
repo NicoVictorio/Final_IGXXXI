@@ -112,9 +112,9 @@ class ContainerAgentController extends Controller
         if ($statusPeriodAktif->name == 'import' && $statusPeriodAktif->status == 'container-agent') {
             $idTeam = Auth::user()->team->id;
             $scoring = Scoring::select('completion_time')->where('Team_id', $idTeam)->where('Period_id', 2)->first();
-            if ($scoring->completion_time != null) {
-                return redirect()->route('import.index')->with('error', 'Anda telah menyimpan permanen hasil container agent anda! Anda tidak dapat mengakses container agent kembali.');
-            }
+            // if ($scoring->completion_time != null) {
+            //     return redirect()->route('import.index')->with('error', 'Anda telah menyimpan permanen hasil container agent anda! Anda tidak dapat mengakses container agent kembali.');
+            // }
             $containerShips = ShippingContainer::whereNotNull('ica_sequence')->whereNull('ica_target_row')->whereNull('ica_target_bay')->whereNull('ica_target_tier')->where('Team_id', $idTeam)->where('Period_id', 2)->get();
             $containerShipsAll = ShippingContainer::whereNotNull('ica_sequence')->where('Team_id', $idTeam)->where('Period_id', 2)->get();
 

@@ -125,9 +125,9 @@ class DepoAgentController extends Controller
         if ($statusPeriodAktif->name == 'export' && $statusPeriodAktif->status == 'depo-agent') {
             $teamId = Auth::user()->team->id;
             $scoring = Scoring::select('teus')->where('Team_id', $teamId)->where('Period_id', 1)->first();
-            if ($scoring->teus != null) {
-                return redirect()->route('export.index')->with('error', 'Anda telah menyimpan permanen hasil depo agent anda! Anda tidak dapat mengakses depo agent kembali.');
-            }
+            // if ($scoring->teus != null) {
+            //     return redirect()->route('export.index')->with('error', 'Anda telah menyimpan permanen hasil depo agent anda! Anda tidak dapat mengakses depo agent kembali.');
+            // }
             $listContainers = ShippingContainer::select('id', 'team_id', 'container_id', 'code', 'volume_status', 'weight_status', 'city', 'period_id')->where('team_id', $teamId)->where('period_id', '1')->get();
 
             return view('export.depo-agent', compact('listContainers'));
@@ -142,9 +142,9 @@ class DepoAgentController extends Controller
         if ($statusPeriodAktif->name == 'export' && $statusPeriodAktif->status == 'depo-agent') {
             $teamId = Auth::user()->team->id;
             $scoring = Scoring::select('teus')->where('Team_id', $teamId)->where('Period_id', 1)->first();
-            if ($scoring->teus != null) {
-                return redirect()->route('export.index')->with('error', 'Anda telah menyimpan permanen hasil depo agent anda! Anda tidak dapat mengakses depo agent kembali.');
-            }
+            // if ($scoring->teus != null) {
+            //     return redirect()->route('export.index')->with('error', 'Anda telah menyimpan permanen hasil depo agent anda! Anda tidak dapat mengakses depo agent kembali.');
+            // }
             $containers = Container::all();
             $demands = Demand::where('period_id', '1')->get();
             foreach ($demands as $d) {
@@ -164,9 +164,9 @@ class DepoAgentController extends Controller
         if ($statusPeriodAktif->name == 'export' && $statusPeriodAktif->status == 'depo-agent') {
             $teamId = Auth::user()->team->id;
             $scoring = Scoring::select('teus')->where('Team_id', $teamId)->where('Period_id', 1)->first();
-            if ($scoring->teus != null) {
-                return redirect()->route('export.index')->with('error', 'Anda telah menyimpan permanen hasil depo agent anda! Anda tidak dapat mengakses depo agent kembali.');
-            }
+            // if ($scoring->teus != null) {
+            //     return redirect()->route('export.index')->with('error', 'Anda telah menyimpan permanen hasil depo agent anda! Anda tidak dapat mengakses depo agent kembali.');
+            // }
             $sContainer = $ShippingContainer;
             if ($sContainer->team->id == $teamId) {
                 if (($sContainer->volume_status == 'safe' || $sContainer->volume_status == 'less') && $sContainer->weight_status == 'safe') {
@@ -367,9 +367,9 @@ class DepoAgentController extends Controller
         if ($statusPeriodAktif->name == 'import' && $statusPeriodAktif->status == 'depo-agent') {
             $teamId = Auth::user()->team->id;
             $scoring = Scoring::select('acceptance')->where('Team_id', $teamId)->where('Period_id', 2)->first();
-            if ($scoring->acceptance != null) {
-                return redirect()->route('import.index')->with('error', 'Anda telah menyimpan permanen hasil depo agent anda! Anda tidak dapat mengakses depo agent kembali.');
-            }
+            // if ($scoring->acceptance != null) {
+            //     return redirect()->route('import.index')->with('error', 'Anda telah menyimpan permanen hasil depo agent anda! Anda tidak dapat mengakses depo agent kembali.');
+            // }
             $listContainers = ShippingContainer::select('id', 'Team_id', 'Container_id', 'code', 'Period_id')->where('Team_id', $teamId)->where('Period_id', '2')->get();
             $idConts = "";
             foreach ($listContainers as $lCont) {
